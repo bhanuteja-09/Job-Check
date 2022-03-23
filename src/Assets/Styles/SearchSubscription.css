@@ -1,0 +1,10 @@
+.search{
+    width: 30%;
+    flex-direction: column-reverse;
+    height: 35px;
+    margin-left: 500px;
+    border: 3%;
+    border: 1px grey solid;
+    border-radius: 5px;
+    font-size: 20px;
+}
