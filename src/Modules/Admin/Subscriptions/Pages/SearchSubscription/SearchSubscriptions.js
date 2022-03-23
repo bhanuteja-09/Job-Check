@@ -12,6 +12,7 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Data from './Data.json';
 import '../../../../../Assets/Styles/SearchSubscription.css';
+import AddSubscription from '../AddSubscription/AddSubscription';
 
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -46,7 +47,7 @@ sx={{
      alignItems: 'right',
       width: 193 ,
       marginLeft:120}}>
-       <Button variant='contained'>+  New Subscription</Button>
+       <Button variant='contained'  onClick={AddSubscription}> +  New Subscription</Button>
        </Paper>
      </Typography>
      <Typography  variant='p'>
@@ -84,7 +85,7 @@ sx={{
         <TableBody>
           {Data.filter(data =>data.Subscription.toLowerCase().includes(search.toLowerCase())).map((data) => (
             <StyledTableRow key={data.name}>
-              <StyledTableCell align="center">{data.Subscription}</StyledTableCell>
+              <StyledTableCell align="center"><Button>{data.Subscription}</Button></StyledTableCell>
               <StyledTableCell align="center">{data.Status}</StyledTableCell>
               <StyledTableCell align="center">{data.BaseCredits}</StyledTableCell>
               <StyledTableCell align="center">{data.LastUpdated}</StyledTableCell>
