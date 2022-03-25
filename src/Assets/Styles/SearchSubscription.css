@@ -1,10 +1,16 @@
-.search{
-    /* width: 30%;
-    flex-direction: column-reverse;
-    height: 35px;
-    margin-left: 500px;
-    border: 3%;
-    border: 1px grey solid;
-    border-radius: 10px;
-    font-size: 20px; */
+h1{
+    position: absolute;
+    top: 30px;
 }
+.button{
+    position: relative;
+    top: 42px;
+    margin-left: 82%;
+    margin-top: 20px;
+    height:55px;    
+}
+.filter{
+    position: absolute;
+    top: 120px;
+    margin-left: 10px;
+  }

@@ -1,0 +1,26 @@
+
+  
+  .profile-image{
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+}
+.button{
+  position: relative;
+  top: 18px;
+  margin-left: 82%;
+  margin-top: 20px;
+ height: 55px;
+ 
+}
+h2{
+  position: absolute;
+  top: 25px;
+}
+.filter{
+  position: absolute;
+  top: 120px;
+  margin-left: 50px;
+
+}
+

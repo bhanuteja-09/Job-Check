@@ -1,0 +1,33 @@
+.data{
+    display:flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: -20rem;
+    
+}
+#outlined-basic{
+    padding-right: 10rem;
+    width: 10rem;
+}
+.contain{display:flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* margin-left: -20rem; */
+    
+
+}
+.select{
+    display: flex;
+    
+}
+
+::placeholder{
+    width: 100vh;
+}
+.option{
+    display: flex;
+}
+#align{
+    display: flex;
+    justify-content: space-around;
+}

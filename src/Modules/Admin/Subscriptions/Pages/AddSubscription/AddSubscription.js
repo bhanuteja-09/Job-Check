@@ -199,7 +199,7 @@ function AddSubscription() {
             <Button className="btn1" variant="outlined">
               Cancel
             </Button>
-            <Button className="btn2" variant="contained">
+            <Button href='/SearchSubscription' className="btn2" variant="contained">
               Create Subscription
             </Button>
           </Stack>

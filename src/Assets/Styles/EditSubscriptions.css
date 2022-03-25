@@ -1,0 +1,29 @@
+.page-container{
+    margin:150px;
+}
+.mar{
+    margin-top: 30px;
+}
+.input{
+    width:500px;
+}
+.select{
+    width:300px;
+}
+.bn{
+    background-color: #e040fb;
+}
+.purple-button{
+    color:#e040fb;
+    border-color:#e040fb;
+}
+.image{
+    height:100px;
+    width:150px;
+    margin-left:100px;
+}
+.logo{
+    margin-left: 100px;
+    height:50px;
+    width:50px;
+}

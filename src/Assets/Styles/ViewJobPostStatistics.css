@@ -1,0 +1,21 @@
+.cards{
+    display: flex;
+    /* justify-content: space-around; */
+    margin-top: 5rem;
+    padding: auto;
+
+}
+.entire{
+    margin-left: 0rem;
+}
+
+.c{
+    margin-right: 3rem;
+    width: 12rem;
+}
+/* .newbtn{
+    margin-top: 5rem;
+    display: flex;
+    justify-content: space-between;
+    margin-right: 15rem;
+} */

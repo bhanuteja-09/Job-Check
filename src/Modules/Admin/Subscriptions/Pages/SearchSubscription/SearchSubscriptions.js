@@ -47,7 +47,7 @@ sx={{
      alignItems: 'right',
       width: 193 ,
       marginLeft:120}}>
-       <Button variant='contained'  onClick={AddSubscription}> +  New Subscription</Button>
+       <Button variant='contained'  href='/AddSubscription'> +  New Subscription</Button>
        </Paper>
      </Typography>
      <Typography  variant='p'>
@@ -85,13 +85,13 @@ sx={{
         <TableBody>
           {Data.filter(data =>data.Subscription.toLowerCase().includes(search.toLowerCase())).map((data) => (
             <StyledTableRow key={data.name}>
-              <StyledTableCell align="center"><Button>{data.Subscription}</Button></StyledTableCell>
+              <StyledTableCell align="center"><Button href='/ViewSingleSubscription'>{data.Subscription}</Button></StyledTableCell>
               <StyledTableCell align="center">{data.Status}</StyledTableCell>
               <StyledTableCell align="center">{data.BaseCredits}</StyledTableCell>
               <StyledTableCell align="center">{data.LastUpdated}</StyledTableCell>
               <StyledTableCell align="center">{data.Product}</StyledTableCell>
               <StyledTableCell align="center">{data.About}</StyledTableCell>
-              <StyledTableCell align="center"><Button sx={{color:'black'}}><EditIcon/></Button></StyledTableCell>
+              <StyledTableCell align="center"><Button href='/EditSubscriptions' sx={{color:'black'}}><EditIcon/></Button></StyledTableCell>
             </StyledTableRow>
           ))}
         </TableBody>

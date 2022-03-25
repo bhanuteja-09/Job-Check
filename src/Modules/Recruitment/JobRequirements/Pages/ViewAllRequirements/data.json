@@ -1,0 +1,80 @@
+ [
+    {
+    "id":1,
+    "name":"Java Developer",
+    "No":"#ID-239143",
+    "TotalPositions":10,
+    "PositionsClosed":4,
+    "Status":"Active",
+    "Assignedto":"1",
+    "LastModified":"6 March 2022"
+
+    },
+    {
+    "id":2,
+    "name":"DevOps Engineer",
+    "No":"#ID-239144",
+    "TotalPositions":10,
+    "PositionsClosed":10,
+    "Status":"Closed",
+    "Assignedto":"1",
+    "LastModified":"4 Feb 2022"
+    
+    },
+    {
+    "id":3,
+    "name":"Data Analyst",
+    "No":"#ID-239145",
+    "TotalPositions":10,
+    "PositionsClosed":5,
+    "Status":"Active",
+    "Assignedto":"1",
+    "LastModified":"5 Feb 2022"
+        
+    },
+    {
+    "id":4,
+    "name":"HR Manager",
+    "No":"#ID-239142",
+    "TotalPositions":15,
+    "PositionsClosed":12,
+    "Status":"Active",
+    "Assignedto":"1",
+    "LastModified":"1 Jan 2022"
+            
+     },
+     {
+    "id":5,
+    "name":"Product Designer",
+    "No":"#ID-239147",
+    "TotalPositions":4,
+    "PositionsClosed":4,
+    "Status":"Closed",
+    "Assignedto":"1",
+    "LastModified":"6 March 2022"
+                
+     },
+     {
+    "id":6,
+    "name":"Sales CRM",
+    "No":"#ID-239146",
+    "TotalPositions":10,
+    "PositionsClosed":8,
+    "Status":"Active",
+    "Assignedto":"1",
+    "LastModified":"4 Feb 2022"
+                    
+    },
+    {
+    "id":7,
+    "name":"Automotion engineer",
+    "No":"#ID-239149",
+    "TotalPositions":10,
+    "PositionsClosed":4,
+    "Status":"Active",
+    "Assignedto":"1",
+    "LastModified":"2 Feb 2022"
+                        
+    }
+  
+]

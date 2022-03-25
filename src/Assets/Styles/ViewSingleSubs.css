@@ -1,0 +1,46 @@
+.mb-3{
+    text-align: left;
+   margin-left: 150px;
+   font-size:larger;
+
+
+}
+
+.t{
+margin: 20px;
+
+
+}
+.b{
+    background:#9932CC;
+    color: white;
+}
+
+.main{
+   
+margin: 70px;
+padding-left: 50px;
+
+}
+
+
+.pop{
+    text-align: center;
+    margin: 20px;
+    
+
+}
+.l{
+  margin-left: 50%;
+  
+}
+.form-control{
+  width: 60%;
+  
+}
+.feild{
+    border: none;
+}
+
+
+
