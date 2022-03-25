@@ -45,7 +45,7 @@ const style = {
       <div >
           <h1>Edit Requirement</h1>
           <br /> 
-      <Box sx={{ width: '100%' }}>
+      <Box sx={{ width: '100%',marginTop:10 }}>
       <Stepper activeStep={2} alternativeLabel>
         {Steps.map((label) => (
           <Step key={label}>
@@ -133,8 +133,8 @@ const style = {
                 <h2 className="text">Update Requirement</h2>
                 <p className="para">Do you wish to update requirement ?</p>
                 <Grid Container className="cancel">
-                  <Grid item className="main" sx={{marginLeft:7}}> <Button onClick={handleClose}>Cancel</Button></Grid>                  
-                <Grid item className="main" sx={{marginLeft:30, marginTop:-4.5}}>
+                  <Grid item className="main" sx={{marginLeft:2}}> <Button onClick={handleClose}>Cancel</Button></Grid>                  
+                <Grid item className="main" sx={{marginLeft:18, marginTop:-4.5}}>
                <Link to="/ViewAllrequirements">  <Button color="primary" variant="contained" onClick={handleClose}>Update</Button></Link> 
                 </Grid>
                 </Grid>

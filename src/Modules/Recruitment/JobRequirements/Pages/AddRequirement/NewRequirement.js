@@ -73,9 +73,9 @@ const handleChange=()=>setOp(true);
                 <h2 className="text">Save Requirement</h2>
                 <p className="para">Do you wish to save the requirement as draft?</p>
                 <Grid Container className="cancel">
-                  <Grid item className="main" sx={{marginLeft:7}}> <Button color="primary"  variant="contained" onClick={handleClose}>Cancel</Button></Grid>
+                  <Grid item className="main" sx={{marginLeft:2}}> <Button color="primary"  variant="contained" onClick={handleClose}>Cancel</Button></Grid>
                   
-                <Grid item className="main" sx={{marginLeft:30, marginTop:-4.5}}>
+                <Grid item className="main" sx={{marginLeft:18, marginTop:-4.5}}>
                   <Button color="primary" variant="contained" onClick={handleClose}>Save</Button>
                 </Grid>
                 </Grid>
@@ -95,9 +95,9 @@ const handleChange=()=>setOp(true);
                 <h2 className="text">Publish Requirement</h2>
                 <p className="para">Do you wish to publish requirement?</p>
                 <Grid Container className="cancel">
-                  <Grid item className="main" sx={{marginLeft:7}}> <Button variant="contained" onClick={handleCl}>Cancel</Button></Grid>
+                  <Grid item className="main" sx={{marginLeft:2}}> <Button variant="contained" onClick={handleCl}>Cancel</Button></Grid>
                
-                <Grid item className="main" sx={{marginLeft:30, marginTop:-4.5}}>
+                <Grid item className="main" sx={{marginLeft:18, marginTop:-4.5}}>
               <Link  to="/ViewAllRequirements" >   <Button color="primary" variant="contained">Create</Button>  </Link>
                 </Grid>
                 </Grid>
