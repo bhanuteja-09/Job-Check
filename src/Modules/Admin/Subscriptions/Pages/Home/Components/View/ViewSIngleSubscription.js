@@ -2,7 +2,6 @@ import React from 'react'
 import { useState } from 'react';
 import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';
-import SwitchUnstyled, { switchUnstyledClasses } from '@mui/base/SwitchUnstyled';
 import { Button, Container, FormControl, Switch, TextField } from '@mui/material';
 import { alpha, styled } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
@@ -10,14 +9,6 @@ import { Modal } from '@mui/material';
 import "../../../../../../../Assets/Styles/ViewSingleSubs.css"
 import { Grid } from '@mui/material';
 import Typography from '@mui/material/Typography';
-import { border, borderRadius } from '@mui/system';
-import { FloatingLabel } from "react-dom"
-import { Label } from '@mui/icons-material';
-
-
-
-
-
 
 
 const style = {
@@ -33,7 +24,7 @@ const style = {
     px: 4,
     pb: 3,
 };
-const ViewSingleSubscription = () => {
+const ViewSIngleSubscription = () => {
 
     const [isdisabled, setIsdisabled] = useState(true);
 
@@ -55,7 +46,6 @@ const ViewSingleSubscription = () => {
     }
 
 
-
     const handleOpen = () => {
 
         setOpen(true);
@@ -66,14 +56,7 @@ const ViewSingleSubscription = () => {
     };
 
 
-
-
-
-
     const label = { componentsProps: { input: { 'aria-label': 'Demo switch' } } };
-
-
-
 
 
     const BootstrapInput = styled(InputBase)(({ theme }) => ({          //Input Styles
@@ -113,11 +96,6 @@ const ViewSingleSubscription = () => {
         },
     }));
 
-
-
-
-
-
     return (
         <Container >
             <FormControl disabled={isdisabled}>
@@ -148,13 +126,9 @@ const ViewSingleSubscription = () => {
 
                         <BootstrapInput id="bootstrap-input" disabled={isdisabled}
                             as="textarea"
-                            placeholder="Leave a comment here"
+                            placeholder="Serves Basic needs of a small-sized recruiting firm"
                             style={{ height: '100px', width: '500px', borderRadius: '5px', border: '2px solid lightgrey' }}
                         />
-
-
-
-
 
                         <br></br>
                         <Typography variant='h4'>
@@ -257,7 +231,7 @@ const ViewSingleSubscription = () => {
                         <div>
 
                             <Button color="secondary" variant='contained' href='/SearchSubscription' >Close</Button>
-                            <Button className='main' color='primary' variant='contained' onClick={() => { handleEnable() }}>{buttonText}</Button>
+                            <Button style={{ marginLeft: '20px' }} color='secondary' variant='contained' onClick={() => { handleEnable() }}>{buttonText}</Button>
 
                         </div>
 
@@ -279,10 +253,10 @@ const ViewSingleSubscription = () => {
                                 </p>
                                 <Grid container>
                                     <Grid item className='mains'>
-                                        <Button color='primary' variant='contained' onClick={handleClose}>Discard</Button>
+                                        <Button color='secondary' variant='contained' onClick={handleClose}>Discard</Button>
                                     </Grid>
                                     <Grid item className='mains'>
-                                        <Button color='primary' variant='contained' href="/SearchSubscription">Update</Button>
+                                        <Button color='secondary' variant='contained' href="/SearchSubscription">Update</Button>
                                     </Grid>
                                 </Grid>
                             </Box>
@@ -295,4 +269,4 @@ const ViewSingleSubscription = () => {
     )
 }
 
-export default ViewSingleSubscription
+export default ViewSIngleSubscription
