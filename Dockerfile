@@ -21,7 +21,7 @@ COPY . ./
  
 #stage 2
 FROM nginx:1.20.0-alpine
-COPY --from=builder /usr/src/app/dist/get2aha_fe/ /usr/share/nginx/html
+COPY --from=builder /usr/src/app/dist/job-check/ /usr/share/nginx/html
 RUN rm /etc/nginx/conf.d/default.conf
 COPY nginx/default.conf /etc/nginx/conf.d
  
