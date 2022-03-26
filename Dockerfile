@@ -17,10 +17,10 @@ RUN npm run-script build
 
 #prepare nginx
 
-FROM nginx:1.16.0-alpine
-COPY --from=build /app/build /usr/share/nginx/html
+FROM nginx:1.20.0-alpine
+COPY --from=builder /usr/src/app/dist/get2aha_fe/ /usr/share/nginx/html
 RUN rm /etc/nginx/conf.d/default.conf
-COPY nginx/nginx.conf /etc/nginx/conf.d
+COPY nginx/default.conf /etc/nginx/conf.d
 
 #fire for nginx
 EXPOSE 80
