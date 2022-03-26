@@ -27,9 +27,19 @@ function NewJobPostss()  {
     <div>
       <Container maxWidth="sm">
         <div className="data">
-          <h1>New Job Post</h1>
-          <br />
-          <h3> Attach Requirements</h3>
+          <Typography variant="h4" component="h4"
+          sx={{
+            marginTop:"3rem",
+            fontStyle:"initial"
+          }}>
+            New Job Post
+          </Typography>
+          <Typography variant="body1" component="h1"
+          sx={{
+            marginTop:"7rem"
+          }}>
+            Attach Requirements
+          </Typography>
           <div>
             <TextField
               id="outlined-basic"
@@ -41,11 +51,17 @@ function NewJobPostss()  {
                         <SearchIcon/>
                     </InputAdornment>
                 )         }}
+                sx={{
+                  marginTop:"6rem"
+                }}
             />
-            <Button variant="text" startIcon={<AddIcon />}>
+            <Button variant="text" startIcon={<AddIcon />}
+            sx={{
+              marginTop:"7rem"
+            }}>
               Create New Requirement
             </Button>
-            <Typography variant="subtitle2" color={"gray"} marginLeft="-24rem">
+            <Typography variant="subtitle2" color={"gray"} >
               This will prefill below values
             </Typography>
           </div>
@@ -99,7 +115,7 @@ function NewJobPostss()  {
             <TextareaAutosize
               aria-label="empty textarea"
               placeholder="Empty"
-              style={{ width: "200px" }}
+              // style={{ width: "" }}
             />
              <Typography variant="subtitle2" color={"gray"} >
               275 Characters left

@@ -1,33 +1,6 @@
-
-  .button{
-    position: relative;
-    top: 15px;
-    margin-left: 82%;
-    margin-top: 20px;
-   height: 30px;
-   float: right;
-   
-  }
-  h2{
-    position: absolute;
-    top: 30px;
-  }
-  .filter{
-    position: absolute;
-    top: 120px;
-    display: flex;
-    justify-content: space-around;
-
-   
-  
-  }
-  .pagination{
+.pagination{
     display:flex;
     justify-content:center ;
   }
-  .Draft{
-    position: absolute;
-    top: 120px;
-    text-decoration: none;
-    }
+ 
   

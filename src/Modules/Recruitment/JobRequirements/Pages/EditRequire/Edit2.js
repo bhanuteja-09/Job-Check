@@ -21,7 +21,7 @@ const Edit2 = () => {
       <div >
           <h1>Edit Requirement</h1>
           <br /> 
-      <Box sx={{ width: '100%' }}>
+      <Box sx={{ width: '100%',marginTop:10 }}>
       <Stepper activeStep={1} alternativeLabel>
         {Steps.map((label) => (
           <Step key={label}>

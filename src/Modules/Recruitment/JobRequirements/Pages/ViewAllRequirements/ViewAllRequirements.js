@@ -1,4 +1,4 @@
-import {Container,IconButton,InputBase,Table,TableBody,TableCell,tableCellClasses,TableContainer,TableRow,TableHead,Paper,styled,Button, TableSortLabel,Avatar,AvatarGroup,Chip } from '@mui/material';
+import {Container,IconButton,InputBase,Table,TableBody,TableCell,tableCellClasses,TableContainer,TableRow,TableHead,Paper,styled,Button, TableSortLabel,Avatar,AvatarGroup,Chip,Typography, Grid } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import  React,{useState} from 'react';
 import Data from "./data.json"
@@ -10,9 +10,9 @@ import FilterListIcon from '@mui/icons-material/FilterList';
 import ClearIcon from '@mui/icons-material/Clear';
 import DriveFileRenameOutlineIcon from '@mui/icons-material/DriveFileRenameOutline';
 import {Link} from "react-router-dom"
-
 import Page from './Page';
-import { red } from '@mui/material/colors';
+import ViewReqirementStats from '../ViewRequireStats/ViewRequirementStats';
+
 
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -39,22 +39,38 @@ const SearchRequirements = () => {
   
   return (
     
- <Container>
-  <div >
-      <h2>Requirements</h2>
-        <Link to="/NewRequirement">
-      <Button className='button' variant="contained" sx={{}}><AddIcon/>New Requirement</Button>
-      </Link>
-    </div>
-   
-    <div className='filtering'>
-      <div><h6>Track & manage your requirements here.</h6></div>
+ <Container >
+   <Grid >
+   <ViewReqirementStats/>
+   </Grid>
+   <br/>
       
-   {/* Search bar */}
-   <div >
-   <div className='Draft'>
-     <Link to=""> <Button variant='outlined' sx={{borderColor:"black",color:"black",marginLeft:80,textDecoration:"none"}}><DriveFileRenameOutlineIcon/>Drafts</Button></Link>
-      </div>
+   <Grid>
+ 
+ <Typography  variant='h3'>
+       Requirements
+     </Typography>
+     <Typography  variant='p'>
+       Track & manage your Requirements here.
+     </Typography>
+     <Link to="/NewRequirement">
+     <Button variant='contained' sx={{position:"absolute",top:240,marginLeft:83,border:1,backgroundColor:"blueviolet",color:"white"}} ><AddIcon/>New Requirement</Button>
+     </Link>
+     </Grid>
+      <br/><br/>
+      
+
+
+{/* Search bar */}
+   <Grid sx={{display:"flex",justifyContent:"left"}}>
+   <Button variant='outlined' sx={{position:"absolute",top:350,border:1,borderColor:"black",color:"black"}} >All Time<ClearIcon/></Button>
+   <Button variant='outlined' sx={{position:"absolute",top:350,marginLeft:16,border:1,borderColor:"black",color:"black"}} >Active<ClearIcon/></Button>
+   <Button variant='outlined' sx={{position:"absolute",top:350,marginLeft:31,border:1,borderColor:"black",color:"black"}} ><FilterListIcon/>More filter</Button>
+   
+     <Button sx={{position:"absolute",top:350,border:1,borderColor:"black",color:"black",marginLeft:85}}><DriveFileRenameOutlineIcon/>Draft</Button>
+  
+   </Grid>
+  
      <Paper
       component="form"
       sx={{ p: '2px 4px', display: 'flex', alignItems: 'right', width: 350,border:1,float:"right"}}
@@ -70,19 +86,9 @@ const SearchRequirements = () => {
         onChange={(e) => setSearch(e.target.value)}
       />
       </Paper>
-      <div className='filter'>
-      <Button   variant='outlined' sx={{borderColor:"black",color:"black"}}>All time<ClearIcon/></Button>
-      <Button   variant='outlined' sx={{borderColor:"black",color:"black",marginLeft:3}}>Active<ClearIcon/></Button>
-      <Button   variant='outlined' sx={{borderColor:"black",color:"black",marginLeft:3}}><FilterListIcon/>More Filter</Button>
-      </div>
-      </div>
-      
-      </div>
       
       
-      {/* Requirements */}
-     
-     <br/>
+ <br/>
   <TableContainer component={Paper} sx={{marginTop:5}}>
       <Table sx={{ maxWidth: "100%" }} aria-label="customized table">
         <TableHead>
