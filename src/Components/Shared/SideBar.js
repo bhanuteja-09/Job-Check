@@ -24,6 +24,7 @@ import { Link } from "react-router-dom";
 
 function HomeIcon(props) {
   return (
+
     <SvgIcon {...props}>
       <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
     </SvgIcon>
@@ -110,8 +111,9 @@ export default function MiniDrawer() {
   };
 
   return (
+
     <Box className="sidebar" sx={{ display: "flex" }}>
-      <Drawer sx={{}} variant="permanent" open={open}>
+      <Drawer variant="permanent" open={open}>
         <DrawerHeader>
           <IconButton
             color="inherit"
@@ -142,147 +144,147 @@ export default function MiniDrawer() {
         </DrawerHeader>
         <Divider />
         <List>
-        <Link style={{textDecoration: 'none', color:"black"}} to="/">
-          <ListItemButton
-            sx={{
-              minHeight: 48,
-              justifyContent: open ? "initial" : "center",
-              px: 2.5,
-            }}
+          <Link style={{ textDecoration: 'none', color: "black" }} to="/">
+            <ListItemButton
+              sx={{
+                minHeight: 48,
+                justifyContent: open ? "initial" : "center",
+                px: 2.5,
+              }}
 
-          >
-            
-            <ListItemIcon
-              sx={{
-                minWidth: 0,
-                mr: open ? 3 : "auto",
-                justifyContent: "center",
-              }}
             >
-              <HomeIcon />
-            </ListItemIcon>
-            <ListItemText sx={{ opacity: open ? 1 : 0 }} primary="Home" />
-          </ListItemButton>
+
+              <ListItemIcon
+                sx={{
+                  minWidth: 0,
+                  mr: open ? 3 : "auto",
+                  justifyContent: "center",
+                }}
+              >
+                <HomeIcon />
+              </ListItemIcon>
+              <ListItemText sx={{ opacity: open ? 1 : 0 }} primary="Home" />
+            </ListItemButton>
           </Link>
-          <Link style={{textDecoration: 'none', color:"black"}} to="/ProfileSearch">
-          <ListItemButton
-            sx={{
-              minHeight: 48,
-              justifyContent: open ? "initial" : "center",
-              px: 2.5,
-            }}
-          >
-            <ListItemIcon
+          <Link style={{ textDecoration: 'none', color: "black" }} to="/ProfileSearch">
+            <ListItemButton
               sx={{
-                minWidth: 0,
-                mr: open ? 3 : "auto",
-                justifyContent: "center",
+                minHeight: 48,
+                justifyContent: open ? "initial" : "center",
+                px: 2.5,
               }}
             >
-              <SearchOutlinedIcon />
-            </ListItemIcon>
-            <ListItemText sx={{ opacity: open ? 1 : 0 }} primary="Profile Search" />
-          </ListItemButton>
+              <ListItemIcon
+                sx={{
+                  minWidth: 0,
+                  mr: open ? 3 : "auto",
+                  justifyContent: "center",
+                }}
+              >
+                <SearchOutlinedIcon />
+              </ListItemIcon>
+              <ListItemText sx={{ opacity: open ? 1 : 0 }} primary="Profile Search" />
+            </ListItemButton>
           </Link>
-          <Link style={{textDecoration: 'none', color:"black"}} to="/JobPost">
-          <ListItemButton
-            sx={{
-              minHeight: 48,
-              justifyContent: open ? "initial" : "center",
-              px: 2.5,
-            }}
-          >
-            <ListItemIcon
+          <Link style={{ textDecoration: 'none', color: "black" }} to="/JobPost">
+            <ListItemButton
               sx={{
-                minWidth: 0,
-                mr: open ? 3 : "auto",
-                justifyContent: "center",
+                minHeight: 48,
+                justifyContent: open ? "initial" : "center",
+                px: 2.5,
               }}
             >
-              <DynamicFeedOutlinedIcon />
-            </ListItemIcon>
-            <ListItemText sx={{ opacity: open ? 1 : 0 }} primary="Job Post" />
-          </ListItemButton>
+              <ListItemIcon
+                sx={{
+                  minWidth: 0,
+                  mr: open ? 3 : "auto",
+                  justifyContent: "center",
+                }}
+              >
+                <DynamicFeedOutlinedIcon />
+              </ListItemIcon>
+              <ListItemText sx={{ opacity: open ? 1 : 0 }} primary="Job Post" />
+            </ListItemButton>
           </Link>
-          <Link style={{textDecoration: 'none', color:"black"}} to="/ViewAllRequirements">
-          <ListItemButton
-            sx={{
-              minHeight: 48,
-              justifyContent: open ? "initial" : "center",
-              px: 2.5,
-            }}
-          >
-            <ListItemIcon
+          <Link style={{ textDecoration: 'none', color: "black" }} to="/ViewAllRequirements">
+            <ListItemButton
               sx={{
-                minWidth: 0,
-                mr: open ? 3 : "auto",
-                justifyContent: "center",
+                minHeight: 48,
+                justifyContent: open ? "initial" : "center",
+                px: 2.5,
               }}
             >
-              <AssignmentTurnedInOutlinedIcon />
-            </ListItemIcon>
-            <ListItemText sx={{ opacity: open ? 1 : 0 }} primary="Requirement" />
-          </ListItemButton>
+              <ListItemIcon
+                sx={{
+                  minWidth: 0,
+                  mr: open ? 3 : "auto",
+                  justifyContent: "center",
+                }}
+              >
+                <AssignmentTurnedInOutlinedIcon />
+              </ListItemIcon>
+              <ListItemText sx={{ opacity: open ? 1 : 0 }} primary="Requirement" />
+            </ListItemButton>
           </Link>
-          <Link style={{textDecoration: 'none', color:"black"}} to="/Analytics">
-          <ListItemButton
-            sx={{
-              minHeight: 48,
-              justifyContent: open ? "initial" : "center",
-              px: 2.5,
-            }}
-          >
-            <ListItemIcon
+          <Link style={{ textDecoration: 'none', color: "black" }} to="/Analytics">
+            <ListItemButton
               sx={{
-                minWidth: 0,
-                mr: open ? 3 : "auto",
-                justifyContent: "center",
+                minHeight: 48,
+                justifyContent: open ? "initial" : "center",
+                px: 2.5,
               }}
             >
-              <BarChartOutlinedIcon />
-            </ListItemIcon>
-            <ListItemText sx={{ opacity: open ? 1 : 0 }} primary="Analytics" />
-          </ListItemButton>
+              <ListItemIcon
+                sx={{
+                  minWidth: 0,
+                  mr: open ? 3 : "auto",
+                  justifyContent: "center",
+                }}
+              >
+                <BarChartOutlinedIcon />
+              </ListItemIcon>
+              <ListItemText sx={{ opacity: open ? 1 : 0 }} primary="Analytics" />
+            </ListItemButton>
           </Link>
-          <Link style={{textDecoration: 'none', color:"black"}} to="/Users">
-          <ListItemButton
-            sx={{
-              minHeight: 48,
-              justifyContent: open ? "initial" : "center",
-              px: 2.5,
-            }}
-          >
-            <ListItemIcon
+          <Link style={{ textDecoration: 'none', color: "black" }} to="/Users">
+            <ListItemButton
               sx={{
-                minWidth: 0,
-                mr: open ? 3 : "auto",
-                justifyContent: "center",
+                minHeight: 48,
+                justifyContent: open ? "initial" : "center",
+                px: 2.5,
               }}
             >
-              <PeopleAltOutlinedIcon />
-            </ListItemIcon>
-            <ListItemText sx={{ opacity: open ? 1 : 0 }} primary="Users" />
-          </ListItemButton>
+              <ListItemIcon
+                sx={{
+                  minWidth: 0,
+                  mr: open ? 3 : "auto",
+                  justifyContent: "center",
+                }}
+              >
+                <PeopleAltOutlinedIcon />
+              </ListItemIcon>
+              <ListItemText sx={{ opacity: open ? 1 : 0 }} primary="Users" />
+            </ListItemButton>
           </Link>
-          <Link style={{textDecoration: 'none', color:"black"}} to="/SearchSubscription">
-          <ListItemButton
-            sx={{
-              minHeight: 48,
-              justifyContent: open ? "initial" : "center",
-              px: 2.5,
-            }}
-          >
-            <ListItemIcon
+          <Link style={{ textDecoration: 'none', color: "black" }} to="/SearchSubscription">
+            <ListItemButton
               sx={{
-                minWidth: 0,
-                mr: open ? 3 : "auto",
-                justifyContent: "center",
+                minHeight: 48,
+                justifyContent: open ? "initial" : "center",
+                px: 2.5,
               }}
             >
-              <CreditCardOutlinedIcon />
-            </ListItemIcon>
-            <ListItemText sx={{ opacity: open ? 1 : 0 }} primary="Subscription" />
-          </ListItemButton>
+              <ListItemIcon
+                sx={{
+                  minWidth: 0,
+                  mr: open ? 3 : "auto",
+                  justifyContent: "center",
+                }}
+              >
+                <CreditCardOutlinedIcon />
+              </ListItemIcon>
+              <ListItemText sx={{ opacity: open ? 1 : 0 }} primary="Subscription" />
+            </ListItemButton>
           </Link>
         </List>
         <Divider />

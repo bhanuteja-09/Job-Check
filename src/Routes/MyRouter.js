@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Routes } from "react-router";
+import { Route, Routes, } from "react-router";
 import SearchJobPosts from "../Modules/Recruitment/JobPosts/Pages/SearchJobPost/SearchJobPosts";
 import ViewJobPostss from "../Modules/Recruitment/JobPosts/Pages/ViewJobPost/ViewJobPostss";
 import NewJobPostss from "../Modules/Recruitment/JobPosts/Pages/NewJobPost/NewJobPostss";
@@ -9,7 +9,7 @@ import EditRequirement from "../Modules/Recruitment/JobRequirements/Pages/EditRe
 import Edit3 from "../Modules/Recruitment/JobRequirements/Pages/EditRequire/Edit3";
 import Edit2 from "../Modules/Recruitment/JobRequirements/Pages/EditRequire/Edit2";
 import SearchSubscription from "../Modules/Admin/Subscriptions/Pages/SearchSubscription/SearchSubscriptions";
-import ViewSingleSubscription from "../Modules/Admin/Subscriptions/Pages/Home/Components/View/ViewSIngleSubscription";
+import ViewSingleSubscription from "../Modules/Admin/Subscriptions/Pages/Home/Components/View/ViewSingleSubscription";
 import AddSubscription from "../Modules/Admin/Subscriptions/Pages/AddSubscription/AddSubscription";
 import EditSubscriptions from "../Modules/Admin/Subscriptions/Pages/EditSubs/EditSubscriptions";
 
@@ -42,7 +42,7 @@ const MyRouter = () => {
 
         {/* Subscription */}
         <Route exact path="/SearchSubscription" element={<SearchSubscription />} />
-        <Route path="/ViewSingleSubscription" element={<ViewSingleSubscription />}/>
+        <Route path="/ViewSingleSubscription" element={<ViewSingleSubscription />} />
         <Route path="/AddSubscription" element={<AddSubscription />} />
         <Route path="/EditSubscriptions" element={<EditSubscriptions />} />
       </Routes>

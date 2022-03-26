@@ -1,16 +1,16 @@
-.mb-3{
+/* .mb-3{
     text-align: left;
    margin-left: 150px;
    font-size:larger;
 
 
-}
-
+} */
+/* 
 .t{
 margin: 20px;
 
 
-}
+} */
 .b{
     background:#9932CC;
     color: white;
@@ -21,8 +21,27 @@ margin: 20px;
 margin: 70px;
 padding-left: 50px;
 
-}
 
+}
+.mains{
+  
+  padding-top: 20px;
+  padding-left: 45px;
+
+
+}
+.sel{
+  width: 30%;
+  height: 45px;
+  
+}
+.sele{
+  padding-left: 40px;
+
+
+
+  
+}
 
 .pop{
     text-align: center;
@@ -30,14 +49,7 @@ padding-left: 50px;
     
 
 }
-.l{
-  margin-left: 50%;
-  
-}
-.form-control{
-  width: 60%;
-  
-}
+
 .feild{
     border: none;
 }

@@ -1,103 +1,25 @@
 import React from 'react'
 import { useState } from 'react';
-import { Button } from '@material-ui/core';
 import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';
 import SwitchUnstyled, { switchUnstyledClasses } from '@mui/base/SwitchUnstyled';
-import { Container } from '@material-ui/core';
+import { Button, Container, FormControl, Switch, TextField } from '@mui/material';
 import { alpha, styled } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
 import { Modal } from '@mui/material';
-// import ElectricBoltIcon from "@mui/material"
-// import ElectricBoltIcon from '@mui/icons-material/ElectricBolt';
-// import "../../../../../Assets/Styles/ViewSubscription.css"
 import "../../../../../../../Assets/Styles/ViewSingleSubs.css"
-import OptionUnstyled, { optionUnstyledClasses } from '@mui/base/OptionUnstyled';
-import PopperUnstyled from '@mui/base/PopperUnstyled';
-import SelectUnstyled, { selectUnstyledClasses } from '@mui/base/SelectUnstyled';
 import { Grid } from '@mui/material';
 import Typography from '@mui/material/Typography';
-import TextareaAutosize from '@mui/material/TextareaAutosize';
+import { border, borderRadius } from '@mui/system';
+import { FloatingLabel } from "react-dom"
+import { Label } from '@mui/icons-material';
 
 
 
 
-const Root = styled('span')(
-    ({ theme }) => `
-    font-size: 0;
-    position: relative;
-    display: inline-block;
-    width: 40px;
-    height: 20px;
-    margin: 10px;
-    cursor: pointer;
-  
-    &.${switchUnstyledClasses.disabled} {
-      opacity: 0.4;
-      cursor: not-allowed;
-    }
-  
-    & .${switchUnstyledClasses.track} {
-      background: ${theme.palette.mode === 'dark' ? grey[600] : grey[400]};
-      border-radius: 10px;
-      display: block;
-      height: 100%;
-      width: 100%;
-      position: absolute;
-    }
-  
-    & .${switchUnstyledClasses.thumb} {
-      display: block;
-      width: 14px;
-      height: 14px;
-      top: 3px;
-      left: 3px;
-      border-radius: 16px;
-      background-color: #fff;
-      position: relative;
-      transition: all 200ms ease;
-    }
-  
-    &.${switchUnstyledClasses.focusVisible} .${switchUnstyledClasses.thumb} {
-      background-color: ${grey[500]};
-      box-shadow: 0 0 1px 8px rgba(0, 0, 0, 0.25);
-    }
-  
-    &.${switchUnstyledClasses.checked} {
-      .${switchUnstyledClasses.thumb} {
-        left: 22px;
-        top: 3px;
-        background-color: #fff;
-      }
-  
-      .${switchUnstyledClasses.track} {
-        background: ${blue[500]};
-      }
-    }
-  
-    & .${switchUnstyledClasses.input} {
-      cursor: inherit;
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      opacity: 0;
-      z-index: 1;
-      margin: 0;
-    }
-    `,
-);
 
-const blue = {
-    500: '#007FFF',
-};
 
-const grey = {
-    400: '#BFC7CF',
-    500: '#AAB4BE',
-    600: '#6F7E8C',
-};
+
 const style = {
     position: 'absolute',
     top: '50%',
@@ -111,27 +33,29 @@ const style = {
     px: 4,
     pb: 3,
 };
-const ViewSingleSubscription = (props) => {
+const ViewSingleSubscription = () => {
 
-    const label = { componentsProps: { input: { 'aria-label': 'Demo switch' } } };
+    const [isdisabled, setIsdisabled] = useState(true);
 
-    const [disabled, setdisabled] = useState(true);
-
-    const [ButtonText, setButtonText] = useState("Edit Subscriptions");
+    const [buttonText, setButtonText] = useState("Edit Subscriptions");
 
     const [open, setOpen] = useState(false);
 
+    const handleEnable = () => {
+        setIsdisabled(false);
 
-    const handleClick = (text) => {
-        setButtonText("Save Changes");              //Set EditSubscription button to Save Changes button
-        setdisabled(false);                         //Disable Form Editing
+        setButtonText("Save Changes");
 
-        if (ButtonText == "Save Changes") {
-            handleOpen();                           //Change EditSubs Button
+
+        if (buttonText == "Save Changes") {
+            handleOpen();
 
         }
 
     }
+
+
+
     const handleOpen = () => {
 
         setOpen(true);
@@ -143,133 +67,14 @@ const ViewSingleSubscription = (props) => {
 
 
 
-    const blue = {
-        100: '#DAECFF',
-        200: '#99CCF3',
-        400: '#3399FF',
-        500: '#007FFF',
-        600: '#0072E5',
-        900: '#003A75',
-    };
 
-    const grey = {
-        100: '#E7EBF0',
-        200: '#E0E3E7',
-        300: '#CDD2D7',
-        400: '#B2BAC2',
-        500: '#A0AAB4',
-        600: '#6F7E8C',
-        700: '#3E5060',
-        800: '#2D3843',
-        900: '#1A2027',
-    };
 
-    const StyledButton = styled('button')(                  //Button Styles
-        ({ theme }) => `
-        font-family: IBM Plex Sans, sans-serif;
-        font-size: 0.875rem;
-        box-sizing: border-box;
-        min-height: calc(1.5em + 22px);
-        min-width: 220px;
-        background: ${theme.palette.mode === 'dark' ? grey[900] : '#fff'};
-        border: 1px solid ${theme.palette.mode === 'dark' ? grey[800] : grey[300]};
-        border-radius: 0.75em;
-        margin: 0.5em;
-        padding: 10px;
-        text-align: left;
-        line-height: 1.5;
-        color: ${theme.palette.mode === 'dark' ? grey[300] : grey[900]};
-      
-        &:hover {
-          background: ${theme.palette.mode === 'dark' ? '' : grey[100]};
-          border-color: ${theme.palette.mode === 'dark' ? grey[700] : grey[400]};
-        }
-      
-        &.${selectUnstyledClasses.focusVisible} {
-          outline: 3px solid ${theme.palette.mode === 'dark' ? blue[600] : blue[100]};
-        }
-      
-        &.${selectUnstyledClasses.expanded} {
-          &::after {
-            content: '▴';
-          }
-        }
-      
-        &::after {
-          content: '▾';
-          float: right;
-        }
-        `,
-    );
 
-    const StyledListbox = styled('ul')(                         //List style
-        ({ theme }) => `
-        font-family: IBM Plex Sans, sans-serif;
-        font-size: 0.875rem;
-        box-sizing: border-box;
-        padding: 5px;
-        margin: 10px 0;
-        min-width: 320px;
-        background: ${theme.palette.mode === 'dark' ? grey[900] : '#fff'};
-        border: 1px solid ${theme.palette.mode === 'dark' ? grey[800] : grey[300]};
-        border-radius: 0.75em;
-        color: ${theme.palette.mode === 'dark' ? grey[300] : grey[900]};
-        overflow: auto;
-        outline: 0px;
-        `,
-    );
+    const label = { componentsProps: { input: { 'aria-label': 'Demo switch' } } };
 
-    const StyledOption = styled(OptionUnstyled)(                //Popup Box style
-        ({ theme }) => `
-        list-style: none;
-        padding: 8px;
-        border-radius: 0.45em;
-        cursor: default;
-      
-        &:last-of-type {
-          border-bottom: none;
-        }
-      
-        &.${optionUnstyledClasses.selected} {
-          background-color: ${theme.palette.mode === 'dark' ? blue[900] : blue[100]};
-          color: ${theme.palette.mode === 'dark' ? blue[100] : blue[900]};
-        }
-      
-        &.${optionUnstyledClasses.highlighted} {
-          background-color: ${theme.palette.mode === 'dark' ? grey[800] : grey[100]};
-          color: ${theme.palette.mode === 'dark' ? grey[300] : grey[900]};
-        }
-      
-        &.${optionUnstyledClasses.highlighted}.${optionUnstyledClasses.selected} {
-          background-color: ${theme.palette.mode === 'dark' ? blue[900] : blue[100]};
-          color: ${theme.palette.mode === 'dark' ? blue[100] : blue[900]};
-        }
-      
-        &.${optionUnstyledClasses.disabled} {
-          color: ${theme.palette.mode === 'dark' ? grey[700] : grey[400]};
-        }
-      
-        &:hover:not(.${optionUnstyledClasses.disabled}) {
-          background-color: ${theme.palette.mode === 'dark' ? grey[800] : grey[100]};
-          color: ${theme.palette.mode === 'dark' ? grey[300] : grey[900]};
-        }
-        `,
-    );
 
-    const StyledPopper = styled(PopperUnstyled)`                //Popup z index
-        z-index: 1;
-      `;
 
-    const CustomSelect = React.forwardRef(function CustomSelect(props, ref) {
-        const components = {
-            Root: StyledButton,
-            Listbox: StyledListbox,
-            Popper: StyledPopper,
-            ...props.components,
-        };
 
-        return <SelectUnstyled {...props} ref={ref} components={components} />;
-    });
 
     const BootstrapInput = styled(InputBase)(({ theme }) => ({          //Input Styles
         'label + &': {
@@ -281,7 +86,7 @@ const ViewSingleSubscription = (props) => {
             backgroundColor: theme.palette.mode === 'light' ? '#fcfcfb' : '#2b2b2b',
             border: '1px solid #ced4da',
             fontSize: 16,
-            width: '100%',
+
             padding: '10px',
             transition: theme.transitions.create([
                 'border-color',
@@ -309,14 +114,16 @@ const ViewSingleSubscription = (props) => {
     }));
 
 
-    return (                                                        //Return Function
-        <Container className=''>
 
-            <fieldset className='feild' disabled={disabled}>
 
-                <Box className='main'>
 
-                    <form className=''>
+
+    return (
+        <Container >
+            <FormControl disabled={isdisabled}>
+                <Box className='main' >
+                    <form >
+
                         <Typography variant='h3'>
                             Subscription Details
                         </Typography>
@@ -324,64 +131,70 @@ const ViewSingleSubscription = (props) => {
                         <Typography variant='h4'>
                             Basic Information
                         </Typography>
-
+                        <br></br>
                         <br></br>
 
-                        <InputLabel htmlFor="bootstrap-input">
-                            Name
-                        </InputLabel>
+                        <InputLabel htmlFor="bootstrap-input" /> Name
+                        <br></br>
+
+
                         <BootstrapInput defaultValue="Free" id="bootstrap-input" style={{ width: 500 }} />
-
-                        <InputLabel htmlFor="bootstrap-input">
-                            Description
-                        </InputLabel>
-
-                        <TextareaAutosize htmlFor="bootstrap-input"
-
-                            minRows={3}
-                            defaultValue="Serves basic needs of small-sized recruiting firm"
+                        <br></br>
+                        <br></br>
+                        <InputLabel htmlFor="bootstrap-input" />
+                        Description
+                        <br></br>
 
 
-                            style={{ width: 500, height: 100, borderRadius: 5 }}
+                        <BootstrapInput id="bootstrap-input" disabled={isdisabled}
+                            as="textarea"
+                            placeholder="Leave a comment here"
+                            style={{ height: '100px', width: '500px', borderRadius: '5px', border: '2px solid lightgrey' }}
                         />
 
 
+
+
+
+                        <br></br>
                         <Typography variant='h4'>
                             Product Details
                         </Typography>
+                        <br></br>
+                        <br></br>
+                        <InputLabel htmlFor="bootstrap-input" />
+                        Product
+                        <br></br>
+
+                        <select disabled={isdisabled} className="form-select sel" >
+                            <option selected>JobCheck</option>
+
+                        </select>
 
                         <br></br>
-                        <InputLabel htmlFor="bootstrap-input">
-                            Product
-                        </InputLabel>
-
-                        <CustomSelect defaultValue={10}>
-                            <StyledOption value={10}>Jobcheck</StyledOption>
-                            <StyledOption value={20}></StyledOption>
-                            <StyledOption value={30}></StyledOption>
-                        </CustomSelect>
-                        <br></br><br></br>
+                        <br></br>
                         <Typography variant='h4'>
                             Package Specifications
                         </Typography>
                         <br></br>
+                        <br></br>
                         <Grid container >
                             <Grid item >
-                                <InputLabel htmlFor="bootstrap-input">
-                                    Base Credits
-                                </InputLabel>
+                                <InputLabel htmlFor="bootstrap-input" />
+                                Base Credits
+                                <br></br>
                                 <BootstrapInput value="1000" id="bootstrap-input" />
                             </Grid>
                             <Grid item className='main'>
-                                <InputLabel htmlFor="bootstrap-input">
-                                    Job Post
-                                </InputLabel>
+                                <InputLabel htmlFor="bootstrap-input" />
+                                Job Post
+                                <br></br>
                                 <BootstrapInput value="20" id="bootstrap-input" />
                             </Grid>
                             <Grid item className='main'>
-                                <InputLabel htmlFor="bootstrap-input">
-                                    Candidate Profile Downloads
-                                </InputLabel>
+                                <InputLabel htmlFor="bootstrap-input" />
+                                Candidate Profile Downloads
+                                <br></br>
                                 <BootstrapInput value="20" id="bootstrap-input" />
                             </Grid>
                         </Grid>
@@ -390,45 +203,44 @@ const ViewSingleSubscription = (props) => {
                             Pricing
                         </Typography>
                         <br></br>
-                        <Grid container>
+                        <br></br>
 
-                            <Grid item>
-                                <InputLabel htmlFor="bootstrap-input">
-                                    Pricing Type
-                                </InputLabel>
-                                <CustomSelect defaultValue={10}>
-                                    <StyledOption value={10}>Jobcheck</StyledOption>
-                                    <StyledOption value={10}></StyledOption>
-                                    <StyledOption value={10}></StyledOption>
-                                </CustomSelect>
+                        <div style={{ display: 'flex' }} >
+                            <div>
+                                <InputLabel htmlFor="bootstrap-input" />
+                                Pricing Type
 
-                            </Grid>
-                            <Grid item className='main'>
-                                <InputLabel htmlFor="bootstrap-input">
-                                    Duration
-                                </InputLabel>
-                                <CustomSelect defaultValue={10}>
-                                    <StyledOption value={10}>Select Pricing Type</StyledOption>
-                                    <StyledOption value={10}></StyledOption>
-                                    <StyledOption value={10}></StyledOption>
-                                </CustomSelect>
-                            </Grid>
-                            <Grid item className='main'>
-                                <InputLabel htmlFor="bootstrap-input">
-                                    Price
-                                </InputLabel>
-                                <CustomSelect defaultValue={10}>
-                                    <StyledOption value={10}>Duration</StyledOption>
-                                    <StyledOption value={10}></StyledOption>
-                                    <StyledOption value={10}></StyledOption>
-                                </CustomSelect>
-                            </Grid>
-                        </Grid>
+                                <br></br>
+
+                                <select disabled={isdisabled} className="form-select  " style={{ height: '45px' }} >
+                                    <option className='sel' selected>Select Pricing Type</option>
+                                    <option className='sel' value=""></option>
+
+                                </select>
+                            </div>
+                            <div style={{ marginLeft: '20px' }}>
+                                <InputLabel htmlFor="bootstrap-input" />
+                                Duration
+                                <br></br>
+                                <select disabled={isdisabled} className="form-select  " style={{ height: '45px' }} >
+                                    <option className='sel' selected>Select Duration</option>
+                                    <option className='sel' value="1"></option>
+
+                                </select>
+                            </div>
+                            <div style={{ marginLeft: '20px' }}>
+                                <InputLabel htmlFor="bootstrap-input" />
+                                Price
+                                <br></br>
+                                <BootstrapInput value="1000" id="bootstrap-input" />
+                            </div>
+                        </div>
                         <br></br>
                         <label>
 
                             <Grid container>
-                                <SwitchUnstyled component={Root} {...label} />
+                                <Switch {...label} />
+
                                 <Typography >
                                     Available For Purchase
                                     <p>
@@ -442,15 +254,12 @@ const ViewSingleSubscription = (props) => {
 
                         <br></br>
                         <br></br>
+                        <div>
 
-                        <Grid container>
+                            <Button color="secondary" variant='contained' href='/SearchSubscription' >Close</Button>
+                            <Button className='main' color='primary' variant='contained' onClick={() => { handleEnable() }}>{buttonText}</Button>
 
-                            <Button color='' variant='contained' href='/SearchSubscription' >Close</Button>
-
-                            <Grid item className='main'>
-                                <Button className='main' color='primary' variant='contained' onClick={() => { handleClick() }}>{ButtonText}</Button>
-                            </Grid>
-                        </Grid>
+                        </div>
 
                         <Modal className="pop"
                             hideBackdrop
@@ -459,17 +268,20 @@ const ViewSingleSubscription = (props) => {
                             aria-labelledby="child-modal-title"
                             aria-describedby="child-modal-description"
                         >
-                            <Box sx={{ ...style, width: 400 }}>
-                                {/* <ElectricBoltIcon className="ic" /> */}
+                            <Box sx={{ ...style, width: 400, height: 200 }}>
+
                                 <h2 >Update Subscription</h2>
+                                <br></br>
+                                <br></br>
+                                <br></br>
                                 <p>
                                     Do you want to save cahnges ?
                                 </p>
                                 <Grid container>
-                                    <Grid item className='main'>
+                                    <Grid item className='mains'>
                                         <Button color='primary' variant='contained' onClick={handleClose}>Discard</Button>
                                     </Grid>
-                                    <Grid item className='main'>
+                                    <Grid item className='mains'>
                                         <Button color='primary' variant='contained' href="/SearchSubscription">Update</Button>
                                     </Grid>
                                 </Grid>
@@ -477,7 +289,8 @@ const ViewSingleSubscription = (props) => {
                         </Modal>
                     </form>
                 </Box>
-            </fieldset>
+
+            </FormControl>
         </Container >
     )
 }
