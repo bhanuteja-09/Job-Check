@@ -21,7 +21,7 @@ COPY . ./
  
 #stage 2
 FROM nginx:1.20.0-alpine
-COPY --from=builder /usr/dist/jobcheck/ /usr/share/nginx/html
+COPY --from=builder /build/ /usr/share/nginx/html
 RUN rm /etc/nginx/conf.d/default.conf
 COPY nginx/default.conf /etc/nginx/conf.d
  
