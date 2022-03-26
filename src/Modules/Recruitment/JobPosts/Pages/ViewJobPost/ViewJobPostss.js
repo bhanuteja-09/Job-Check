@@ -20,7 +20,7 @@ import { IconButton, InputBase} from '@mui/material';
 import "../../../../../Assets/Styles/ViewJobPostss.css";
 //import { SettingsOverscanSharp } from '@material-ui/icons';
 import Avatar from '@material-ui/core/Avatar'
-import vinay from "../../../../../Assets/Images/vinay.jpg";
+import image from "../../../../../Assets/Images/image.jpg";
 import Chip from '@mui/material/Chip';
 import { styled } from '@mui/material/styles';
 import TableCell, { tableCellClasses } from '@mui/material/TableCell';
@@ -166,7 +166,7 @@ sx={{
               <StyledTableCell align="center">{row.TotalPositions}</StyledTableCell>
               <StyledTableCell align="center">{row.Positionclosed}</StyledTableCell>
               <StyledTableCell align="center"><Chip label={row.Status} color="success" variant="outlined"/></StyledTableCell>
-              <StyledTableCell align="right" sx={{flexDirection:"Row",display: 'flex'}} >{row.Assignedto} <Avatar alt="Remy Sharp" src={vinay} sx={{display:"flex",align:'right',flexDirection:"Row", width:"500"}}/></StyledTableCell>
+              <StyledTableCell align="right" sx={{flexDirection:"Row",display: 'flex'}} >{row.Assignedto} <Avatar alt="Remy Sharp" src={image} sx={{display:"flex",align:'right',flexDirection:"Row", width:"500"}}/></StyledTableCell>
               <StyledTableCell align="center">{row.About}</StyledTableCell>
               <StyledTableCell align="center"><Button sx={{color: 'black'}}><EditIcon/></Button></StyledTableCell>
             </StyledTableRow>
