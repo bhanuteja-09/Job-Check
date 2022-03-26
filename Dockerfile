@@ -11,8 +11,8 @@ COPY . /app/
 
 #prepare the container for building react
 
-RUN npm install --silent
-RUN npm i eslint-plugin-flowtype
+RUN npm install
+#RUN npm i eslint-plugin-flowtype
 RUN npm run-script build
 
 #prepare nginx
