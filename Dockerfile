@@ -1,7 +1,7 @@
 #Author BASAVARAJ BHAVI
 
 # pull official base image
-FROM node:12.2.0-alpine as build
+FROM node:latest as build
 
 #working directory of containerized app
 WORKDIR /app
