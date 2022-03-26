@@ -6,7 +6,7 @@ FROM node:10.23.2-alpine As builder
 WORKDIR /usr/src/app
 COPY . .
 RUN npm install
-RUN npm run ng -- build --prod
+RUN npm run  -- build --prod
  
 #stage 2
 FROM nginx:1.20.0-alpine
