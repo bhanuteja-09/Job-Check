@@ -3,11 +3,11 @@ import { Route, Routes } from "react-router";
 import SearchJobPosts from "../Modules/Recruitment/JobPosts/Pages/SearchJobPost/SearchJobPosts";
 import ViewJobPostss from "../Modules/Recruitment/JobPosts/Pages/ViewJobPost/ViewJobPostss";
 import NewJobPostss from "../Modules/Recruitment/JobPosts/Pages/NewJobPost/NewJobPostss";
-import SearchRequirements from "../Modules/Recruitment/JobRequirements/Pages/ViewAllRequirements/ViewAllRequirements";
-import NewRequirement from "../Modules/Recruitment/JobRequirements/Pages/AddRequirement/NewRequirement";
-import EditRequirement from "../Modules/Recruitment/JobRequirements/Pages/EditRequire/EditRequirement ";
-import Edit3 from "../Modules/Recruitment/JobRequirements/Pages/EditRequire/Edit3";
-import Edit2 from "../Modules/Recruitment/JobRequirements/Pages/EditRequire/Edit2";
+import ViewAllRequirements from "../Modules/Recruitment/JobRequirements/Pages/ViewAllRequirements/ViewAllRequirements";
+import AddRequirement from "../Modules/Recruitment/JobRequirements/Pages/AddRequirement/AddRequirement";
+import EditRequirement from "../Modules/Recruitment/JobRequirements/Pages/EditRequire/EditRequirement";
+import CandidateDetails from "../Modules/Recruitment/JobRequirements/Pages/EditRequire/CandidateDetails";
+import AdditionalDetails from "../Modules/Recruitment/JobRequirements/Pages/EditRequire/AdditionalDetails";
 import SearchSubscription from "../Modules/Admin/Subscriptions/Pages/SearchSubscription/SearchSubscriptions";
 import ViewSIngleSubscription from "../Modules/Admin/Subscriptions/Pages/Home/Components/View/ViewSIngleSubscription";
 import AddSubscription from "../Modules/Admin/Subscriptions/Pages/AddSubscription/AddSubscription";
@@ -18,7 +18,7 @@ const MyRouter = () => {
     <div>
       <Routes>
         {/* Home */}
-        <Route exact path="/" element={<SearchJobPosts />} />
+        <Route exact path="/"  />
 
         {/* ProfileSearch */}
         <Route exact path="/ProfileSearch" element={<SearchJobPosts />} />
@@ -28,15 +28,27 @@ const MyRouter = () => {
         <Route path="/NewJobPostss" element={<NewJobPostss />} />
 
         {/* Requirement */}
+  
+        <Route exact path="/" element />
+        <Route exact path="/Requirements" element={<ViewAllRequirements />} />
+        <Route exact path="/addrequirement" element={<AddRequirement/>} />
         <Route
           exact
-          path="/ViewAllRequirements"
-          element={<SearchRequirements />}
+          path="/editrequirement/:id"
+          element={<EditRequirement />}
         />
-        <Route path="/NewRequirement" element={<NewRequirement />} />
-        <Route path="/EditRequirement" element={<EditRequirement />} />
-        <Route path="/Candidate-details" element={<Edit2 />} />
-        <Route path="/Educational-Details" element={<Edit3 />} />
+        <Route
+          exact
+          path="/CandidateDetails/:id"
+          element={<CandidateDetails />}
+        />
+        <Route
+          exact
+          path="/AdditionalDetails/:id"
+          element={<AdditionalDetails />}
+        />
+        
+     
 
         {/* Analytics */}
         <Route exact path="/Analytics" element={<SearchJobPosts />} />

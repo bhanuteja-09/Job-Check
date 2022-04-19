@@ -1,294 +1,110 @@
-import * as React from "react";
-import { styled, useTheme } from "@mui/material/styles";
-import Box from "@mui/material/Box";
-import MuiDrawer from "@mui/material/Drawer";
-import MuiAppBar from "@mui/material/AppBar";
-import List from "@mui/material/List";
-import Typography from "@mui/material/Typography";
-import Divider from "@mui/material/Divider";
-import IconButton from "@mui/material/IconButton";
-import MenuIcon from "@mui/icons-material/Menu";
-import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
-import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
-import SvgIcon from "@mui/material/SvgIcon";
-import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
-import DynamicFeedOutlinedIcon from "@mui/icons-material/DynamicFeedOutlined";
-import AssignmentTurnedInOutlinedIcon from "@mui/icons-material/AssignmentTurnedInOutlined";
-import BarChartOutlinedIcon from "@mui/icons-material/BarChartOutlined";
-import PeopleAltOutlinedIcon from "@mui/icons-material/PeopleAltOutlined";
-import CreditCardOutlinedIcon from "@mui/icons-material/CreditCardOutlined";
-import { Link } from "react-router-dom";
+import React from 'react'
+import "../../Assets/Styles/sidebar.css"
+import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
+import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
+import DynamicFeedOutlinedIcon from '@mui/icons-material/DynamicFeedOutlined';
+import AssignmentTurnedInOutlinedIcon from '@mui/icons-material/AssignmentTurnedInOutlined';
+import EqualizerOutlinedIcon from '@mui/icons-material/EqualizerOutlined';
+import GroupOutlinedIcon from '@mui/icons-material/GroupOutlined';
+import DoneAllOutlinedIcon from '@mui/icons-material/DoneAllOutlined';
+import { Box,List,ListItem,ListItemText,ListItemButton,ListItemIcon } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
+import { Typography } from '@mui/material';
+import AddCardOutlinedIcon from '@mui/icons-material/AddCardOutlined';
 
-function HomeIcon(props) {
+
+
+
+const SiderBar = () => {
+    let Navigate = useNavigate()
+    
   return (
-
-    <SvgIcon {...props}>
-      <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
-    </SvgIcon>
-  );
-}
-
-const drawerWidth = 240;
-
-const openedMixin = (theme) => ({
-  width: drawerWidth,
-  transition: theme.transitions.create("width", {
-    easing: theme.transitions.easing.sharp,
-    duration: theme.transitions.duration.enteringScreen,
-  }),
-  overflowX: "hidden",
-});
-
-const closedMixin = (theme) => ({
-  transition: theme.transitions.create("width", {
-    easing: theme.transitions.easing.sharp,
-    duration: theme.transitions.duration.leavingScreen,
-  }),
-  overflowX: "hidden",
-  width: `calc(${theme.spacing(7)} + 1px)`,
-  [theme.breakpoints.up("sm")]: {
-    width: `calc(${theme.spacing(8)} + 1px)`,
-  },
-});
-
-const DrawerHeader = styled("div")(({ theme }) => ({
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "flex-end",
-  padding: theme.spacing(0, 1),
-  // necessary for content to be below app bar
-  ...theme.mixins.toolbar,
-}));
-
-const AppBar = styled(MuiAppBar, {
-  shouldForwardProp: (prop) => prop !== "open",
-})(({ theme, open }) => ({
-  zIndex: theme.zIndex.drawer + 1,
-  transition: theme.transitions.create(["width", "margin"], {
-    easing: theme.transitions.easing.sharp,
-    duration: theme.transitions.duration.leavingScreen,
-  }),
-  ...(open && {
-    marginLeft: drawerWidth,
-    width: `calc(100% - ${drawerWidth}px)`,
-    transition: theme.transitions.create(["width", "margin"], {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-  }),
-}));
-
-const Drawer = styled(MuiDrawer, {
-  shouldForwardProp: (prop) => prop !== "open",
-})(({ theme, open }) => ({
-  width: drawerWidth,
-  flexShrink: 0,
-  whiteSpace: "nowrap",
-  boxSizing: "border-box",
-  ...(open && {
-    ...openedMixin(theme),
-    "& .MuiDrawer-paper": openedMixin(theme),
-  }),
-  ...(!open && {
-    ...closedMixin(theme),
-    "& .MuiDrawer-paper": closedMixin(theme),
-  }),
-}));
-
-export default function MiniDrawer() {
-  const theme = useTheme();
-  const [open, setOpen] = React.useState(false);
-
-  const handleDrawerOpen = () => {
-    setOpen(true);
-  };
-
-  const handleDrawerClose = () => {
-    setOpen(false);
-  };
-
-  return (
-
-    <Box className="sidebar" sx={{ display: "flex" }}>
-      <Drawer variant="permanent" open={open}>
-        <DrawerHeader>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            edge="start"
-            sx={{
-              ...(open && { display: "none" }),
-            }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <IconButton
-            onClick={handleDrawerClose}
-            sx={{
-              ...(!open && { display: "none" }),
-            }}
-          >
-            <Typography variant="h6" gutterBottom component="div">
-              JOBCHEK
-            </Typography>
-            {theme.direction === "rtl" ? (
-              <ChevronRightIcon />
-            ) : (
-              <ChevronLeftIcon />
-            )}
-          </IconButton>
-        </DrawerHeader>
-        <Divider />
-        <List>
-          <Link style={{ textDecoration: 'none', color: "black" }} to="/">
-            <ListItemButton
-              sx={{
-                minHeight: 48,
-                justifyContent: open ? "initial" : "center",
-                px: 2.5,
-              }}
-
-            >
-
-              <ListItemIcon
-                sx={{
-                  minWidth: 0,
-                  mr: open ? 3 : "auto",
-                  justifyContent: "center",
-                }}
-              >
-                <HomeIcon />
+    <div>
+      
+  <nav className="main-menu">
+      <Box sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
+      <nav aria-label="main mailbox folders">
+          <List> 
+              <ListItem disablePadding >
+            <ListItemButton>
+              <ListItemIcon >
+              <DoneAllOutlinedIcon sx={{color:"green"}} />
               </ListItemIcon>
-              <ListItemText sx={{ opacity: open ? 1 : 0 }} primary="Home" />
+              <ListItemText  onClick={()=>Navigate("/")}>
+                <Typography variant='h5'>Job Check</Typography>
+                </ListItemText>
             </ListItemButton>
-          </Link>
-          <Link style={{ textDecoration: 'none', color: "black" }} to="/ProfileSearch">
-            <ListItemButton
-              sx={{
-                minHeight: 48,
-                justifyContent: open ? "initial" : "center",
-                px: 2.5,
-              }}
-            >
-              <ListItemIcon
-                sx={{
-                  minWidth: 0,
-                  mr: open ? 3 : "auto",
-                  justifyContent: "center",
-                }}
-              >
-                <SearchOutlinedIcon />
+          </ListItem></List>
+      
+     
+        <List sx={{marginTop:5}}>
+          <ListItem disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+              <HomeOutlinedIcon/>
               </ListItemIcon>
-              <ListItemText sx={{ opacity: open ? 1 : 0 }} primary="Profile Search" />
+              <ListItemText primary="Home" onClick={()=>Navigate()} />
             </ListItemButton>
-          </Link>
-          <Link style={{ textDecoration: 'none', color: "black" }} to="/JobPost">
-            <ListItemButton
-              sx={{
-                minHeight: 48,
-                justifyContent: open ? "initial" : "center",
-                px: 2.5,
-              }}
-            >
-              <ListItemIcon
-                sx={{
-                  minWidth: 0,
-                  mr: open ? 3 : "auto",
-                  justifyContent: "center",
-                }}
-              >
-                <DynamicFeedOutlinedIcon />
+          </ListItem>
+          <ListItem disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+                <SearchOutlinedIcon/>
               </ListItemIcon>
-              <ListItemText sx={{ opacity: open ? 1 : 0 }} primary="Job Post" />
+              <ListItemText primary="Profile Search" onClick={()=>Navigate()} />
             </ListItemButton>
-          </Link>
-          <Link style={{ textDecoration: 'none', color: "black" }} to="/ViewAllRequirements">
-            <ListItemButton
-              sx={{
-                minHeight: 48,
-                justifyContent: open ? "initial" : "center",
-                px: 2.5,
-              }}
-            >
-              <ListItemIcon
-                sx={{
-                  minWidth: 0,
-                  mr: open ? 3 : "auto",
-                  justifyContent: "center",
-                }}
-              >
-                <AssignmentTurnedInOutlinedIcon />
+          </ListItem>
+          <ListItem disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+                <DynamicFeedOutlinedIcon/>
               </ListItemIcon>
-              <ListItemText sx={{ opacity: open ? 1 : 0 }} primary="Requirement" />
+              <ListItemText primary="Job Post" onClick={()=>Navigate("/JobPost")} />
             </ListItemButton>
-          </Link>
-          <Link style={{ textDecoration: 'none', color: "black" }} to="/Analytics">
-            <ListItemButton
-              sx={{
-                minHeight: 48,
-                justifyContent: open ? "initial" : "center",
-                px: 2.5,
-              }}
-            >
-              <ListItemIcon
-                sx={{
-                  minWidth: 0,
-                  mr: open ? 3 : "auto",
-                  justifyContent: "center",
-                }}
-              >
-                <BarChartOutlinedIcon />
+          </ListItem>
+        
+          <ListItem disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+                <AssignmentTurnedInOutlinedIcon/>
               </ListItemIcon>
-              <ListItemText sx={{ opacity: open ? 1 : 0 }} primary="Analytics" />
+              <ListItemText primary="Requirement" onClick={()=>Navigate("/Requirements")} />
             </ListItemButton>
-          </Link>
-          <Link style={{ textDecoration: 'none', color: "black" }} to="/Users">
-            <ListItemButton
-              sx={{
-                minHeight: 48,
-                justifyContent: open ? "initial" : "center",
-                px: 2.5,
-              }}
-            >
-              <ListItemIcon
-                sx={{
-                  minWidth: 0,
-                  mr: open ? 3 : "auto",
-                  justifyContent: "center",
-                }}
-              >
-                <PeopleAltOutlinedIcon />
+          </ListItem>
+        
+          <ListItem disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+                <EqualizerOutlinedIcon/>
               </ListItemIcon>
-              <ListItemText sx={{ opacity: open ? 1 : 0 }} primary="Users" />
+              <ListItemText primary="Analytics" onClick={()=>Navigate()} />
             </ListItemButton>
-          </Link>
-          <Link style={{ textDecoration: 'none', color: "black" }} to="/SearchSubscription">
-            <ListItemButton
-              sx={{
-                minHeight: 48,
-                justifyContent: open ? "initial" : "center",
-                px: 2.5,
-              }}
-            >
-              <ListItemIcon
-                sx={{
-                  minWidth: 0,
-                  mr: open ? 3 : "auto",
-                  justifyContent: "center",
-                }}
-              >
-                <CreditCardOutlinedIcon />
+          </ListItem>
+          <ListItem disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+                <GroupOutlinedIcon/>
               </ListItemIcon>
-              <ListItemText sx={{ opacity: open ? 1 : 0 }} primary="Subscription" />
+              <ListItemText primary="Users" onClick={()=>Navigate()} />
             </ListItemButton>
-          </Link>
+          </ListItem>
+          <ListItem disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+                <AddCardOutlinedIcon/>
+              </ListItemIcon>
+              <ListItemText primary="Subscriptions" onClick={()=>Navigate("/SearchSubscription")} />
+            </ListItemButton>
+          </ListItem>
         </List>
-        <Divider />
-      </Drawer>
+      </nav>
     </Box>
-  );
+
+           
+        </nav>
+  
+    </div>
+  )
 }
+
+export default SiderBar
