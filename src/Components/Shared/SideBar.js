@@ -38,62 +38,62 @@ const SiderBar = () => {
       
      
         <List sx={{marginTop:5}}>
-          <ListItem disablePadding>
+          <ListItem disablePadding onClick={()=>Navigate()}>
             <ListItemButton>
               <ListItemIcon>
               <HomeOutlinedIcon/>
               </ListItemIcon>
-              <ListItemText primary="Home" onClick={()=>Navigate()} />
+              <ListItemText primary="Home"  />
             </ListItemButton>
           </ListItem>
-          <ListItem disablePadding>
+          <ListItem disablePadding onClick={()=>Navigate()}>
             <ListItemButton>
               <ListItemIcon>
                 <SearchOutlinedIcon/>
               </ListItemIcon>
-              <ListItemText primary="Profile Search" onClick={()=>Navigate()} />
+              <ListItemText primary="Profile Search"  />
             </ListItemButton>
           </ListItem>
-          <ListItem disablePadding>
+          <ListItem disablePadding onClick={()=>Navigate("/JobPost")}>
             <ListItemButton>
               <ListItemIcon>
                 <DynamicFeedOutlinedIcon/>
               </ListItemIcon>
-              <ListItemText primary="Job Post" onClick={()=>Navigate("/JobPost")} />
+              <ListItemText primary="Job Post"  />
             </ListItemButton>
           </ListItem>
         
-          <ListItem disablePadding>
+          <ListItem disablePadding onClick={()=>Navigate("/Requirements")}>
             <ListItemButton>
               <ListItemIcon>
                 <AssignmentTurnedInOutlinedIcon/>
               </ListItemIcon>
-              <ListItemText primary="Requirement" onClick={()=>Navigate("/Requirements")} />
+              <ListItemText primary="Requirement"  />
             </ListItemButton>
           </ListItem>
         
-          <ListItem disablePadding>
+          <ListItem disablePadding  onClick={()=>Navigate()}>
             <ListItemButton>
               <ListItemIcon>
                 <EqualizerOutlinedIcon/>
               </ListItemIcon>
-              <ListItemText primary="Analytics" onClick={()=>Navigate()} />
+              <ListItemText primary="Analytics" />
             </ListItemButton>
           </ListItem>
-          <ListItem disablePadding>
+          <ListItem disablePadding onClick={()=>Navigate()}>
             <ListItemButton>
               <ListItemIcon>
                 <GroupOutlinedIcon/>
               </ListItemIcon>
-              <ListItemText primary="Users" onClick={()=>Navigate()} />
+              <ListItemText primary="Users"  />
             </ListItemButton>
           </ListItem>
-          <ListItem disablePadding>
+          <ListItem disablePadding onClick={()=>Navigate("/SearchSubscription")}>
             <ListItemButton>
               <ListItemIcon>
                 <AddCardOutlinedIcon/>
               </ListItemIcon>
-              <ListItemText primary="Subscriptions" onClick={()=>Navigate("/SearchSubscription")} />
+              <ListItemText primary="Subscriptions"  />
             </ListItemButton>
           </ListItem>
         </List>
