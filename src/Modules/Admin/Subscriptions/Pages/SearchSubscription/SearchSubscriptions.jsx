@@ -66,7 +66,7 @@ const SearchSubscription = () => {
   };
 
   return (
-    <Container style={{ margin: "150px  23rem  " }}>
+    <Container style={{ margin: "80px  8rem  " }}>
       <Typography variant="h3">
         Subscriptions
         <Paper
