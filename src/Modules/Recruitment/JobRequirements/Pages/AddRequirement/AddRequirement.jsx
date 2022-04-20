@@ -166,13 +166,13 @@ const AddUser = () => {
                     Save as draft
                   </Button>
                   <Modal hideBackdrop open={open} onClose={handleClose}>
-                    <Box sx={{ ...style, width: 400, height: 250 }}>
-                      <img src={Reimage} alt="logo" className="logo" />
-                      <h2 className="text">Save Requirement</h2>
-                      <p className="para">
+                    <Box sx={{ ...style, width: 400, height: 250,  }}>
+                      <img src={Reimage} alt="logo" className="logo" style={{position:"absolute",left:65 }}/>
+                      <h2 className="text" style={{position:"absolute",top:80,left:60 }}>Save Requirement</h2>
+                      <p className="para" style={{position:"absolute",top:120 }}>
                         Do you wish to save the requirement as draft?
                       </p>
-                      <Grid Container>
+                      <Grid Container style={{position:"absolute",top:160 }}>
                         <Grid item className="main" sx={{ marginLeft: 2 }}>
                           {" "}
                           <Button
@@ -220,13 +220,13 @@ const AddUser = () => {
                     Publish requirement
                   </Button>
                   <Modal hideBackdrop open={op} onClose={handleCl}>
-                    <Box sx={{ ...style, width: 400 }}>
-                      <img src={Reimage} alt="logo" className="logo" />
-                      <h2 className="text">Publish Requirement</h2>
-                      <p className="para">
+                    <Box sx={{ ...style, width: 400, height:250 }}>
+                      <img src={Reimage} alt="logo" className="logo" style={{position:"absolute",left:65 }} />
+                      <h2 className="text" style={{position:"absolute",top:80,left:60 }}>Publish Requirement</h2>
+                      <p className="para" style={{position:"absolute",top:120,left:70 }}>
                         Do you wish to publish requirement?
                       </p>
-                      <Grid Container>
+                      <Grid Container style={{position:"absolute",top:160, left:50 }}>
                         <Grid item sx={{ marginLeft: 2 }}>
                           {" "}
                           <Button
@@ -263,8 +263,9 @@ const AddUser = () => {
             <br />
             <br />
             <NavigateBar/>
+            
 
-            <Stack id="basic" style={{ position:"absolute", top:"150px", left:200}}>
+            <Stack id="basic" style={{position:"absolute", top:140}}>
               <Typography variant="h5" component="h5">
                 Basic Details
               </Typography>
@@ -280,11 +281,10 @@ const AddUser = () => {
                 value={title}
                 sx={{ width: 260, marginTop: 1, marginBottom: 2 }}
                 label="Eg: Software Engineer"
-                placeholder="Eg: Software Engineer"
                 onChange={handleInputChange}
               />
               <br />
-              <div>
+              <div className="choose">
                 <Typography variant="subtitle2" component="h5">
                   Prefill from other Requirement
                 </Typography>
@@ -319,7 +319,7 @@ const AddUser = () => {
 
             <br />
             <br />
-            <div className="contain" id="job" style={{position:"absolute",top:500, left:200}}>
+            <div className="contain" id="job" style={{position:"absolute",top:500}}>
               <Typography variant="h5" component="h5">
                 Job Details
               </Typography>
@@ -341,7 +341,6 @@ const AddUser = () => {
                       name="job_title"
                       value={job_title}
                       label="Eg: Software Developer"
-                      placeholder="Eg: Software Developer"
                       onChange={handleInputChange}
                     />
                   </Grid>
@@ -525,8 +524,8 @@ const AddUser = () => {
                       sx={{ marginTop: 1.3, width:150 }}
                       type="number"
                       name="minimum_salary"
-                      label="Salary"
                       value={minimum_salary}
+                      label="salary"
                       onChange={handleInputChange}
                       InputProps={{ inputMode: "numeric", pattern: "[0-9]*" }}
                     />
@@ -540,7 +539,7 @@ const AddUser = () => {
                       sx={{ marginTop: 1.3, width:150 }}
                       type="number"
                       name="maximum_salary"
-                      label="Salary"
+                      label="salary"
                       value={maximum_salary}
                       onChange={handleInputChange}
                       InputProps={{ inputMode: "numeric", pattern: "[0-9]*" }}
@@ -592,8 +591,8 @@ const AddUser = () => {
 
             <br />
             <br />
-            <div id="candidate" style={{position:"absolute", top:1080, left:200}}>
-                    <Typography variant="h5" component="h5" style={{color:'dimgray'}}>
+            <div className="contain" id="candidate" style={{position:"absolute",top:1080}}>
+                    <Typography variant="h5" component="h5">
                         Candidate Details
                     </Typography>
                     <br />
@@ -754,7 +753,7 @@ const AddUser = () => {
                         </Grid>
 
                         <Grid item xs={4.5}>
-                                <div>
+                                <div className="choose">
                                     <Typography variant="subtitle2" component="h5" marginTop={2}>
                                         Questionnaire
                                     </Typography>
@@ -791,7 +790,7 @@ const AddUser = () => {
 
             <br />
             <br />
-            <div id="additional" style={{position:"absolute", top:1650, left:200}}>
+            <div className="contain" id="additional" style={{position:"absolute",top:1650}}>
               <Typography variant="h5" component="h5">
                 Additional Details
               </Typography>
@@ -812,7 +811,7 @@ const AddUser = () => {
                       name="contact_person"
                       type="text"
                       value={contact_person}
-                      sx={{ marginTop: 1, width:230}}
+                      sx={{ marginTop: 1, width:230 }}
                       label="Point of Contact"
                       onChange={handleInputChange}
                       variant="outlined"
@@ -951,7 +950,7 @@ const AddUser = () => {
             <br />
             
 
-            <Grid container style={{position:"absolute", top:2250, left:200}}>
+            <Grid container style={{position:"absolute", top:2250}}>
               <Switch
                 value={state.status || ""}
                 onChange={(e) =>{
