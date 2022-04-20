@@ -1,10 +1,5 @@
 import { Card, CardContent, Typography } from '@mui/material'
 import React from 'react'
-// import AddIcon from '@mui/icons-material/Add';
-// import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
-// import SearchIcon from '@mui/icons-material/Search'
-// import { TextField } from '@mui/material';
-// import { InputAdornment } from '@mui/material';
 import '../../../../../Assets/Styles/ViewJobPostStatistics.css';
 
 function ViewRequirementStats() {
