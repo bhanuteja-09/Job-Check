@@ -62,9 +62,9 @@ const MyRouter = () => {
 
         {/* Subscription */}
         <Route exact path="/SearchSubscription" element={<SearchSubscription />} />
-        <Route path="/ViewSIngleSubscription" element={<ViewSIngleSubscription />} />
+        <Route path="/ViewSIngleSubscription/:id" element={<ViewSIngleSubscription />} />
         <Route path="/AddSubscription" element={<AddSubscription />} />
-        <Route path="/EditSubscriptions" element={<EditSubscriptions />} />
+        <Route path="/EditSubscriptions/:id" element={<EditSubscriptions />} />
       </Routes>
     </div>
   );
