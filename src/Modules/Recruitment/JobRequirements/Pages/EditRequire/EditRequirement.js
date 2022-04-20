@@ -74,7 +74,7 @@ const EditUser = () => {
 
   return (
     <div>
-      <Container sx={{ marginTop: 10, marginLeft: 30 }}>
+      <Container sx={{  marginLeft: 30 }}>
         {error && <h3 style={{ color: "red" }}>{error}</h3>}
         <Typography variant="h4" sx={{ marginTop: 2 }}>
           Edit Requirement

@@ -52,7 +52,7 @@ const AdditionalDetails = () => {
       <Container sx={{ margin: "10px", marginLeft: "15%" }}>
         <div>
           <h1>Edit Requirement</h1>
-          <Box sx={{ width: "100%", marginTop: 5 }}>
+          <Box sx={{ width: "100%", marginTop: 15 }}>
             <Stepper activeStep={2} alternativeLabel>
               {steps.map((label) => (
                 <Step key={label}>
@@ -79,6 +79,7 @@ const AdditionalDetails = () => {
                   </Typography>
                   <TextField
                     id="outlined-basic"
+                    label="Name"
                     name="contact_person"
                     value={contact_person}
                     type="text"

@@ -67,7 +67,7 @@ const CandidateDetails = () => {
       <Container sx={{ margin: "10px", marginLeft: "15%" }}>
         <div>
           <h1>Edit Requirement</h1>
-          <Box sx={{ width: "100%", marginTop: 5 }}>
+          <Box sx={{ width: "100%", marginTop: 15 }}>
             <Stepper activeStep={1} alternativeLabel>
               {steps.map((label) => (
                 <Step key={label}>

@@ -4,9 +4,6 @@ import * as types from "../Actions/actionType";
 const initialState = {
 Requirements: [],
   Requirement: {},
-  savedrafts:[],
-  savedraft:{},
-
   loading: false,
 };
 

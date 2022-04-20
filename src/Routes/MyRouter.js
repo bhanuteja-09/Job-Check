@@ -12,6 +12,7 @@ import SearchSubscription from "../Modules/Admin/Subscriptions/Pages/SearchSubsc
 import ViewSIngleSubscription from "../Modules/Admin/Subscriptions/Pages/Home/Components/View/ViewSIngleSubscription";
 import AddSubscription from "../Modules/Admin/Subscriptions/Pages/AddSubscription/AddSubscription";
 import EditSubscriptions from "../Modules/Admin/Subscriptions/Pages/EditSubs/EditSubscriptions";
+import ViewRequirementStats from "../Modules/Recruitment/JobRequirements/Pages/ViewRequireStats/ViewRequirementStats";
 
 const MyRouter = () => {
   return (
@@ -28,8 +29,10 @@ const MyRouter = () => {
         <Route path="/NewJobPostss" element={<NewJobPostss />} />
 
         {/* Requirement */}
+       
+       
+       
   
-        <Route exact path="/" element />
         <Route exact path="/Requirements" element={<ViewAllRequirements />} />
         <Route exact path="/addrequirement" element={<AddRequirement/>} />
         <Route

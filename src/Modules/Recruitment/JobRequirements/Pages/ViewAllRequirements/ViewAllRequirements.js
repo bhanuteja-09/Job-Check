@@ -7,6 +7,7 @@ import EditIcon from '@mui/icons-material/Edit';
 import SearchIcon from '@mui/icons-material/Search';
 import Filter from "../FilterRequirements/FilterRequirement";
 import DriveFileRenameOutlineIcon from '@mui/icons-material/DriveFileRenameOutline';
+import ViewRequirementStats from "../ViewRequireStats/ViewRequirementStats"
 
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -50,19 +51,23 @@ const Home = () => {
   }
   return (
      <Container>
+      
     <div>
+    <>
+       <ViewRequirementStats/>
+       </>
       <Grid >
-        <Typography variant="h4" sx={{position:"absolute",top:130}}>
+        <Typography variant="h4" sx={{position:"absolute",top:255}}>
           Requirements
         </Typography>
-        <Typography variant="p" sx={{position:"absolute",top:170}}>
+        <Typography variant="p" sx={{position:"absolute",top:295}}>
         Track & manage your Requirements here.
         </Typography>
         </Grid>
       <div>
       
       <Button color="primary" variant="contained"  
-      sx={{marginTop:20,display:"block",marginLeft:"auto",textAlign:"center",textTransform:"capitalize",fontSize:"15px",backgroundColor:"blueviolet"}}
+      sx={{marginTop:19,display:"block",marginLeft:"auto",textAlign:"center",textTransform:"capitalize",fontSize:"15px",backgroundColor:"blueviolet"}}
        onClick={() => navigate("/addrequirement")}>
          + New Requirement
       </Button>
