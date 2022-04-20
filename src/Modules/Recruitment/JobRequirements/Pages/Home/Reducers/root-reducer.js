@@ -1,8 +1,13 @@
 import { combineReducers } from "redux";
-import requirementReducers from "./reducer";
+import RequirementDraftReducer from "../../ViewRequireDrafts/RequirementDraftReducer";
+import requirementReducers from "./RequirementReducer";
+// import RequirementDraftReducer from "../../ViewRequireDrafts/RequirementDraftReducer";
+
+// Combined All Reducers
 
 const rootReducer = combineReducers({
-    requirement: requirementReducers
+    requirement: requirementReducers,
+    draft:RequirementDraftReducer
     
 });
 

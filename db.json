@@ -153,5 +153,37 @@
       "status": "Active",
       "id": 4
     }
+  ],
+  "draft": [
+    {
+      "Requirement": "[No Title]",
+      "No": "#ID-239143",
+      "TotalPositions": "10",
+      "Positionsclosed": "-",
+      "Status": "In-Active",
+      "Assignedto": "-",
+      "LastModified": "6 March 2022",
+      "id": 1
+    },
+    {
+      "Requirement": "[No Title]",
+      "No": "#ID-239146",
+      "TotalPositions": "-",
+      "Positionsclosed": "-",
+      "Status": "In-Active",
+      "Assignedto": "-",
+      "LastModified": "4 Feb 2022",
+      "id": 2
+    },
+    {
+      "Requirement": "[No Title]",
+      "No": "#ID-239149",
+      "TotalPositions": "-",
+      "Positionsclosed": "-",
+      "Status": "In-Active",
+      "Assignedto": "-",
+      "LastModified": "2 Feb 2022",
+      "id": 3
+    }
   ]
 }

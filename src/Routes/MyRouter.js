@@ -12,7 +12,7 @@ import SearchSubscription from "../Modules/Admin/Subscriptions/Pages/SearchSubsc
 import ViewSIngleSubscription from "../Modules/Admin/Subscriptions/Pages/Home/Components/View/ViewSIngleSubscription";
 import AddSubscription from "../Modules/Admin/Subscriptions/Pages/AddSubscription/AddSubscription";
 import EditSubscriptions from "../Modules/Admin/Subscriptions/Pages/EditSubs/EditSubscriptions";
-import ViewRequirementStats from "../Modules/Recruitment/JobRequirements/Pages/ViewRequireStats/ViewRequirementStats";
+import DraftRequirement from "../Modules/Recruitment/JobRequirements/Pages/ViewRequireDrafts/ViewRequirementDrafts";
 
 const MyRouter = () => {
   return (
@@ -50,6 +50,7 @@ const MyRouter = () => {
           path="/AdditionalDetails/:id"
           element={<AdditionalDetails />}
         />
+        <Route exact path="/DraftRequirement" element={<DraftRequirement />} />
         
      
 

@@ -76,7 +76,7 @@ const Home = () => {
       <br/>
     
       {<Filter/>}
-      <Button sx={{color:"black",borderColor:"black",marginLeft:37,  textTransform: "capitalize"}} variant="outlined"  onClick={() => navigate("")}><DriveFileRenameOutlineIcon/>Draft</Button>
+      <Button sx={{color:"black",borderColor:"black",marginLeft:37,  textTransform: "capitalize"}} variant="outlined"  onClick={() => navigate("/DraftRequirement")}><DriveFileRenameOutlineIcon/>Draft</Button>
       
      
     

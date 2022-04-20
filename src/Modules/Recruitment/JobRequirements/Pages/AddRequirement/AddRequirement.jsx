@@ -74,6 +74,8 @@ const AddUser = () => {
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  // Destructuring The All States 
   const {
     title,
     choose_existing_requirement,
@@ -102,7 +104,8 @@ const AddUser = () => {
     select_recruiters,
     status,
   } = state;
-
+  
+  // Set All Input values
   const handleInputChange = (e) => {
     let { name, value } = e.target;
     setState({ ...state, [name]: value });
@@ -114,7 +117,8 @@ const AddUser = () => {
   const handleClose = () => setOpen(false);
   const handleCl = () => setOp(false);
   const handleChange = () => setOp(true);
-
+ 
+  // Dispatching The Data
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(addRequirement(state));
@@ -945,18 +949,13 @@ const AddUser = () => {
               <br />
             </div>
             <br />
-            {/* <Switch onClick={toggler} name='toggle' value={toggle}  onChange={handleInputChange}/>
-            {toggle ? (
-              <span> Requirement Active </span>
-            ) : (
-              <span> Requirement In-Active </span>
-            )} */}
+            
 
             <Grid container style={{position:"absolute", top:2250, left:200}}>
               <Switch
                 value={state.status || ""}
                 onChange={(e) =>{
-                  var value= status=="Active" ? "InActive":"Active"
+                  var value= status==="Active" ? "InActive":"Active"
                   setState({ ...state, status: value })}
                 } 
               />

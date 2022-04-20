@@ -8,10 +8,7 @@ const getRequirements = (Requirements) => ({
 });
 
 
-// const userDeleted = (users) => ({
-//     type: types.DELETE_USER,
-//     payload: users,
-// })
+
 const requirementAdded = () => ({
     type: types.ADD_REQUIREMENT,
     
@@ -40,7 +37,7 @@ const getRequirement = (Requirement) => ({
 })
 
 
-
+// Get All Requirements From DB
 export const loadRequirements = (start,end) => {
     return function (dispatch) {
         axios.get(`${process.env.REACT_APP_API_Requirements}`).then((resp) => {
@@ -53,16 +50,9 @@ export const loadRequirements = (start,end) => {
 };
 
 
-// export const deleteUser = (id) => {
-//     return function (dispatch) {
-//         axios.delete(`${process.env.REACT_APP_API}/${id}`).then((resp) => {
-//             console.log("resp", resp)
-//             dispatch(userDeleted());
-//             dispatch(loadUsers());
-//         })
-//         .catch((error) => console.log(error));
-//     };
 
+ 
+// Add Requirement Function
 export const addRequirement = (user) => {
     return function (dispatch) {
         axios.post(`${process.env.REACT_APP_API_Requirements}`,user).then((resp) => {
@@ -73,6 +63,8 @@ export const addRequirement = (user) => {
         .catch((error) => console.log(error));
     };
 };
+
+// Edit Requirement Function
 export const getSingleRequirement = (id) => {
     return function (dispatch) {
         axios.get(`${process.env.REACT_APP_API_Requirements}/${id}`).then((resp) => {
@@ -83,6 +75,9 @@ export const getSingleRequirement = (id) => {
         .catch((error) => console.log(error));
     };
 };
+
+
+// Update Requirements Function
 export const updateRequirement = (user,id) => {
     return function (dispatch) {
         axios.put(`${process.env.REACT_APP_API_Requirements}/${id}`,user).then((resp) => {
@@ -94,6 +89,8 @@ export const updateRequirement = (user,id) => {
         .catch((error) => console.log(error));
     };
 };
+
+// Filter Requiremets Function
 export const filterRequirement = (Status) => {
     return function (dispatch) {
         axios.get(`${process.env.REACT_APP_API_Requirements}?status=${Status}`).then((resp) => {
@@ -104,6 +101,8 @@ export const filterRequirement = (Status) => {
         .catch((error) => console.log(error));
     };
 };
+
+// sort Requirements Function 
 export const sortRequirement = (user) => {
     return function (dispatch) {
         axios.get(`${process.env.REACT_APP_API_Requirements}?_sort=${user}&_order=asc`).then((resp) => {
