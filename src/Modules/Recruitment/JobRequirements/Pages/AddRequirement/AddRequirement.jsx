@@ -856,7 +856,7 @@ const AddUser = () => {
                     <TextField
                       id="outlined-basic"
                       name="phone_number"
-                      type="number"
+                      type="tel"
                       value={phone_number}
                       label="Phone Number"
                       onChange={handleInputChange}
