@@ -5,6 +5,7 @@ import { useNavigate } from "react-router";
 import { useDispatch } from "react-redux";
 import { addRequirement } from "../Home/Actions/actions";
 import Reimage from '../../../../../Assets/Images/Reimage.png';
+import {addRequirementDraft} from "../ViewRequireDrafts/Action"
 import {
   Container,
   FormControl,
@@ -125,6 +126,11 @@ const AddUser = () => {
     navigate("/Requirements");
     setError(" ");
   };
+  const handleSubmitDraft =(e)=>{
+    e.preventDefault();
+    dispatch(addRequirementDraft(state))
+    navigate("/DraftRequirement");
+  }
  
 
   return (
@@ -193,8 +199,9 @@ const AddUser = () => {
                           <Button
                             color="primary"
                             variant="contained"
-                            onClick={handleClose}
-                            onChange={handleInputChange}
+                            onSubmit={handleClose}
+                           onChange={handleInputChange}
+                            onClick={handleSubmitDraft}
                           >
                             Save
                           </Button>
@@ -934,12 +941,12 @@ const AddUser = () => {
                         label="Select Recruiters"
                         onChange={handleInputChange}
                       >
-                        <MenuItem value="">
-                          <em>None</em>
-                        </MenuItem>
-                        <MenuItem value={"Vennela"}>Vennela</MenuItem>
-                        <MenuItem value={"Harsha"}>Harsha</MenuItem>
-                        <MenuItem value={"Prashanth"}>Prashanth</MenuItem>
+                         <MenuItem value="">
+                      <em>None</em>
+                    </MenuItem>
+                    <MenuItem value={"Olivia Rhye"}>Olivia Rhye</MenuItem>
+                    <MenuItem value={"John"}>John</MenuItem>
+                    <MenuItem value={"Mark"}>Mark</MenuItem>
                       </Select>
                     </FormControl>
                   </Box>

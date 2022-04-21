@@ -15,6 +15,11 @@ const RequirementDraftReducer = (state = initialState, action) => {
         drafts: action.payload,
         loading: false,
       };
+      case types.ADD_DRAFTREQUIREMENT:
+        return{
+          ...state,
+        loading: false,
+        }
 
     default:
       return state;

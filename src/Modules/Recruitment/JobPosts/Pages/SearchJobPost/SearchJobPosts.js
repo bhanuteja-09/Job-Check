@@ -4,7 +4,7 @@ import  React,{useState} from 'react';
 import Data from "./data.json";
 import "./SearchJobPosts.css";
 import EditIcon from '@mui/icons-material/Edit';
-import Logo from "../../../../../Assets/Images/Logo.jpg"
+// import Logo from "../../../../../Assets/Images/Logo.jpg"
 import AddIcon from '@mui/icons-material/Add';
 import FilterListIcon from '@mui/icons-material/FilterList';
 
@@ -98,7 +98,7 @@ const SearchJobPosts = () => {
               <StyledTableCell align="center">{data.TotalPositions}</StyledTableCell>
               <StyledTableCell align="center">{data.PositionsClosed}</StyledTableCell>
               <StyledTableCell align="center">{data.Status}</StyledTableCell>
-              <StyledTableCell align="center"><img src={Logo} className="profile-image rounded-circle"/></StyledTableCell>
+              <StyledTableCell align="center"><img  className="profile-image rounded-circle"/></StyledTableCell>
               <StyledTableCell align="center">{data.LastModified}</StyledTableCell>
               <StyledTableCell align="center"><Button sx={{color:'black'}}><EditIcon/></Button></StyledTableCell>
             </StyledTableRow>
