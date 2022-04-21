@@ -14,7 +14,6 @@ const initialState = {
     const RequirementDraftReducer = (state=initialState,action) => {
         switch (action.type){
             case types.GET_DRAFTS:
-        // case types.SORT_DRAFT:
         return {
             ...state,
             drafts: action.payload,
@@ -28,5 +27,5 @@ const initialState = {
       
 
     
-    export default RequirementDraftReducer
+export default RequirementDraftReducer
     
