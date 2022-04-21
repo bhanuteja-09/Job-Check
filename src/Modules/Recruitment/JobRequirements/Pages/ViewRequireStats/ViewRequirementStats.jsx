@@ -1,6 +1,6 @@
 import { Card, CardContent, Typography } from '@mui/material'
 import React from 'react'
-import '../../../../../Assets/Styles/ViewJobPostStatistics.css';
+import '../../../../../Assets/Styles/JobRequirementStats.css';
 
 function ViewRequirementStats() {
   return (

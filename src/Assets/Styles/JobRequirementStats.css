@@ -1,0 +1,15 @@
+.cards{
+    display: flex;
+    
+    margin-top: 30px;
+    padding: auto;
+
+}
+.entire{
+    margin-left: 0rem;
+}
+
+.c{
+    margin-right: 3rem;
+    width: 12rem;
+}
