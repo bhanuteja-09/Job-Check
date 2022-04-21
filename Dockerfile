@@ -13,8 +13,8 @@ COPY . /app/
 
 RUN npm install
 #RUN npm i eslint-plugin-flowtype
+RUN npm run server
 RUN npm run-script build
-
 #prepare nginx
 
 FROM nginx:1.16.0-alpine
