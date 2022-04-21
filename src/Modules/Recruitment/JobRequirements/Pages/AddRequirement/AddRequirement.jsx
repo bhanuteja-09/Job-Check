@@ -937,9 +937,9 @@ const AddUser = () => {
                         <MenuItem value="">
                           <em>None</em>
                         </MenuItem>
-                        <MenuItem value={"Vennela"}>Vennela</MenuItem>
-                        <MenuItem value={"Harsha"}>Harsha</MenuItem>
-                        <MenuItem value={"Prashanth"}>Prashanth</MenuItem>
+                        <MenuItem value={"Olivia Rhye"}>Olivia Rhye</MenuItem>
+                        <MenuItem value={"John"}>John</MenuItem>
+                        <MenuItem value={"Mark"}>Mark</MenuItem>
                       </Select>
                     </FormControl>
                   </Box>
