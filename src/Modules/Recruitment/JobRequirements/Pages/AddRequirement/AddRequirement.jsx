@@ -144,7 +144,7 @@ const AddUser = () => {
               <br />
               <Typography
                 variant="OVERLINE"
-                sx={{ position: "relative"}}
+                sx={{ position: "relative" ,top:5}}
               >
                 After you complete the requirement, publish it so other
                 recruiters can access it

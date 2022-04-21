@@ -155,6 +155,36 @@
       "positions_closed": 3,
       "status": "Active",
       "id": 5
+    },
+    {
+      "title": "",
+      "choose_existing_requirement": "",
+      "job_title": "",
+      "job_location": "",
+      "employment_type": "",
+      "industry": "",
+      "functional_area": "",
+      "description": "",
+      "currency": "",
+      "minimum_salary": "",
+      "maximum_salary": "",
+      "vacancies": "",
+      "brief_candidate_description": "",
+      "educational_qualifications": "",
+      "minimum": "",
+      "maximum": "",
+      "must_have_keywords": "",
+      "optional_keywords": "",
+      "questionnaire": "",
+      "contact_person": "",
+      "company_name": "",
+      "phone_number": "",
+      "about_company": "",
+      "company_website": "",
+      "select_recruiters": "",
+      "positions_closed": 3,
+      "status": "InActive",
+      "id": 6
     }
   ],
   "user": [
@@ -199,8 +229,8 @@
       "TotalPositions": "10",
       "Positionsclosed": "5",
       "Status": "Active",
-      "Assignedto":"Olivia Rhye",
-      "About":"Java Developer with 1 years exper..",
+      "Assignedto": "Olivia Rhye",
+      "About": "Java Developer with 1 years exper..",
       "id": 1
     },
     {
@@ -209,8 +239,8 @@
       "TotalPositions": "10",
       "Positionsclosed": "10",
       "Status": "In Active",
-      "Assignedto":"Olivia Rhye",
-      "About":"Devops engineer with 1 years exp..",
+      "Assignedto": "Olivia Rhye",
+      "About": "Devops engineer with 1 years exp..",
       "id": 2
     },
     {
@@ -219,19 +249,18 @@
       "TotalPositions": "5",
       "Positionsclosed": "3",
       "Status": "Active",
-      "Assignedto":"Olivia Rhye",
-      "About":"Data Analyst with 1 years exp..",
+      "Assignedto": "Olivia Rhye",
+      "About": "Data Analyst with 1 years exp..",
       "id": 3
     },
-
     {
       "JobPosts": "HR Manager",
       "No": "hourglass.app",
       "TotalPositions": "6",
       "Positionsclosed": "5",
       "Status": "Active",
-      "Assignedto":"Olivia Rhye",
-      "About":"HR Manager with 1 years exp..",
+      "Assignedto": "Olivia Rhye",
+      "About": "HR Manager with 1 years exp..",
       "id": 4
     },
     {
@@ -240,8 +269,8 @@
       "TotalPositions": "1",
       "Positionsclosed": "1",
       "Status": "In Active",
-      "Assignedto":"Olivia Rhye",
-      "About":"Product Designer with 1 years exp..",
+      "Assignedto": "Olivia Rhye",
+      "About": "Product Designer with 1 years exp..",
       "id": 5
     },
     {
@@ -250,8 +279,8 @@
       "TotalPositions": "12",
       "Positionsclosed": "10",
       "Status": "Active",
-      "Assignedto":"Olivia Rhye",
-      "About":"Sales CRM with 1 years exp..",
+      "Assignedto": "Olivia Rhye",
+      "About": "Sales CRM with 1 years exp..",
       "id": 6
     },
     {
@@ -260,12 +289,11 @@
       "TotalPositions": "6",
       "Positionsclosed": "5",
       "Status": "Closed",
-      "Assignedto":"Olivia Rhye",
-      "About":"Automation engineer with 1 years exp..",
+      "Assignedto": "Olivia Rhye",
+      "About": "Automation engineer with 1 years exp..",
       "id": 7
     }
   ],
-
   "comments": [
     {
       "id": "Total",
