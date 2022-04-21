@@ -47,11 +47,11 @@ function AddSubscription(props) {
     Product: "",
     About: "",
     Actions: "",
-    JobPosts:"",
-    Downloads:"",
-    PricingType:"",
-    Price:"",
-    Duration:""
+    JobPosts: "",
+    Downloads: "",
+    PricingType: "",
+    Price: "",
+    Duration: ""
   });
   const commonStyles = {
     display: "flex-column",
@@ -119,7 +119,7 @@ function AddSubscription(props) {
                 onChange={(e) =>
                   setState({ ...state, Subscription: e.target.value })
                 }
-                placeholder="Premium"
+
                 variant="outlined"
                 size="small"
                 margin="dense"
@@ -223,7 +223,7 @@ function AddSubscription(props) {
                 onChange={(e) =>
                   setState({ ...state, BaseCredits: e.target.value })
                 }
-                placeholder="1000"
+
                 size="small"
                 margin="dense"
                 fullWidth
@@ -234,7 +234,7 @@ function AddSubscription(props) {
 
               <TextField
                 id="post"
-                placeholder="20"
+
                 size="small"
                 margin="dense"
                 value={state.JobPosts}
@@ -249,7 +249,7 @@ function AddSubscription(props) {
 
               <TextField
                 id="download"
-                placeholder="20"
+
                 size="small"
                 fullWidth
                 margin="dense"
@@ -277,7 +277,7 @@ function AddSubscription(props) {
                 <InputLabel id="pricing">Pricing Type</InputLabel>
 
                 <Select
-                 
+
                   label="Pricing"
                   size="small"
                   margin="dense"
@@ -320,7 +320,7 @@ function AddSubscription(props) {
                 <TextField
                   id="price"
                   margin="dense"
-                  placeholder="1000"
+
                   size="small"
                   fullWidth
                   value={state.Price || ""}
