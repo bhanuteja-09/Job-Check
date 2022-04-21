@@ -153,5 +153,92 @@
       "status": "Active",
       "id": 4
     }
+  ],
+  "draft": [
+    {
+      "Requirement": "[No Title]",
+      "No": "#ID-239143",
+      "TotalPositions": "10",
+      "Positionsclosed": "-",
+      "Status": "In-Active",
+      "Assignedto": "-",
+      "LastModified": "6 March 2022",
+      "id": 1
+    },
+    {
+      "Requirement": "[No Title]",
+      "No": "#ID-239146",
+      "TotalPositions": "-",
+      "Positionsclosed": "-",
+      "Status": "In-Active",
+      "Assignedto": "-",
+      "LastModified": "4 Feb 2022",
+      "id": 2
+    },
+    {
+      "Requirement": "[No Title]",
+      "No": "#ID-239149",
+      "TotalPositions": "-",
+      "Positionsclosed": "-",
+      "Status": "In-Active",
+      "Assignedto": "-",
+      "LastModified": "2 Feb 2022",
+      "id": 3
+    }
+  ],
+  "user": [
+    {
+      "Subscription": "Free",
+      "Status": "Active",
+      "BaseCredits": "100",
+      "LastUpdated": "2022-04-24",
+      "Product": "Pratian",
+      "About": "This is for small firm ",
+      "Actions": "",
+      "id": 4,
+      "Pricing": "1000"
+    },
+    {
+      "Subscription": "Freemium",
+      "Status": "Active",
+      "BaseCredits": "100",
+      "LastUpdated": "2022-04-11",
+      "Product": "Jobcheck",
+      "About": "This is Freemium Subscription",
+      "Actions": "",
+      "id": 5,
+      "Pricing": "1000"
+    },
+    {
+      "Subscription": "Premium",
+      "Status": "Active",
+      "BaseCredits": "20",
+      "LastUpdated": "2022-04-22",
+      "Product": "Jobcheck",
+      "About": "This is Premium Subscription",
+      "Actions": "",
+      "id": 8,
+      "Pricing": "1000"
+    },
+    {
+      "Subscription": "",
+      "Status": "In Active",
+      "BaseCredits": "",
+      "LastUpdated": "",
+      "Product": "",
+      "About": "",
+      "Actions": "",
+      "id": 9
+    },
+    {
+      "Subscription": "",
+      "Status": "In Active",
+      "BaseCredits": "",
+      "LastUpdated": "",
+      "Product": "",
+      "About": "",
+      "Actions": "",
+      "id": 10
+    }
   ]
 }

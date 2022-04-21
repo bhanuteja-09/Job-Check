@@ -12,6 +12,7 @@ import SearchSubscription from "../Modules/Admin/Subscriptions/Pages/SearchSubsc
 import ViewSIngleSubscription from "../Modules/Admin/Subscriptions/Pages/Home/Components/View/ViewSIngleSubscription";
 import AddSubscription from "../Modules/Admin/Subscriptions/Pages/AddSubscription/AddSubscription";
 import EditSubscriptions from "../Modules/Admin/Subscriptions/Pages/EditSubs/EditSubscriptions";
+import DraftRequirement from "../Modules/Recruitment/JobRequirements/Pages/ViewRequireDrafts/ViewRequirementDrafts";
 
 const MyRouter = () => {
   return (
@@ -28,8 +29,10 @@ const MyRouter = () => {
         <Route path="/NewJobPostss" element={<NewJobPostss />} />
 
         {/* Requirement */}
+       
+       
+       
   
-        <Route exact path="/" element />
         <Route exact path="/Requirements" element={<ViewAllRequirements />} />
         <Route exact path="/addrequirement" element={<AddRequirement/>} />
         <Route
@@ -47,6 +50,7 @@ const MyRouter = () => {
           path="/AdditionalDetails/:id"
           element={<AdditionalDetails />}
         />
+        <Route exact path="/DraftRequirement" element={<DraftRequirement />} />
         
      
 
@@ -58,9 +62,9 @@ const MyRouter = () => {
 
         {/* Subscription */}
         <Route exact path="/SearchSubscription" element={<SearchSubscription />} />
-        <Route path="/ViewSIngleSubscription" element={<ViewSIngleSubscription />} />
+        <Route path="/ViewSIngleSubscription/:id" element={<ViewSIngleSubscription />} />
         <Route path="/AddSubscription" element={<AddSubscription />} />
-        <Route path="/EditSubscriptions" element={<EditSubscriptions />} />
+        <Route path="/EditSubscriptions/:id" element={<EditSubscriptions />} />
       </Routes>
     </div>
   );
