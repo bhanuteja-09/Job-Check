@@ -45,19 +45,22 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 }));
 
 const SearchSubscription = () => {
+  let dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [search, setSearch] = useState("");
+
+  // Dispatching sortUser Action
   const handleSort = (users, id) => {
     dispatch(sortUser(users, id));
   };
 
-  let dispatch = useDispatch();
-  const navigate = useNavigate();
-
+  // Accessing redux store state from root-reducer
   const { users } = useSelector((state) => state.data);
 
+  //Runs only on the first render
   useEffect(() => {
     dispatch(loadUsers());
   }, []);
-  const [search, setSearch] = useState("");
 
   const handleDelete = (id) => {
     if (window.confirm("Are you sure you wanted to delete the user?")) {

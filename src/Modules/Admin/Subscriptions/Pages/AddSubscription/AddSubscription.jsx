@@ -63,13 +63,6 @@ function AddSubscription(props) {
 
   const { users } = useSelector((state) => state.data);
 
-  const [Subscription, setSubscription] = useState("");
-  const [Status, setStatus] = useState("");
-  const [BaseCredits, setBaseCredits] = useState("");
-  const [LastUpdated, setLastUpdated] = useState("");
-  const [Product, setProduct] = useState("");
-  const [About, setAbout] = useState("");
-  const [Actions, setActions] = useState("");
   const [popup, setPopup] = useState();
 
   const handleEnable = () => {
@@ -322,8 +315,6 @@ function AddSubscription(props) {
           <Switch
             value={state.Status || ""}
             onChange={(e) => {
-              var value = Status == "Active" ? "In Active" : "Active";
-
               setState({ ...state, Status: "Active" });
             }}
           />

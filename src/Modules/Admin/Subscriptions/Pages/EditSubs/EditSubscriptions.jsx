@@ -86,14 +86,6 @@ function EditSubscriptions(props) {
 
   const [isOpen, setIsOpen] = useState(false);
   const dispatch = useDispatch();
-  // const [toggle, setToggle] = useState(false);
-  // const handletoggle = (Status) => {
-  //     if (toggle == false) {
-  //         setToggle = "In Active"
-  //     } else {
-  //         setToggle = "Active"
-  //     }
-  // }
 
   const [state, setState] = useState({
     Subscription: "",
@@ -104,14 +96,6 @@ function EditSubscriptions(props) {
     About: "",
     Actions: "",
   });
-
-  const [Subscription, setSubscription] = useState("");
-  const [Status, setStatus] = useState("");
-  const [BaseCredits, setBaseCredits] = useState("");
-  const [LastUpdated, setLastUpdated] = useState("");
-  const [Product, setProduct] = useState("");
-  const [About, setAbout] = useState("");
-  const [Actions, setActions] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -332,8 +316,6 @@ function EditSubscriptions(props) {
             <Switch
               value={state.Status || ""}
               onChange={(e) => {
-                var value = Status == false ? "In Active" : "Active";
-
                 setState({ ...state, Status: "Active" });
               }}
             />
