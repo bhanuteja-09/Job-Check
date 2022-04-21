@@ -13,7 +13,7 @@ function ViewRequirementStats() {
                 }}>
                     Total
                 </Typography>
-                <Typography variant="h4" component="h4" sx={{display:'flex', justifyContent: 'top', top: -0}}>2500</Typography>
+                <Typography variant="h4" component="h4" sx={{display:'flex', justifyContent: 'top', top: -0}}>3</Typography>
             </CardContent>
         </Card>
         <Card className='c' elevation={5}>
@@ -23,7 +23,7 @@ function ViewRequirementStats() {
                 }}>
                     Closed
                 </Typography>
-                <Typography variant="h4" component="h4" sx={{display:'flex', justifyContent: 'top', top: -0}}>15</Typography>
+                <Typography variant="h4" component="h4" sx={{display:'flex', justifyContent: 'top', top: -0}}>0</Typography>
             </CardContent>
         </Card>
         <Card className='c' elevation={5} >
@@ -33,7 +33,7 @@ function ViewRequirementStats() {
                 }}>
                     Cancelled 
                 </Typography>
-                <Typography variant="h4" component="h4" sx={{display:'flex', justifyContent: 'top', top: -0}}>100</Typography>
+                <Typography variant="h4" component="h4" sx={{display:'flex', justifyContent: 'top', top: -0}}>0</Typography>
             </CardContent>
         </Card>
         </div>

@@ -93,8 +93,8 @@ const { drafts } =useSelector(state => state.draft)
           <TableRow>
           <TableSortLabel 
              direction='desc'
-             active={true}
-> <StyledTableCell >Requirements</StyledTableCell></TableSortLabel>
+             active={true}>
+                <StyledTableCell >Requirements</StyledTableCell></TableSortLabel>
           
           <StyledTableCell align="left" > Total positions </StyledTableCell>
               <StyledTableCell align="left">Positions closed</StyledTableCell>
