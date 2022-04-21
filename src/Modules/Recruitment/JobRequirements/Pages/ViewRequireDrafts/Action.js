@@ -6,7 +6,10 @@ const getDrafts =(drafts) => ({
     type: types.GET_DRAFTS,
     payload: drafts,
 });
-
+const requirementDraftAdded = () => ({
+    type: types.ADD_DRAFTREQUIREMENT,
+    
+})
 
 
 export const draftUsers =(draft) => {
@@ -18,4 +21,14 @@ export const draftUsers =(draft) => {
         })
         .catch((error) => console.log(error));  
     };
+    };
+    export const addRequirementDraft = (draft) => {
+        return function (dispatch) {
+            axios.post(`${process.env.REACT_APP_API_drafts}`,draft).then((resp) => {
+                console.log("resp", resp)
+                dispatch(requirementDraftAdded());
+                dispatch(draftUsers());
+            })
+            .catch((error) => console.log(error));
+        };
     };
