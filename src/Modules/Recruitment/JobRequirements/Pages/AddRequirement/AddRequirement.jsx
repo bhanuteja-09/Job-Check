@@ -119,7 +119,7 @@ const AddUser = () => {
   const handleCl = () => setOp(false);
   const handleChange = () => setOp(true);
  
-  // Dispatching The Data
+  
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(addRequirement(state));

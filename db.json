@@ -93,36 +93,6 @@
       "status": "Active",
       "id": 3,
       "LastModified": "2 Feb 2022"
-    },
-    {
-      "title": "",
-      "choose_existing_requirement": "",
-      "job_title": "",
-      "job_location": "",
-      "employment_type": "",
-      "industry": "",
-      "functional_area": "",
-      "description": "",
-      "currency": "",
-      "minimum_salary": "",
-      "maximum_salary": "",
-      "vacancies": "",
-      "brief_candidate_description": "",
-      "educational_qualifications": "",
-      "minimum": "",
-      "maximum": "",
-      "must_have_keywords": "",
-      "optional_keywords": "",
-      "questionnaire": "",
-      "contact_person": "",
-      "company_name": "",
-      "phone_number": "",
-      "about_company": "",
-      "company_website": "",
-      "select_recruiters": "",
-      "positions_closed": 3,
-      "status": "InActive",
-      "id": 4
     }
   ],
   "draft": [
@@ -247,21 +217,6 @@
       "Price": "200",
       "Duration": "2 Months",
       "id": 8
-    },
-    {
-      "Subscription": "",
-      "Status": "In Active",
-      "BaseCredits": "",
-      "LastUpdated": "",
-      "Product": "",
-      "About": "",
-      "Actions": "",
-      "JobPosts": "",
-      "Downloads": "",
-      "PricingType": "",
-      "Price": "",
-      "Duration": "",
-      "id": 9
     }
   ],
   "post": [
