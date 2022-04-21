@@ -19,6 +19,7 @@ const initialState = {
             drafts: action.payload,
             loading:false,
         };
+        
 
     default:
       return state;
