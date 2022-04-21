@@ -81,7 +81,6 @@ function EditSubscriptions(props) {
     setOpen(false);
   };
 
-  //edit starts
   const navigate = useNavigate();
 
   const [isOpen, setIsOpen] = useState(false);

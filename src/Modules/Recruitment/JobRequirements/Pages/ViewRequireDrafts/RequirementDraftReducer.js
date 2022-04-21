@@ -1,31 +1,24 @@
-import * as types from "./ActionType"
+import * as types from "./ActionType";
 
-
-//defining initial state 
+//defining initial state
 const initialState = {
-     drafts: [],       
-        draft: {},
+  drafts: [],
+  draft: {},
+  loading: false,
+};
+
+const RequirementDraftReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case types.GET_DRAFTS:
+      return {
+        ...state,
+        drafts: action.payload,
         loading: false,
-    };
-
-
-    
-    
-    const RequirementDraftReducer = (state=initialState,action) => {
-        switch (action.type){
-            case types.GET_DRAFTS:
-        return {
-            ...state,
-            drafts: action.payload,
-            loading:false,
-        };
+      };
 
     default:
       return state;
   }
-        }
-      
+};
 
-    
-export default RequirementDraftReducer
-    
+export default RequirementDraftReducer;
