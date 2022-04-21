@@ -93,6 +93,7 @@ const AdditionalDetails = () => {
                   <TextField
                     id="outlined-basic"
                     name="phone_number"
+                    label="Phone Number"
                     value={phone_number}
                     type="text"
                     onChange={handleInputChange}
@@ -107,6 +108,7 @@ const AdditionalDetails = () => {
                     name="company_website"
                     value={company_website}
                     type="text"
+                    label=" Company Website"
                     onChange={handleInputChange}
                     variant="outlined"
                   />
@@ -117,6 +119,7 @@ const AdditionalDetails = () => {
                   <TextField
                     id="outlined-basic"
                     name="company_name"
+                    label="Company Name"
                     value={company_name}
                     type="text"
                     onChange={handleInputChange}
@@ -168,6 +171,7 @@ const AdditionalDetails = () => {
                   <Select
                     value={state.select_recruiters}
                     name="select_recruiters"
+                    label="Assign Recruiters"
                     onChange={(e) =>
                       setState({ ...state, select_recruiters: e.target.value })
                     }

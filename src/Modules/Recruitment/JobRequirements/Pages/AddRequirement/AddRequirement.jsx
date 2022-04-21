@@ -5,6 +5,7 @@ import { useNavigate } from "react-router";
 import { useDispatch } from "react-redux";
 import { addRequirement } from "../Home/Actions/actions";
 import Reimage from '../../../../../Assets/Images/Reimage.png';
+import {addRequirementDraft} from "../ViewRequireDrafts/Action"
 import {
   Container,
   FormControl,
@@ -125,6 +126,11 @@ const AddUser = () => {
     navigate("/Requirements");
     setError(" ");
   };
+  const handleSubmitDraft =(e)=>{
+    e.preventDefault();
+    dispatch(addRequirementDraft(state))
+    navigate("/DraftRequirement");
+  }
  
 
   return (
@@ -167,13 +173,13 @@ const AddUser = () => {
                   </Button>
                   <Modal hideBackdrop open={open} onClose={handleClose}>
                     <Box sx={{ ...style, width: 400, height: 250,  }}>
-                      <img src={Reimage} alt="logo" className="logo" style={{position:"absolute",left:65 }}/>
+                      <img src={Reimage} alt="logo" className="logo" style={{position:"fixed",left:150 }}/>
                       <h2 className="text" style={{position:"absolute",top:80,left:60 }}>Save Requirement</h2>
                       <p className="para" style={{position:"absolute",top:120 }}>
                         Do you wish to save the requirement as draft?
                       </p>
-                      <Grid Container style={{position:"absolute",top:160 }}>
-                        <Grid item className="main" sx={{ marginLeft: 2 }}>
+                      <Grid Container style={{position:"fixed",top:160,left:80 }}>
+                        <Grid item className="main" sx={{ marginLeft: 0 }}>
                           {" "}
                           <Button
                             color="primary"
@@ -188,13 +194,14 @@ const AddUser = () => {
                         <Grid
                           item
                           className="main"
-                          sx={{ marginLeft: 18, marginTop: -4.5 }}
+                          sx={{ marginLeft: 20, marginTop: -4.5 }}
                         >
                           <Button
                             color="primary"
                             variant="contained"
-                            onClick={handleClose}
-                            onChange={handleInputChange}
+                            onSubmit={handleClose}
+                           onChange={handleInputChange}
+                            onClick={handleSubmitDraft}
                           >
                             Save
                           </Button>
@@ -221,12 +228,12 @@ const AddUser = () => {
                   </Button>
                   <Modal hideBackdrop open={op} onClose={handleCl}>
                     <Box sx={{ ...style, width: 400, height:250 }}>
-                      <img src={Reimage} alt="logo" className="logo" style={{position:"absolute",left:65 }} />
+                      <img src={Reimage} alt="logo" className="logo" style={{position:"fixed",left:160 }} />
                       <h2 className="text" style={{position:"absolute",top:80,left:60 }}>Publish Requirement</h2>
                       <p className="para" style={{position:"absolute",top:120,left:70 }}>
                         Do you wish to publish requirement?
                       </p>
-                      <Grid Container style={{position:"absolute",top:160, left:50 }}>
+                      <Grid Container style={{position:"fixed",top:160, left:50 }}>
                         <Grid item sx={{ marginLeft: 2 }}>
                           {" "}
                           <Button
@@ -241,7 +248,7 @@ const AddUser = () => {
                         <Grid
                           item
                           className="main"
-                          sx={{ marginLeft: 18, marginTop: -4.5 }}
+                          sx={{ marginLeft: 22, marginTop: -4.5 }}
                         >
                           {" "}
                           <Button
@@ -856,7 +863,7 @@ const AddUser = () => {
                     <TextField
                       id="outlined-basic"
                       name="phone_number"
-                      type="number"
+                      type="tel"
                       value={phone_number}
                       label="Phone Number"
                       onChange={handleInputChange}
@@ -937,9 +944,9 @@ const AddUser = () => {
                         <MenuItem value="">
                           <em>None</em>
                         </MenuItem>
-                        <MenuItem value={"Vennela"}>Vennela</MenuItem>
-                        <MenuItem value={"Harsha"}>Harsha</MenuItem>
-                        <MenuItem value={"Prashanth"}>Prashanth</MenuItem>
+                        <MenuItem value={"Olivia Rhye"}>Olivia Rhye</MenuItem>
+                        <MenuItem value={"John"}>John</MenuItem>
+                        <MenuItem value={"Mark"}>Mark</MenuItem>
                       </Select>
                     </FormControl>
                   </Box>

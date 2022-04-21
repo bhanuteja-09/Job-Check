@@ -92,6 +92,7 @@ const EditUser = () => {
         <form onSubmit={handleSubmit}>
           <Typography>Title</Typography>
           <TextField
+          label="Title"
             marginTop={1}
             name="title"
             value={title}
@@ -104,6 +105,7 @@ const EditUser = () => {
           <Stack sx={{ width: 300, marginTop: 1 }}>
             <Select
               value={state.choose_existing_requirement}
+              label="choose_existing_requirementt"
               name="choose_existing_requirementt"
               onChange={(e) =>
                 setState({
@@ -127,6 +129,7 @@ const EditUser = () => {
           <br />
           <Typography>Job Title</Typography>
           <TextField
+          label="Job Title"
             id="standard-basic"
             name="job_title"
             value={job_title}
@@ -135,6 +138,7 @@ const EditUser = () => {
           <Typography sx={{ marginTop: "0.5rem" }}>Employment Type</Typography>
           <Stack sx={{ width: 300, marginTop: 1 }}>
             <Select
+            label="Type"
               value={state.employment_type}
               name="employment_type"
               onChange={(e) =>
@@ -175,6 +179,7 @@ const EditUser = () => {
                 <Select
                   value={state.currency}
                   name="currency"
+                  label="currency"
                   onChange={(e) =>
                     setState({ ...state, currency: e.target.value })
                   }
@@ -191,6 +196,7 @@ const EditUser = () => {
 
                 <TextField
                   sx={{ marginTop: 1 }}
+                  label="minimum_salary"
                   type="number"
                   name="minimum_salary"
                   value={minimum_salary}
@@ -206,6 +212,7 @@ const EditUser = () => {
                 <TextField
                   sx={{ marginTop: 1 }}
                   type="number"
+                  label="maximum_salary"
                   name="maximum_salary"
                   value={maximum_salary}
                   onChange={handleInputChange}
@@ -244,6 +251,7 @@ const EditUser = () => {
               <Select
                 value={state.job_location}
                 name="job_location"
+                label="job_location"
                 onChange={(e) =>
                   setState({ ...state, job_location: e.target.value })
                 }
@@ -259,6 +267,7 @@ const EditUser = () => {
               <Select
                 value={state.industry}
                 name="industry"
+                label="industry"
                 onChange={(e) =>
                   setState({ ...state, industry: e.target.value })
                 }
@@ -276,6 +285,7 @@ const EditUser = () => {
               <Select
                 value={state.functional_area}
                 name="functional_area"
+                label="functional_area"
                 onChange={(e) =>
                   setState({ ...state, functional_area: e.target.value })
                 }
@@ -296,6 +306,7 @@ const EditUser = () => {
               sx={{ marginTop: 1.3 }}
               type="number"
               name="vacancies"
+              label="vacancies"
               value={vacancies}
               defaultValue="1"
               onChange={handleInputChange}

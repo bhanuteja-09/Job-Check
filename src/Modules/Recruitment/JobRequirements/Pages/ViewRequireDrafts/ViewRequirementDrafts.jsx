@@ -1,20 +1,10 @@
 import React,{useEffect, useState} from 'react'
-import { styled } from '@mui/material/styles';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
+import {TableBody,TableHead,TableContainer,TableRow,Paper,Table,Grid,Button, Container,Typography,IconButton,InputBase,TableSortLabel,styled } from '@mui/material';
 import TableCell, { tableCellClasses } from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
 import { useDispatch, useSelector } from 'react-redux';
 import { draftUsers } from './Action';
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
-import Chip from '@mui/material/Chip';
-import {Button, Container,Typography,IconButton,InputBase } from "@mui/material";
-import Grid from "@mui/material/Grid"
 import SearchIcon from '@mui/icons-material/Search';
-import { TableSortLabel } from '@mui/material';
 import ArrowBackIosOutlinedIcon from '@mui/icons-material/ArrowBackIosOutlined';
 import {useNavigate } from 'react-router-dom';
 
@@ -118,23 +108,23 @@ const { drafts } =useSelector(state => state.draft)
           </TableRow>
         </TableHead>
         <TableBody>
-        {drafts.filter(draft =>draft.Requirement.toLowerCase().includes(search.toLowerCase()))
+        {drafts
             .map((draft) => (
                 <StyledTableRow key={draft.id}>
                   <StyledTableCell component="th" scope="row">
-                    <b>{draft.Requirement}</b> <br/> {draft.No}
+                    <b>{draft.title}</b> <br/> 
                   </StyledTableCell>
-                  <StyledTableCell align="left">{draft.TotalPositions}</StyledTableCell>
+                  <StyledTableCell align="left">{draft.vacancies}</StyledTableCell>
                   <StyledTableCell align="left">
-                    {draft.Positionsclosed}
+                    {draft.positions_closed}
                   </StyledTableCell>
-                  <StyledTableCell align="left"><Chip label={draft.Status} color="success" variant="outlined"/></StyledTableCell>
-              <StyledTableCell align="left" > {draft.Assignedto} </StyledTableCell>
+                  <StyledTableCell align="left">{draft.status}</StyledTableCell>
+              <StyledTableCell align="left" > {draft.select_recruiters} </StyledTableCell>
                   <StyledTableCell align="left">
                     {draft.LastModified}
                   </StyledTableCell>
 
-                  <StyledTableCell align="left"><Button sx={{color: 'black'}}><EditOutlinedIcon/></Button>{draft.Actions}</StyledTableCell>
+                  <StyledTableCell align="left"><Button sx={{color: 'black'}}><EditOutlinedIcon/></Button></StyledTableCell>
             </StyledTableRow>
           ))}
         </TableBody>

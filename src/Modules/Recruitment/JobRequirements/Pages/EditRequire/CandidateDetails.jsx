@@ -79,7 +79,7 @@ const CandidateDetails = () => {
           <br /> <br />
           <form onSubmit={handleSubmit}>
             <div>
-              <Typography variant="h5" component="h5">
+              <Typography variant="h5" component="h5">           
                 Candidate Details
               </Typography>
               <Box sx={{ width: "100%" }}>
@@ -118,6 +118,7 @@ const CandidateDetails = () => {
                       <Select
                         value={state.educational_qualifications}
                         name="educational_qualifications"
+                        label="Educational Qualifications"
                         onChange={(e) =>
                           setState({
                             ...state,
@@ -173,6 +174,7 @@ const CandidateDetails = () => {
                       <Select
                         value={state.must_have_keywords}
                         name="must_have_keywords"
+                        label="Must-Have Keywords"
                         onChange={(e) =>
                           setState({
                             ...state,
@@ -201,6 +203,7 @@ const CandidateDetails = () => {
                       <Select
                         value={state.optional_keywords}
                         name="optional_keywords"
+                        label="Optional Keywords"
                         onChange={(e) =>
                           setState({
                             ...state,
@@ -229,6 +232,7 @@ const CandidateDetails = () => {
                         <Select
                           value={state.questionnaire}
                           name="questionnaire"
+                          label="Questionnaire"
                           onChange={(e) =>
                             setState({
                               ...state,
