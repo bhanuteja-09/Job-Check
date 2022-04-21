@@ -863,7 +863,7 @@ const AddUser = () => {
                     <TextField
                       id="outlined-basic"
                       name="phone_number"
-                      type="number"
+                      type="tel"
                       value={phone_number}
                       label="Phone Number"
                       onChange={handleInputChange}
@@ -941,12 +941,12 @@ const AddUser = () => {
                         label="Select Recruiters"
                         onChange={handleInputChange}
                       >
-                         <MenuItem value="">
-                      <em>None</em>
-                    </MenuItem>
-                    <MenuItem value={"Olivia Rhye"}>Olivia Rhye</MenuItem>
-                    <MenuItem value={"John"}>John</MenuItem>
-                    <MenuItem value={"Mark"}>Mark</MenuItem>
+                        <MenuItem value="">
+                          <em>None</em>
+                        </MenuItem>
+                        <MenuItem value={"Olivia Rhye"}>Olivia Rhye</MenuItem>
+                        <MenuItem value={"John"}>John</MenuItem>
+                        <MenuItem value={"Mark"}>Mark</MenuItem>
                       </Select>
                     </FormControl>
                   </Box>

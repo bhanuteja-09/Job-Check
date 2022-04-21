@@ -79,7 +79,7 @@ const CandidateDetails = () => {
           <br /> <br />
           <form onSubmit={handleSubmit}>
             <div>
-              <Typography variant="h5" component="h5">
+              <Typography variant="h5" component="h5">           
                 Candidate Details
               </Typography>
               <Box sx={{ width: "100%" }}>
