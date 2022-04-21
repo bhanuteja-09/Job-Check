@@ -94,6 +94,11 @@ function EditSubscriptions(props) {
     Product: "",
     About: "",
     Actions: "",
+    JobPosts:"",
+    Downloads:"",
+    PricingType:"",
+    Price:"",
+    Duration:""
   });
 
   const handleSubmit = (e) => {
@@ -252,12 +257,20 @@ function EditSubscriptions(props) {
               <Box paddingLeft={4}>
                 <label htmlFor="text">Job Post</label>
 
-                <TextField size="small" margin="dense" fullWidth />
+                <TextField size="small" margin="dense" fullWidth
+                value={state.JobPosts || ""}
+                onChange={(e) =>
+                  setState({ ...state, JobPosts: e.target.value })
+                } />
               </Box>
               <Box paddingLeft={4}>
                 <label htmlFor="text">Candidate Profile Download</label>
 
-                <TextField size="small" fullWidth margin="dense" />
+                <TextField size="small" fullWidth margin="dense"
+                value={state.Downloads || ""}
+                onChange={(e) =>
+                  setState({ ...state, Downloads: e.target.value })
+                } />
               </Box>
             </Box>
             <br />
@@ -277,23 +290,31 @@ function EditSubscriptions(props) {
                   <InputLabel>Pricing Type</InputLabel>
 
                   <Select
-                    value={state.Pricing || ""}
-                    onChange={(e) =>
-                      setState({ ...state, Pricing: e.target.value })
-                    }
-                    label="Pricing"
+                  
+                    label="PricingType"
                     fullWidth
                     size="small"
                     margin="dense"
+                    value={state.PricingType || ""}
+                    onChange={(e) =>
+                      setState({ ...state, PricingType: e.target.value })
+                    }
                   >
                     <MenuItem value={"1000"}>1000</MenuItem>
                     <MenuItem value={"2000"}>2000</MenuItem>
+                    <MenuItem value={"3000"}>3000</MenuItem>
+
                   </Select>
                 </Box>
                 <Box paddingLeft={4}>
                   <label htmlFor="text">Duration</label>
 
-                  <Select select size="small" margin="dense" fullWidth>
+                  <Select select size="small" margin="dense" 
+                  value={state.Duration || ""}
+                  onChange={(e) =>
+                    setState({ ...state, Duration: e.target.value })
+                  }
+                  fullWidth>
                     <MenuItem value={"2 Months"}>2 Months</MenuItem>
                     <MenuItem value={"4 Months"}>4 Months</MenuItem>
                     <MenuItem value={"6 Months"}>6 Months</MenuItem>
@@ -304,7 +325,11 @@ function EditSubscriptions(props) {
                 <Box paddingLeft={4}>
                   <label htmlFor="text">Price</label>
 
-                  <TextField margin="dense" size="small" fullWidth />
+                  <TextField margin="dense" size="small" fullWidth 
+                  value={state.Price || ""}
+                  onChange={(e) =>
+                    setState({ ...state, Price: e.target.value })
+                  }/>
                 </Box>
               </Box>
             </Box>

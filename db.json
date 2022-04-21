@@ -23,7 +23,7 @@
       "contact_person": "John Doe",
       "company_name": "Pratian",
       "phone_number": "9347128456",
-      "about_company": "Company",
+      "about_company": "",
       "company_website": "www.pratian.com",
       "select_recruiters": "Mark",
       "positions_closed": 4,
@@ -93,6 +93,36 @@
       "status": "Active",
       "id": 3,
       "LastModified": "2 Feb 2022"
+    },
+    {
+      "title": "",
+      "choose_existing_requirement": "",
+      "job_title": "",
+      "job_location": "",
+      "employment_type": "",
+      "industry": "",
+      "functional_area": "",
+      "description": "",
+      "currency": "",
+      "minimum_salary": "",
+      "maximum_salary": "",
+      "vacancies": "",
+      "brief_candidate_description": "",
+      "educational_qualifications": "",
+      "minimum": "",
+      "maximum": "",
+      "must_have_keywords": "",
+      "optional_keywords": "",
+      "questionnaire": "",
+      "contact_person": "",
+      "company_name": "",
+      "phone_number": "",
+      "about_company": "",
+      "company_website": "",
+      "select_recruiters": "",
+      "positions_closed": 3,
+      "status": "InActive",
+      "id": 4
     }
   ],
   "draft": [
@@ -161,35 +191,47 @@
     {
       "Subscription": "Free",
       "Status": "Active",
-      "BaseCredits": "100",
-      "LastUpdated": "2022-04-24",
+      "BaseCredits": "1000",
+      "LastUpdated": "2022-04-21",
       "Product": "Pratian",
-      "About": "This is for small firm ",
+      "About": "free",
       "Actions": "",
-      "id": 4,
-      "Pricing": "1000"
+      "JobPosts": "20",
+      "Downloads": "20",
+      "PricingType": "1000",
+      "Price": "200",
+      "Duration": "2 Months",
+      "id": 7
     },
     {
-      "Subscription": "Freemium",
+      "Subscription": "Free",
       "Status": "Active",
-      "BaseCredits": "100",
-      "LastUpdated": "2022-04-11",
+      "BaseCredits": "1000",
+      "LastUpdated": "2022-04-21",
       "Product": "Jobcheck",
-      "About": "This is Freemium Subscription",
+      "About": "small",
       "Actions": "",
-      "id": 5,
-      "Pricing": "1000"
+      "JobPosts": "2020",
+      "Downloads": "20",
+      "PricingType": "1000",
+      "Price": "200",
+      "Duration": "2 Months",
+      "id": 8
     },
     {
-      "Subscription": "Premium",
-      "Status": "Active",
-      "BaseCredits": "20",
-      "LastUpdated": "2022-04-22",
-      "Product": "Jobcheck",
-      "About": "This is Premium Subscription",
+      "Subscription": "",
+      "Status": "In Active",
+      "BaseCredits": "",
+      "LastUpdated": "",
+      "Product": "",
+      "About": "",
       "Actions": "",
-      "id": 8,
-      "Pricing": "1000"
+      "JobPosts": "",
+      "Downloads": "",
+      "PricingType": "",
+      "Price": "",
+      "Duration": "",
+      "id": 9
     }
   ],
   "post": [
@@ -199,8 +241,8 @@
       "TotalPositions": "10",
       "Positionsclosed": "5",
       "Status": "Active",
-      "Assignedto":"Olivia Rhye",
-      "About":"Java Developer with 1 years exper..",
+      "Assignedto": "Olivia Rhye",
+      "About": "Java Developer with 1 years exper..",
       "id": 1
     },
     {
@@ -209,8 +251,8 @@
       "TotalPositions": "10",
       "Positionsclosed": "10",
       "Status": "In Active",
-      "Assignedto":"Olivia Rhye",
-      "About":"Devops engineer with 1 years exp..",
+      "Assignedto": "Olivia Rhye",
+      "About": "Devops engineer with 1 years exp..",
       "id": 2
     },
     {
@@ -219,19 +261,18 @@
       "TotalPositions": "5",
       "Positionsclosed": "3",
       "Status": "Active",
-      "Assignedto":"Olivia Rhye",
-      "About":"Data Analyst with 1 years exp..",
+      "Assignedto": "Olivia Rhye",
+      "About": "Data Analyst with 1 years exp..",
       "id": 3
     },
-
     {
       "JobPosts": "HR Manager",
       "No": "hourglass.app",
       "TotalPositions": "6",
       "Positionsclosed": "5",
       "Status": "Active",
-      "Assignedto":"Olivia Rhye",
-      "About":"HR Manager with 1 years exp..",
+      "Assignedto": "Olivia Rhye",
+      "About": "HR Manager with 1 years exp..",
       "id": 4
     },
     {
@@ -240,8 +281,8 @@
       "TotalPositions": "1",
       "Positionsclosed": "1",
       "Status": "In Active",
-      "Assignedto":"Olivia Rhye",
-      "About":"Product Designer with 1 years exp..",
+      "Assignedto": "Olivia Rhye",
+      "About": "Product Designer with 1 years exp..",
       "id": 5
     },
     {
@@ -250,8 +291,8 @@
       "TotalPositions": "12",
       "Positionsclosed": "10",
       "Status": "Active",
-      "Assignedto":"Olivia Rhye",
-      "About":"Sales CRM with 1 years exp..",
+      "Assignedto": "Olivia Rhye",
+      "About": "Sales CRM with 1 years exp..",
       "id": 6
     },
     {
@@ -260,12 +301,11 @@
       "TotalPositions": "6",
       "Positionsclosed": "5",
       "Status": "Closed",
-      "Assignedto":"Olivia Rhye",
-      "About":"Automation engineer with 1 years exp..",
+      "Assignedto": "Olivia Rhye",
+      "About": "Automation engineer with 1 years exp..",
       "id": 7
     }
   ],
-
   "comments": [
     {
       "id": "Total",
