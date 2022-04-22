@@ -26,9 +26,9 @@ COPY nginx/nginx.conf /etc/nginx/conf.d
 
 #fire for nginx
 EXPOSE 80
-#CMD [ "nginx","-g","daemon off;" ]
+CMD [ "nginx","-g","daemon off;" ]
 
-CMD json-server --watch admin_portal_job-check_web/db.json --routes admin_portal_job-check_web/src/Routes/MyRouter.js --port 5000 --host 0.0.0.0
+#CMD json-server --watch admin_portal_job-check_web/db.json --routes admin_portal_job-check_web/src/Routes/MyRouter.js --port 5000 --host 0.0.0.0
 
  
 # Copy a configuration file from the current directory
