@@ -18,7 +18,7 @@ const requirementReducers = (state = initialState, action) => {
         Requirements: action.payload,
         loading: false,
       };
-    // case types.DELETE_REQUIREMENT:
+    case types.DELETE_REQUIREMENT:
     case types.ADD_REQUIREMENT:
     case types.UPDATE_REQUIREMENT:
       return {

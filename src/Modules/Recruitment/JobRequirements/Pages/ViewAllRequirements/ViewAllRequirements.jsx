@@ -1,14 +1,14 @@
 import React, { useEffect,useState } from "react";
 import { styled,Table,TableBody,TableContainer,TableCell,tableCellClasses,TableHead,TableRow,Paper,Button,Stack, Container,Grid,Typography,IconButton,InputBase,TableSortLabel } from "@mui/material";
 import { useSelector, useDispatch } from "react-redux";
-import {  loadRequirements, sortRequirement} from "../Home/Actions/actions";
+import {  loadRequirements, sortRequirement,deleteRequirement} from "../Home/Actions/actions";
 import { useNavigate } from "react-router-dom";
 import EditIcon from '@mui/icons-material/Edit';
 import SearchIcon from '@mui/icons-material/Search';
 import Filter from "../FilterRequirements/FilterRequirement";
 import DriveFileRenameOutlineIcon from '@mui/icons-material/DriveFileRenameOutline';
 import ViewRequirementStats from "../ViewRequireStats/ViewRequirementStats"
-// import DeleteIcon from "@mui/icons-material/Delete"
+import DeleteIcon from "@mui/icons-material/Delete"
 
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -41,11 +41,11 @@ const Home = () => {
   },[]);
 
   // Delete function
-  // const handleDelete = (id) => {
-  //   if (window.confirm("Are you sure you wanted to delete the user?")) {
-  //     dispatch(deleteRequirement(id));
-  //   }
-  // };
+  const handleDelete = (id) => {
+    if (window.confirm("Are you sure you wanted to delete the user?")) {
+      dispatch(deleteRequirement(id));
+    }
+  };
  
   const [search,setSearch]=useState("")
   const handleSort =(value) =>{
@@ -144,7 +144,7 @@ const Home = () => {
                     <Stack direction="row" spacing={1} >
 
                       {/* delete Button */}
-                    {/* <Button
+                    <Button
                           sx={[
                             { border: "none",color:"black" },
                             {
@@ -158,7 +158,7 @@ const Home = () => {
                           onClick={() => handleDelete(user.id)}
                         >
                           <DeleteIcon />
-                        </Button> */}
+                        </Button>
                       <Button sx={{color:'black'}}
                       onClick={() => navigate(`/editrequirement/${user.id}`)}
                       >
