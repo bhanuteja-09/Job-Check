@@ -5,7 +5,7 @@ function ViewJobPostStatistics() {
 
   const [pageCount, setpageCount] = useState(0);
 
-  let limit = 10;
+  var limit = 10;
 
   useEffect(() => {
     const getComments = async () => {

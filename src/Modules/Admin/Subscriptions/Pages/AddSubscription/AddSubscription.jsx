@@ -47,6 +47,11 @@ function AddSubscription(props) {
     Product: "",
     About: "",
     Actions: "",
+    JobPosts: "",
+    Downloads: "",
+    PricingType: "",
+    Price: "",
+    Duration: ""
   });
   const commonStyles = {
     display: "flex-column",
@@ -114,7 +119,7 @@ function AddSubscription(props) {
                 onChange={(e) =>
                   setState({ ...state, Subscription: e.target.value })
                 }
-                placeholder="Premium"
+
                 variant="outlined"
                 size="small"
                 margin="dense"
@@ -218,7 +223,7 @@ function AddSubscription(props) {
                 onChange={(e) =>
                   setState({ ...state, BaseCredits: e.target.value })
                 }
-                placeholder="1000"
+
                 size="small"
                 margin="dense"
                 fullWidth
@@ -229,9 +234,13 @@ function AddSubscription(props) {
 
               <TextField
                 id="post"
-                placeholder="20"
+
                 size="small"
                 margin="dense"
+                value={state.JobPosts}
+                onChange={(e) =>
+                  setState({ ...state, JobPosts: e.target.value })
+                }
                 fullWidth
               />
             </Box>
@@ -240,10 +249,14 @@ function AddSubscription(props) {
 
               <TextField
                 id="download"
-                placeholder="20"
+
                 size="small"
                 fullWidth
                 margin="dense"
+                value={state.Downloads}
+                onChange={(e) =>
+                  setState({ ...state, Downloads: e.target.value })
+                }
               />
             </Box>
           </Box>
@@ -264,16 +277,19 @@ function AddSubscription(props) {
                 <InputLabel id="pricing">Pricing Type</InputLabel>
 
                 <Select
-                  value={state.pricing}
+
                   label="Pricing"
                   size="small"
                   margin="dense"
                   fullWidth
-                  onChange={handleChange}
+                  value={state.PricingType || ""}
+                  onChange={(e) =>
+                    setState({ ...state, PricingType: e.target.value })
+                  }
                 >
-                  <MenuItem value={10}>1000</MenuItem>
-                  <MenuItem value={20}>2000</MenuItem>
-                  <MenuItem value={30}>3000</MenuItem>
+                  <MenuItem value={"1000"}>1000</MenuItem>
+                  <MenuItem value={"2000"}>2000</MenuItem>
+                  <MenuItem value={"3000"}>3000</MenuItem>
                 </Select>
               </Box>
               <Box paddingLeft={4}>
@@ -286,6 +302,10 @@ function AddSubscription(props) {
                   size="small"
                   margin="dense"
                   fullWidth
+                  value={state.Duration}
+                  onChange={(e) =>
+                    setState({ ...state, Duration: e.target.value })
+                  }
                 >
                   <MenuItem value={"2 Months"}>2 Months</MenuItem>
                   <MenuItem value={"4 Months"}>4 Months</MenuItem>
@@ -300,9 +320,13 @@ function AddSubscription(props) {
                 <TextField
                   id="price"
                   margin="dense"
-                  placeholder="1000"
+
                   size="small"
                   fullWidth
+                  value={state.Price || ""}
+                  onChange={(e) => {
+                    setState({ ...state, Price: e.target.value });
+                  }}
                 />
               </Box>
             </Box>

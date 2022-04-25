@@ -84,7 +84,7 @@ const ViewAllJobPostss = () => {
         sx={{
           display: "flex",
           alignItems: "right",
-          width: 160,
+          width: 190,
           marginLeft: 119,
           height: 45,
         }}

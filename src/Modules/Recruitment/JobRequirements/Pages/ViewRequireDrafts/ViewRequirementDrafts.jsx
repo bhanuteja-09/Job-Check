@@ -42,9 +42,7 @@ const { drafts } =useSelector(state => state.draft)
       },[])
 
       const [search,setSearch]=useState("")
-    //   const handleSort =(value) =>{
-    //     dispatch(sortDraft(value))
-    //   }
+    
 
       
   return (
@@ -108,7 +106,7 @@ const { drafts } =useSelector(state => state.draft)
           </TableRow>
         </TableHead>
         <TableBody>
-        {drafts
+        {drafts.filter(user =>user.select_recruiters.toLowerCase().includes(search.toLowerCase()))
             .map((draft) => (
                 <StyledTableRow key={draft.id}>
                   <StyledTableCell component="th" scope="row">

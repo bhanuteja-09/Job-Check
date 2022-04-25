@@ -13,6 +13,8 @@ COPY . /app/
 
 RUN npm install
 #RUN npm i eslint-plugin-flowtype
+RUN npm start
+
 RUN npm run-script build
 
 #prepare nginx
@@ -22,9 +24,13 @@ COPY --from=build /app/build /usr/share/nginx/html
 RUN rm /etc/nginx/conf.d/default.conf
 COPY nginx/nginx.conf /etc/nginx/conf.d
 
+
 #fire for nginx
 EXPOSE 80
 CMD [ "nginx","-g","daemon off;" ]
+
+
+
  
 # Copy a configuration file from the current directory
 #ADD nginx.conf /etc/nginx/

@@ -3,7 +3,7 @@ import TextField from "@mui/material/TextField";
 import { Button, MenuItem, Typography } from "@mui/material";
 import { useNavigate } from "react-router";
 import { useDispatch } from "react-redux";
-import { addRequirement } from "../Home/Actions/actions";
+import { addRequiremets } from "../Home/Actions/actions";
 import Reimage from '../../../../../Assets/Images/Reimage.png';
 import {addRequirementDraft} from "../ViewRequireDrafts/Action"
 import {
@@ -16,7 +16,6 @@ import {
   Modal,
   Stack,
   Box,
-  Autocomplete,
   Checkbox,
   FormControlLabel,
   FormGroup,
@@ -119,10 +118,10 @@ const AddUser = () => {
   const handleCl = () => setOp(false);
   const handleChange = () => setOp(true);
  
-  // Dispatching The Data
+  
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(addRequirement(state));
+    dispatch(addRequiremets(state));
     navigate("/Requirements");
     setError(" ");
   };
@@ -144,7 +143,7 @@ const AddUser = () => {
               <br />
               <Typography
                 variant="OVERLINE"
-                sx={{ position: "relative"}}
+                sx={{ position: "relative" ,top:5}}
               >
                 After you complete the requirement, publish it so other
                 recruiters can access it

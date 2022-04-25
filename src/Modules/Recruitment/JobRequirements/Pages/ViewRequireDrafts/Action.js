@@ -1,5 +1,6 @@
-import axios from "axios";
+
 import * as types from "./ActionType";
+import db from "../../../../../firebase"
 
 
 const getDrafts =(drafts) => ({
@@ -12,23 +13,21 @@ const requirementDraftAdded = () => ({
 })
 
 
-export const draftUsers =(draft) => {
-    return function (dispatch){
-        axios.get(`${process.env.REACT_APP_API_drafts}`)
-        .then((resp) => {
-            console.log("resp", resp)
-            dispatch(getDrafts(resp.data));
-        })
-        .catch((error) => console.log(error));  
-    };
-    };
-    export const addRequirementDraft = (draft) => {
-        return function (dispatch) {
-            axios.post(`${process.env.REACT_APP_API_drafts}`,draft).then((resp) => {
-                console.log("resp", resp)
-                dispatch(requirementDraftAdded());
-                dispatch(draftUsers());
+export const draftUsers = () => {
+    return function (dispatch) {
+        db.collection("Requirement").onSnapshot((querySnapshot)=>{
+            const Requirement=[]
+            querySnapshot.forEach((doc)=>{
+                Requirement.push({...doc.data(),id:doc.id})
             })
-            .catch((error) => console.log(error));
-        };
-    };
+            dispatch(getDrafts(Requirement))
+        })
+    }
+}
+    export const addRequirementDraft = (Requirement) =>{
+        return function (dispatch){
+            db.collection("Draft").doc().set(Requirement);
+            dispatch(requirementDraftAdded());
+        }
+    
+    }

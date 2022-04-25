@@ -265,7 +265,7 @@ const CandidateDetails = () => {
                 color="secondary"
                 variant="contained"
                 type="submit"
-                onClick={() => navigate("/editrequirement/:id")}
+                onClick={() => navigate(`/editrequirement/${id}`)}
               >
                 Back
               </Button>
@@ -281,7 +281,7 @@ const CandidateDetails = () => {
               <Button
                 variant="contained"
                 endIcon={<ArrowForwardIosIcon />}
-                onClick={() => navigate(`/AdditionalDetails/${user.id}`)}
+                onClick={() => navigate(`/AdditionalDetails/${id}`)}
               >
                 Educational Details
               </Button>

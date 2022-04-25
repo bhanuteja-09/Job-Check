@@ -337,7 +337,7 @@ const EditUser = () => {
               <Button
                 variant="contained"
                 endIcon={<ArrowForwardIosIcon />}
-                onClick={() => navigate(`/CandidateDetails/${user.id}`)}
+                onClick={() => navigate(`/CandidateDetails/${id}`)}
               >
                 Candidate Details
               </Button>

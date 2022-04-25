@@ -101,7 +101,11 @@ const ViewSIngleSubscription = () => {
     Product: "",
     About: "",
     Actions: "",
-    Pricing: "",
+    JobPosts:"",
+    Downloads:"",
+    PricingType:"",
+    Price:"",
+    Duration:""
   });
 
   const handleSubmit = (e) => {
@@ -285,6 +289,8 @@ const ViewSIngleSubscription = () => {
                   size="small"
                   margin="dense"
                   fullWidth
+                  value={state.JobPosts || ""}
+                  onChange={(e) => setState({ ...state, JobPosts: e.target.value })}
                 />
               </Box>
               <Box paddingLeft={4}>
@@ -296,6 +302,8 @@ const ViewSIngleSubscription = () => {
                   disabled={isdisabled}
                   fullWidth
                   margin="dense"
+                  value={state.Downloads || ""}
+                  onChange={(e) => setState({ ...state, Downloads: e.target.value })}
                 />
               </Box>
             </Box>
@@ -319,17 +327,20 @@ const ViewSIngleSubscription = () => {
 
                       <Select
                         disabled={isdisabled}
-                        value={state.Pricing || ""}
-                        onChange={(e) =>
-                          setState({ ...state, Pricing: e.target.value })
-                        }
+                        
                         label="Pricing"
                         fullWidth
                         size="small"
                         margin="dense"
+                        value={state.PricingType || ""}
+                        onChange={(e) =>
+                          setState({ ...state, PricingType: e.target.value })
+                        }
                       >
                         <MenuItem value={"1000"}>1000</MenuItem>
                         <MenuItem value={"2000"}>2000</MenuItem>
+                        <MenuItem value={"3000"}>3000</MenuItem>
+
                       </Select>
                     </Box>
                   </Grid>
@@ -343,6 +354,8 @@ const ViewSIngleSubscription = () => {
                         size="small"
                         margin="dense"
                         fullWidth
+                        value={state.Duration || ""}
+                        onChange={(e) => setState({ ...state, Duration: e.target.value })}
                       >
                         <MenuItem value={"2 Months"}>2 Months</MenuItem>
                         <MenuItem value={"4 Months"}>4 Months</MenuItem>
@@ -361,6 +374,8 @@ const ViewSIngleSubscription = () => {
                         margin="dense"
                         size="small"
                         fullWidth
+                        value={state.Price || ""}
+                        onChange={(e) => setState({ ...state, Price: e.target.value })}
                       />
                     </Box>
                   </Grid>

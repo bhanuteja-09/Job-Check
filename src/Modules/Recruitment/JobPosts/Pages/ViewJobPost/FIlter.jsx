@@ -3,11 +3,7 @@ import FilterListIcon from "@mui/icons-material/FilterList";
 import { useDispatch } from "react-redux";
 import { filterPost, loadPosts } from "../../Pages/Home/Actions/action";
 import { Button } from "@mui/material";
-import ClearIcon from "@mui/icons-material/Clear";
-import ClickAwayListener from "@mui/material/ClickAwayListener";
-import Box from "@mui/material/Box";
 
-import Portal from "@mui/material/Portal";
 
 const Filter = () => {
   let dispatch = useDispatch();
@@ -18,29 +14,9 @@ const Filter = () => {
     dispatch(loadPosts());
   };
 
-  const [open, setOpen] = React.useState(false);
+  
 
-  const handleClick = () => {
-    setOpen((prev) => !prev);
-  };
-
-  const handleClickAway = () => {
-    setOpen(false);
-  };
-
-  const styles = {
-    position: "fixed",
-    width: 200,
-    top: "30%",
-    left: "50%",
-    transform: "translate(-50%, -50%)",
-    border: "1px solid",
-    p: 1,
-    bgcolor: "background.paper",
-    backgroundColor: "white",
-  };
-
-  return (
+return (
     <>
       <Button
         onClick={handleReset}
