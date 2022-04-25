@@ -5,11 +5,17 @@ import { filterRequirement, loadRequirements } from "../Home/Actions/actions";
 import { Button,Menu,MenuItem, Divider } from "@mui/material";
 import PopupState, { bindTrigger, bindMenu } from 'material-ui-popup-state';
 import ClearOutlinedIcon from '@mui/icons-material/ClearOutlined';
+import db from "../../../../../firebase";
 
 const Filter = () => {
   let dispatch = useDispatch();
   const handleFilter = (value) => {
-    dispatch(filterRequirement(value));
+    // dispatch(filterRequirement(value));
+    db.collection("Requirement")
+    .where("status", "==", {value})
+              
+    
+        
   };
   const handleReset = () => {
     dispatch(loadRequirements());

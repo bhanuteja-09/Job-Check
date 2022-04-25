@@ -15,7 +15,7 @@ const requirementDraftAdded = () => ({
 
 export const draftUsers = () => {
     return function (dispatch) {
-        db.collection("Draft").onSnapshot((querySnapshot)=>{
+        db.collection("RequirementAsDraft").onSnapshot((querySnapshot)=>{
             const Draft=[]
             querySnapshot.forEach((doc)=>{
                 Draft.push({...doc.data(),id:doc.id})
@@ -26,7 +26,7 @@ export const draftUsers = () => {
 }
     export const addRequirementDraft = (Draft) =>{
         return function (dispatch){
-            db.collection("Draft").doc().set(Draft);
+            db.collection("RequirementAsDraft").doc().set(Draft);
             dispatch(requirementDraftAdded());
         }
     

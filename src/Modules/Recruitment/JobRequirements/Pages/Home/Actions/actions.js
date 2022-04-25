@@ -29,6 +29,11 @@ const sort = (Requirements) => ({
     payload:Requirements,
     
 })
+const getTotal =(Requirement)=>({
+    type:types.GET_TOTALREQUIREMENTS,
+    payload:Requirement,
+
+})
 
 
 
@@ -51,8 +56,10 @@ export const loadRequirements = () => {
             querySnapshot.forEach((doc)=>{
                 Requirement.push({...doc.data(),id:doc.id})
             })
-            dispatch(getRequirements(Requirement))
-        })
+            const Total = Requirement.length
+           dispatch(getRequirements(Requirement))
+            dispatch(getTotal(Total))
+        })  
     }
 }
 // Add Requirement Function
@@ -60,6 +67,7 @@ export const addRequiremets = (Requirement) =>{
     return function (dispatch){
         db.collection("Requirement").doc().set(Requirement);
         dispatch(requirementAdded());
+        
     }
 
 }
@@ -94,10 +102,10 @@ export const filterRequirement = (status) => {
         db.collection("Requirement")
         .where("status", "==", "Active")
             
-    }
+       
        
         
-    
+    }
 }
 
 

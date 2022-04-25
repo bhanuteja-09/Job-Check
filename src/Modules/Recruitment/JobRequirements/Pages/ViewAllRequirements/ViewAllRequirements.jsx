@@ -36,8 +36,10 @@ const Home = () => {
   let dispatch = useDispatch();
   let navigate= useNavigate();
   const { Requirements } = useSelector((state) => state.requirement);
+  console.log(Requirements)
   useEffect(() => {
     dispatch(loadRequirements());
+    
   },[]);
 
   // Delete function

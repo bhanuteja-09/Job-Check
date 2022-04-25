@@ -4,6 +4,7 @@ import * as types from "../Actions/actionType";
 const initialState = {
 Requirements: [],
   Requirement: {},
+  total:0,
   loading: false,
 };
 
@@ -31,6 +32,12 @@ const requirementReducers = (state = initialState, action) => {
         user: action.payload,
         loading: false,
       };
+      case types.GET_TOTALREQUIREMENTS:
+        return{
+          ...state,
+          total:action.payload,
+        }
+
       
 
     default:
