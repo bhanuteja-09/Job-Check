@@ -21,7 +21,7 @@
       "optional_keywords": "Hadoop",
       "questionnaire": "What is your experience ?",
       "contact_person": "John Doe",
-      "company_name": "Pratian",
+      "company_name": "pratian",
       "phone_number": "9347128456",
       "about_company": "Company",
       "company_website": "www.pratian.com",
@@ -199,8 +199,8 @@
       "TotalPositions": "10",
       "Positionsclosed": "5",
       "Status": "Active",
-      "Assignedto":"Olivia Rhye",
-      "About":"Java Developer with 1 years exper..",
+      "Assignedto": "Olivia Rhye",
+      "About": "Java Developer with 1 years exper..",
       "id": 1
     },
     {
@@ -209,8 +209,8 @@
       "TotalPositions": "10",
       "Positionsclosed": "10",
       "Status": "In Active",
-      "Assignedto":"Olivia Rhye",
-      "About":"Devops engineer with 1 years exp..",
+      "Assignedto": "Olivia Rhye",
+      "About": "Devops engineer with 1 years exp..",
       "id": 2
     },
     {
@@ -219,19 +219,18 @@
       "TotalPositions": "5",
       "Positionsclosed": "3",
       "Status": "Active",
-      "Assignedto":"Olivia Rhye",
-      "About":"Data Analyst with 1 years exp..",
+      "Assignedto": "Olivia Rhye",
+      "About": "Data Analyst with 1 years exp..",
       "id": 3
     },
-
     {
       "JobPosts": "HR Manager",
       "No": "hourglass.app",
       "TotalPositions": "6",
       "Positionsclosed": "5",
       "Status": "Active",
-      "Assignedto":"Olivia Rhye",
-      "About":"HR Manager with 1 years exp..",
+      "Assignedto": "Olivia Rhye",
+      "About": "HR Manager with 1 years exp..",
       "id": 4
     },
     {
@@ -240,8 +239,8 @@
       "TotalPositions": "1",
       "Positionsclosed": "1",
       "Status": "In Active",
-      "Assignedto":"Olivia Rhye",
-      "About":"Product Designer with 1 years exp..",
+      "Assignedto": "Olivia Rhye",
+      "About": "Product Designer with 1 years exp..",
       "id": 5
     },
     {
@@ -250,8 +249,8 @@
       "TotalPositions": "12",
       "Positionsclosed": "10",
       "Status": "Active",
-      "Assignedto":"Olivia Rhye",
-      "About":"Sales CRM with 1 years exp..",
+      "Assignedto": "Olivia Rhye",
+      "About": "Sales CRM with 1 years exp..",
       "id": 6
     },
     {
@@ -260,12 +259,11 @@
       "TotalPositions": "6",
       "Positionsclosed": "5",
       "Status": "Closed",
-      "Assignedto":"Olivia Rhye",
-      "About":"Automation engineer with 1 years exp..",
+      "Assignedto": "Olivia Rhye",
+      "About": "Automation engineer with 1 years exp..",
       "id": 7
     }
   ],
-
   "comments": [
     {
       "id": "Total",
