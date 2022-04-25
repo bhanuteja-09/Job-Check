@@ -1,50 +1,57 @@
-import { useEffect, useState } from "react";
+import { Card, CardContent, Typography } from '@mui/material'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+import { getCancel } from "../Redux/Actions/actions";
+import '../../../../../Assets/Styles/ViewJobPostStatistics.css';
 
 function ViewJobPostStatistics() {
-  const [items, setItems] = useState([]);
+    const dispatch = useDispatch();
+    const { total } = useSelector((state) => state.Job);
+    const { cancel } = useSelector((state) => state.Job);
+    const { JobPosts } = useSelector((state) => state.Job)
+    const inActive = JobPosts.filter((user) => user.status === "InActive");
+    const inActiveCount = inActive.length;
+    console.log("JobPostsInView" + JobPosts);
 
-  const [pageCount, setpageCount] = useState(0);
 
-  var limit = 10;
-
-  useEffect(() => {
-    const getComments = async () => {
-      const res = await fetch(
-        `  http://localhost:5000/comments`
-      );
-      const data = await res.json();
-      const total = res.headers.get("x-total-count");
-      setpageCount(Math.ceil(total / limit));
-      setItems(data);
-    };
-
-    getComments();
-  }, [limit]);
-
-  return (
-    <div className="container">
-      <div className="row m-2">
-        {items.map((item) => {
-          return (
-            <div
-              key={item.id}
-              className="col-sm-4 col-md-4 v my-2"
-              style={{ position: "relative" }}
-            >
-              <div className="card shadow-sm w-60" style={{ minHeight: 105 }}>
-                <div className="card-body">
-                  <p className="card-title text-center ">{item.id} </p>
-                  <h2 className="card-subtitle mb-2 text-muted text-center">
-                    {item.body}
-                  </h2>
-                </div>
-              </div>
+    useEffect(() => {
+        dispatch(getCancel(inActiveCount))
+    }, [cancel, JobPosts]);
+    return (
+        <div className='entire'>
+            <div className="cards" >
+                <Card className='c' elevation={5}>
+                    <CardContent>
+                        <Typography variant="subtitle1" component="h5" style={{
+                            color: "gray"
+                        }}>
+                            Total
+                        </Typography>
+                        <Typography variant="h4" component="h4" sx={{ display: 'flex', justifyContent: 'top', top: -0 }}>{total}</Typography>
+                    </CardContent>
+                </Card>
+                <Card className='c' elevation={5}>
+                    <CardContent>
+                        <Typography variant="subtitle1" component="h5" style={{
+                            color: "gray"
+                        }}>
+                            Closed
+                        </Typography>
+                        <Typography variant="h4" component="h4" sx={{ display: 'flex', justifyContent: 'top', top: -0 }}>0</Typography>
+                    </CardContent>
+                </Card>
+                <Card className='c' elevation={5} >
+                    <CardContent >
+                        <Typography variant="subtitle1" component="h5" sx={{
+                            color: "gray"
+                        }}>
+                            Cancelled
+                        </Typography>
+                        <Typography variant="h4" component="h4" sx={{ display: 'flex', justifyContent: 'top', top: -0 }}>{cancel}</Typography>
+                    </CardContent>
+                </Card>
             </div>
-          );
-        })}
-      </div>
-    </div>
-  );
+        </div>
+    )
 }
-
 export default ViewJobPostStatistics;

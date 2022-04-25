@@ -2,7 +2,7 @@ import { combineReducers } from "redux";
 import RequirementDraftReducer from "../Modules/Recruitment/JobRequirements/Pages/ViewRequireDrafts/RequirementDraftReducer";
 import requirementReducers from "../Modules/Recruitment/JobRequirements/Pages/Home/Reducers/RequirementReducer";
 import usersReducers from "../Modules/Admin/Subscriptions/Pages/Home/Reducers/Reducer";
-import postReducers from "../Modules/Recruitment/JobPosts/Pages/Home/Reducers/postReducers";
+import JobPostReducer from "../../src/Modules/Recruitment/JobPosts/Pages/Redux/Reducers/JobPostReducer"
 
 // Combined All Reducers
 
@@ -13,7 +13,7 @@ const rootReducer = combineReducers({
   // Subscription Reducers
   data: usersReducers,
   //Jobposts reducers
-  jobpost: postReducers,
+  Job: JobPostReducer,
 });
 
 export default rootReducer;

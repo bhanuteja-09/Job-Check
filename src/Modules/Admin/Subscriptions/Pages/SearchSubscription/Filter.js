@@ -7,8 +7,8 @@ import { Button } from "@mui/material";
 const Filter = () => {
 
     let dispatch = useDispatch();
-    const handleFilter = (users, id) => {
-        dispatch(filterUser(users, id));
+    const handleFilter = (Subscription) => {
+        dispatch(filterUser(Subscription));
     };
     const handleReset = () => {
         dispatch(loadUsers());

@@ -55,7 +55,7 @@ const commonStyles = {
 
 const ViewSIngleSubscription = () => {
   const { id } = useParams();
-  const { user } = useSelector((state) => state.data);
+  const { Subscription } = useSelector((state) => state.data);
   const [isdisabled, setIsdisabled] = useState(true);
 
   const [buttonText, setButtonText] = useState("Edit Subscriptions");
@@ -67,10 +67,10 @@ const ViewSIngleSubscription = () => {
   }, []);
 
   useEffect(() => {
-    if (user) {
-      setState({ ...user });
+    if (Subscription) {
+      setState({ ...Subscription });
     }
-  }, [user]);
+  }, [Subscription]);
 
   const handleEnable = () => {
     setIsdisabled(false);
@@ -101,11 +101,11 @@ const ViewSIngleSubscription = () => {
     Product: "",
     About: "",
     Actions: "",
-    JobPosts:"",
-    Downloads:"",
-    PricingType:"",
-    Price:"",
-    Duration:""
+    JobPosts: "",
+    Downloads: "",
+    PricingType: "",
+    Price: "",
+    Duration: ""
   });
 
   const handleSubmit = (e) => {
@@ -327,7 +327,7 @@ const ViewSIngleSubscription = () => {
 
                       <Select
                         disabled={isdisabled}
-                        
+
                         label="Pricing"
                         fullWidth
                         size="small"
