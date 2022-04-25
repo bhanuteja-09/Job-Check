@@ -1,6 +1,8 @@
 
 import axios from "axios";
 import * as types from "./actionType";
+import db from "../../../../../../firebase"
+
 
 const getRequirements = (Requirements) => ({
     type: types.GET_REQUIREMENTS,
@@ -35,72 +37,75 @@ const getRequirement = (Requirement) => ({
     payload:Requirement,
     
 })
+// const requirementDeleted = () => ({
+//     type: types.DELETE_REQUIREMENT,
+
+// })
 
 
 // Get All Requirements From DB
-export const loadRequirements = (start,end) => {
+export const loadRequirements = () => {
     return function (dispatch) {
-        axios.get(`${process.env.REACT_APP_API_Requirements}`).then((resp) => {
-            console.log("resp", resp)
-            dispatch(getRequirements(resp.data));
-          
+        db.collection("Requirement").onSnapshot((querySnapshot)=>{
+            const Requirement=[]
+            querySnapshot.forEach((doc)=>{
+                Requirement.push({...doc.data(),id:doc.id})
+            })
+            dispatch(getRequirements(Requirement))
         })
-        .catch((error) => console.log(error));
-    };
-};
-
-
-
- 
+    }
+}
 // Add Requirement Function
-export const addRequirement = (user) => {
-    return function (dispatch) {
-        axios.post(`${process.env.REACT_APP_API_Requirements}`,user).then((resp) => {
-            console.log("resp", resp)
-            dispatch(requirementAdded());
-            dispatch(loadRequirements());
-        })
-        .catch((error) => console.log(error));
-    };
-};
+export const addRequiremets = (Requirement) =>{
+    return function (dispatch){
+        db.collection("Requirement").doc().set(Requirement);
+        dispatch(requirementAdded());
+    }
 
+}
 // Edit Requirement Function
 export const getSingleRequirement = (id) => {
     return function (dispatch) {
-        axios.get(`${process.env.REACT_APP_API_Requirements}/${id}`).then((resp) => {
-            console.log("resp", resp)
-            dispatch(getRequirement(resp.data));
-          
+        db.collection("Requirement").doc(id).get().then((Requirement)=>{
+            dispatch(getRequirement({...Requirement.data()}))
         })
+   
+       
         .catch((error) => console.log(error));
     };
 };
 
 
 // Update Requirements Function
-export const updateRequirement = (user,id) => {
+export const updateRequirement = (Requirement,id) => {
     return function (dispatch) {
-        axios.put(`${process.env.REACT_APP_API_Requirements}/${id}`,user).then((resp) => {
-            console.log("resp", resp)
+        db.collection("Requirement").doc(id).update(Requirement);
             dispatch(requirementUpdated());
             dispatch(loadRequirements());
           
-        })
-        .catch((error) => console.log(error));
+        }
+        
     };
-};
+
 
 // Filter Requiremets Function
-export const filterRequirement = (Status) => {
+export const filterRequirement = (status) => {
     return function (dispatch) {
-        axios.get(`${process.env.REACT_APP_API_Requirements}?status=${Status}`).then((resp) => {
-            console.log("resp", resp)
-            dispatch(filter(resp.data));
-          
-        })
-        .catch((error) => console.log(error));
+        db.collection("Requirement")
+        .where("status", "==", {status})
+        .where("status", "==", {status})
+        .get()
+        .then(snap => {
+            snap.forEach(doc => {
+               
+                dispatch(filter(doc.data()))
+                
+            });
+        });
+           
     };
-};
+}
+
 
 // sort Requirements Function 
 export const sortRequirement = (user) => {
@@ -113,6 +118,16 @@ export const sortRequirement = (user) => {
         .catch((error) => console.log(error));
     };
 }
+// export const deleteRequirement = (id) => {
+//     return function (dispatch) {
+//         axios.delete(`${process.env.REACT_APP_API_Requirements}/${id}`).then((resp) => {
+//             console.log("resp", resp)
+//             dispatch(requirementDeleted());
+//             dispatch(getRequirements());
+//         })
+//             .catch((error) => console.log(error));
+//     };
+// };
 
 
 

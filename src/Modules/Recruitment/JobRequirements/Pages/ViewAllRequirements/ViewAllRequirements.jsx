@@ -8,6 +8,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import Filter from "../FilterRequirements/FilterRequirement";
 import DriveFileRenameOutlineIcon from '@mui/icons-material/DriveFileRenameOutline';
 import ViewRequirementStats from "../ViewRequireStats/ViewRequirementStats"
+// import DeleteIcon from "@mui/icons-material/Delete"
 
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -39,9 +40,10 @@ const Home = () => {
     dispatch(loadRequirements());
   },[]);
 
+  // Delete function
   // const handleDelete = (id) => {
-  //   if(window.confirm("Are you sure you wanted to delete the user?")){
-  //     dispatch(deleteUser(id));
+  //   if (window.confirm("Are you sure you wanted to delete the user?")) {
+  //     dispatch(deleteRequirement(id));
   //   }
   // };
  
@@ -49,6 +51,7 @@ const Home = () => {
   const handleSort =(value) =>{
     dispatch(sortRequirement(value))
   }
+
   return (
      <Container>
       
@@ -139,6 +142,23 @@ const Home = () => {
 
                   <StyledTableCell align="center">
                     <Stack direction="row" spacing={1} >
+
+                      {/* delete Button */}
+                    {/* <Button
+                          sx={[
+                            { border: "none",color:"black" },
+                            {
+                              "&:hover": {
+                                textDecoration: "none",
+                                border: "none",
+                                color:"black"
+                              },
+                            },
+                          ]}
+                          onClick={() => handleDelete(user.id)}
+                        >
+                          <DeleteIcon />
+                        </Button> */}
                       <Button sx={{color:'black'}}
                       onClick={() => navigate(`/editrequirement/${user.id}`)}
                       >

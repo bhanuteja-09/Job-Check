@@ -206,7 +206,7 @@ const AdditionalDetails = () => {
                 color="secondary"
                 variant="contained"
                 type="submit"
-                onClick={() => navigate(`/CandidateDetails/${user.id}`)}
+                onClick={() => navigate(`/CandidateDetails/${id}`)}
               >
                 Back
               </Button>

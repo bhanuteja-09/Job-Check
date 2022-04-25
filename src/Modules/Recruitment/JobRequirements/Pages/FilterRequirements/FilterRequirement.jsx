@@ -58,7 +58,7 @@ const Filter = () => {
             More Filters
           </Button>
           <Menu {...bindMenu(popupState)}>
-            <MenuItem  onClick={() => handleFilter("Active")}><FilterListIcon /> Active</MenuItem>
+            <MenuItem  onClick={ handleFilter("Active")}><FilterListIcon /> Active</MenuItem>
             <Divider/>
             <MenuItem  onClick={() => handleFilter("InActive")}><FilterListIcon />  In Active</MenuItem>
             <Divider/>
