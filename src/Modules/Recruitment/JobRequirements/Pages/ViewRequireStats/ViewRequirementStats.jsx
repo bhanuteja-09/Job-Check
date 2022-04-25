@@ -1,8 +1,11 @@
 import { Card, CardContent, Typography } from '@mui/material'
 import React from 'react'
+import { useSelector } from 'react-redux';
 import '../../../../../Assets/Styles/JobRequirementStats.css';
 
 function ViewRequirementStats() {
+    const {total} = useSelector((state)=>state.requirement)
+    console.log(total)
   return (
     <div className='entire'>
         <div className="cards" >
@@ -13,7 +16,7 @@ function ViewRequirementStats() {
                 }}>
                     Total
                 </Typography>
-                <Typography variant="h4" component="h4" sx={{display:'flex', justifyContent: 'top', top: -0}}>3</Typography>
+                <Typography variant="h4" component="h4" sx={{display:'flex', justifyContent: 'top', top: -0}}>{total}</Typography>
             </CardContent>
         </Card>
         <Card className='c' elevation={5}>
