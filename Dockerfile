@@ -13,6 +13,7 @@ COPY . /app/
 
 RUN npm install
 #RUN npm i eslint-plugin-flowtype
+RUN npm start
 
 RUN npm run-script build
 
