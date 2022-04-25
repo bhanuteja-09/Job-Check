@@ -19,15 +19,20 @@ const requirementUpdated = () => ({
     type: types.UPDATE_REQUIREMENT,
     
 })
-const filter = (Status) => ({
+const filter = (Requirement) => ({
     type: types.FILTER_REQUIREMENT,
-    payload:Status,
+    payload:Requirement,
     
 })
 const sort = (Requirements) => ({
     type: types.SORT_REQUIREMENT,
     payload:Requirements,
     
+})
+const getTotal =(Requirement)=>({
+    type:types.GET_TOTALREQUIREMENTS,
+    payload:Requirement,
+
 })
 
 
@@ -37,10 +42,10 @@ const getRequirement = (Requirement) => ({
     payload:Requirement,
     
 })
-// const requirementDeleted = () => ({
-//     type: types.DELETE_REQUIREMENT,
+const requirementDeleted = () => ({
+    type: types.DELETE_REQUIREMENT,
 
-// })
+})
 
 
 // Get All Requirements From DB
@@ -51,8 +56,10 @@ export const loadRequirements = () => {
             querySnapshot.forEach((doc)=>{
                 Requirement.push({...doc.data(),id:doc.id})
             })
-            dispatch(getRequirements(Requirement))
-        })
+            const Total = Requirement.length
+           dispatch(getRequirements(Requirement))
+            dispatch(getTotal(Total))
+        })  
     }
 }
 // Add Requirement Function
@@ -60,6 +67,7 @@ export const addRequiremets = (Requirement) =>{
     return function (dispatch){
         db.collection("Requirement").doc().set(Requirement);
         dispatch(requirementAdded());
+        
     }
 
 }
@@ -92,18 +100,12 @@ export const updateRequirement = (Requirement,id) => {
 export const filterRequirement = (status) => {
     return function (dispatch) {
         db.collection("Requirement")
-        .where("status", "==", {status})
-        .where("status", "==", {status})
-        .get()
-        .then(snap => {
-            snap.forEach(doc => {
-               
-                dispatch(filter(doc.data()))
-                
-            });
-        });
-           
-    };
+        .where("status", "==", "Active")
+            
+       
+       
+        
+    }
 }
 
 
@@ -118,16 +120,13 @@ export const sortRequirement = (user) => {
         .catch((error) => console.log(error));
     };
 }
-// export const deleteRequirement = (id) => {
-//     return function (dispatch) {
-//         axios.delete(`${process.env.REACT_APP_API_Requirements}/${id}`).then((resp) => {
-//             console.log("resp", resp)
-//             dispatch(requirementDeleted());
-//             dispatch(getRequirements());
-//         })
-//             .catch((error) => console.log(error));
-//     };
-// };
+export const deleteRequirement = (id) => {
+    return function (dispatch) {
+        db.collection("Requirement").doc(id).delete();
+        dispatch(requirementDeleted());
+        
+};
+}
 
 
 
