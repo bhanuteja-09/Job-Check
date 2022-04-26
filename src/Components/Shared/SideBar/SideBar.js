@@ -27,8 +27,8 @@ const SiderBar = () => {
 
   return (
     <div >
-      <nav className="main-menu" style={{background: 'lightgrey'}} onMouseOver={()=>dispatch(opening(true))} onMouseOut={()=>dispatch(opening(false))}>
-        <Box style={{background: 'lightgrey'}} sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}>
+      <nav className="main-menu"  >
+        <Box >
           <nav aria-label="main mailbox folders">
             <List>
               <ListItem disablePadding onClick={() => Navigate("/")}>

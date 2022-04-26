@@ -19,8 +19,13 @@ const requirementUpdated = () => ({
     type: types.UPDATE_REQUIREMENT,
     
 })
-const filter = (Requirement) => ({
-    type: types.FILTER_REQUIREMENT,
+const filterActive = (Requirement) => ({
+    type: types.FILTER_REQUIREMENT_ACTIVE,
+    payload:Requirement,
+    
+})
+const filterInActive = (Requirement) => ({
+    type: types.FILTER_REQUIREMENT_INACTIVE,
     payload:Requirement,
     
 })
@@ -97,28 +102,52 @@ export const updateRequirement = (Requirement,id) => {
 
 
 // Filter Requiremets Function
-export const filterRequirement = (status) => {
+export const filterRequirementActive = (status) => {
     return function (dispatch) {
-        db.collection("Requirement")
-        .where("status", "==", "Active")
-            
-       
-       
-        
-    }
+        db
+  .collection("Requirement")
+  .where('status', '==', "Active")
+  .get()
+  .then(querySnapshot => {
+    const Requirement=[]
+    querySnapshot.forEach((doc)=>{
+    Requirement.push({...doc.data(),id:doc.id})
+  });
+  dispatch(filterActive(Requirement))
+})  .catch((error) => console.log(error));
+     }
+}
+export const filterRequirementInActive = (status) => {
+    return function (dispatch) {
+        db
+  .collection("Requirement")
+  .where('status', '==', "InActive")
+  .get()
+  .then(querySnapshot => {
+    const Requirement=[]
+    querySnapshot.forEach((doc)=>{
+    Requirement.push({...doc.data(),id:doc.id})
+  });
+  dispatch(filterInActive(Requirement))
+})  .catch((error) => console.log(error));
+     }
 }
 
 
 // sort Requirements Function 
-export const sortRequirement = (user) => {
+export const sortRequirement = (Requirement) => {
     return function (dispatch) {
-        axios.get(`${process.env.REACT_APP_API_Requirements}?_sort=${user}&_order=asc`).then((resp) => {
-            console.log("resp", resp)
-            dispatch(sort(resp.data));
-          
-        })
-        .catch((error) => console.log(error));
-    };
+        db.collection("Requirement")
+         .orderBy("title", "asc").get()
+         .then(querySnapshot => {
+           const Requirement=[]
+           querySnapshot.forEach((doc)=>{
+           Requirement.push({...doc.data(),id:doc.id})
+         });
+         dispatch(sort(Requirement))
+        
+    });
+}
 }
 export const deleteRequirement = (id) => {
     return function (dispatch) {

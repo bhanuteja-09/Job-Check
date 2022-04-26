@@ -1,7 +1,7 @@
 import React from "react";
 import FilterListIcon from "@mui/icons-material/FilterList";
 import { useDispatch } from "react-redux";
-import { filterRequirement, loadRequirements } from "../Home/Actions/actions";
+import { filterRequirementActive,filterRequirementInActive, loadRequirements } from "../Home/Actions/actions";
 import { Button,Menu,MenuItem, Divider } from "@mui/material";
 import PopupState, { bindTrigger, bindMenu } from 'material-ui-popup-state';
 import ClearOutlinedIcon from '@mui/icons-material/ClearOutlined';
@@ -9,14 +9,14 @@ import db from "../../../../../firebase";
 
 const Filter = () => {
   let dispatch = useDispatch();
-  const handleFilter = (value) => {
-    // dispatch(filterRequirement(value));
-    db.collection("Requirement")
-    .where("status", "==", {value})
-              
-    
-        
-  };
+  const handleFilterActive = (value) => {
+    dispatch(filterRequirementActive(value));
+   
+   };
+   const handleFilterInActive = (value) => {
+    dispatch(filterRequirementInActive(value));
+   
+   };
   const handleReset = () => {
     dispatch(loadRequirements());
   };
@@ -36,7 +36,7 @@ const Filter = () => {
         <ClearOutlinedIcon/>
       </Button>
       <Button
-        onClick={() => handleFilter("Active")}
+        onClick={() => handleFilterActive("Active")}
         sx={{
           color: "black",
           textTransform: "capitalize",
@@ -49,6 +49,7 @@ const Filter = () => {
         Active
         <ClearOutlinedIcon/>
       </Button>
+      
      
       <PopupState variant="popover" popupId="demo-popup-menu">
       {(popupState) => (
@@ -64,9 +65,9 @@ const Filter = () => {
             More Filters
           </Button>
           <Menu {...bindMenu(popupState)}>
-            <MenuItem  onClick={ handleFilter("Active")}><FilterListIcon /> Active</MenuItem>
+            <MenuItem  onClick={()=> handleFilterActive("Active")}><FilterListIcon /> Active</MenuItem>
             <Divider/>
-            <MenuItem  onClick={() => handleFilter("InActive")}><FilterListIcon />  In Active</MenuItem>
+            <MenuItem  onClick={() => handleFilterInActive("InActive")}><FilterListIcon />  In Active</MenuItem>
             <Divider/>
             <MenuItem  onClick={handleReset}><FilterListIcon /> All Time</MenuItem>
             
