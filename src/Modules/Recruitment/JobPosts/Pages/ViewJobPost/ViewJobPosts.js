@@ -1,16 +1,13 @@
-import React, { useState } from 'react';
-import ViewJobPostStatistics from '../ViewJobPostStats/ViewJobPostStatistics';
-import SearchJobPosts from './../SearchJobPost/SearchJobPosts';
+import { Container } from "@mui/material";
+import React from "react";
+import ViewJobPostStatistics from "../ViewJobPostStats/ViewJobPostStatistics";
+import SearchJobPosts from "./../SearchJobPost/SearchJobPosts";
 
 export default function ViewJobPosts() {
-
-
-
   return (
-
-    <div>
-      <ViewJobPostStatistics />
-      <SearchJobPosts />
-    </div>
+    <Container>
+        <ViewJobPostStatistics />
+        <SearchJobPosts />
+    </Container>
   );
 }

@@ -10,18 +10,39 @@ import ViewSIngleSubscription from "../Modules/Admin/Subscriptions/Pages/Home/Co
 import AddSubscription from "../Modules/Admin/Subscriptions/Pages/AddSubscription/AddSubscription";
 import EditSubscriptions from "../Modules/Admin/Subscriptions/Pages/EditSubs/EditSubscriptions";
 import DraftRequirement from "../Modules/Recruitment/JobRequirements/Pages/ViewRequireDrafts/ViewRequirementDrafts";
-import ViewJobPosts from "../Modules/Recruitment/JobPosts/Pages/ViewJobPost/ViewJobPosts";
-import AddJobPost from "../Modules/Recruitment/JobPosts/Pages/NewJobPost/AddJobPost";
+import ViewJobPosts from './../Modules/Recruitment/JobPosts/Pages/ViewJobPost/ViewJobPosts';
+import AddJobPost from './../Modules/Recruitment/JobPosts/Pages/NewJobPost/AddJobPost';
+import EditJobPost from './../Modules/Recruitment/JobPosts/Pages/EditJobPost/EditJobPost';
+import JobPostCandidateDetails from './../Modules/Recruitment/JobPosts/Pages/EditJobPost/CandidateDetails';
+import JobPostAdditionalDetails from './../Modules/Recruitment/JobPosts/Pages/EditJobPost/AdditionalDetails';
+import { useSelector } from "react-redux";
+
 const MyRouter = () => {
+  const {open} = useSelector((state)=>state.Common);
   return (
-    <div>
+    <div style={ open ? { marginLeft:"230px"} : {marginLeft : 'auto'} }>
       <Routes>
         {/* Home */}
         <Route exact path="/" />
 
         {/* JobPost */}
         <Route exact path="/JobPost" element={<ViewJobPosts />} />
-        <Route path="/NewJobPosts" element={<AddJobPost />} />
+        <Route path="/AddJobPost" element={<AddJobPost />} />
+        <Route
+          exact
+          path="/EditJobPost/:id"
+          element={<EditJobPost />}
+        />
+        <Route
+          exact
+          path="/JobPostCandidateDetails/:id"
+          element={<JobPostCandidateDetails />}
+        />
+        <Route
+          exact
+          path="/JobPostAdditionalDetails/:id"
+          element={<JobPostAdditionalDetails />}
+        />
 
         {/* Requirement */}
 

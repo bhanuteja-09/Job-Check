@@ -104,7 +104,7 @@ const AddJobPost = () => {
     select_recruiters,
     status,
   } = state;
-
+  
   // Set All Input values
   const handleInputChange = (e) => {
     let { name, value } = e.target;
@@ -117,7 +117,7 @@ const AddJobPost = () => {
   const handleClose = () => setOpen(false);
   const handleCl = () => setOp(false);
   const handleChange = () => setOp(true);
-
+ 
   // Dispatching The Data
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -125,11 +125,11 @@ const AddJobPost = () => {
     navigate("/JobPost");
     setError(" ");
   };
-
+ 
 
   return (
     <div>
-
+      
       <form onSubmit={handleSubmit}>
         <Container>
           <div className="data">
@@ -158,7 +158,7 @@ const AddJobPost = () => {
                       position: "fixed",
                       flexDirection: "row",
                       top: 5,
-                      left: 1100,
+                      left:1100,
                     }}
                     onChange={handleInputChange}
                     onClick={handleOpen}
@@ -166,13 +166,13 @@ const AddJobPost = () => {
                     Save as draft
                   </Button>
                   <Modal hideBackdrop open={open} onClose={handleClose}>
-                    <Box sx={{ ...style, width: 400, height: 250, }}>
-                      <img src={Reimage} alt="logo" className="logo" style={{ position: "absolute", left: 65 }} />
-                      <h2 className="text" style={{ position: "absolute", top: 80, left: 60 }}>Save Requirement</h2>
-                      <p className="para" style={{ position: "absolute", top: 120 }}>
+                    <Box sx={{ ...style, width: 400, height: 250,  }}>
+                      <img src={Reimage} alt="logo" className="logo" style={{position:"absolute",left:65 }}/>
+                      <h2 className="text" style={{position:"absolute",top:80,left:60 }}>Save Requirement</h2>
+                      <p className="para" style={{position:"absolute",top:120 }}>
                         Do you wish to save the requirement as draft?
                       </p>
-                      <Grid Container style={{ position: "absolute", top: 160 }}>
+                      <Grid Container style={{position:"absolute",top:160 }}>
                         <Grid item className="main" sx={{ marginLeft: 2 }}>
                           {" "}
                           <Button
@@ -220,13 +220,13 @@ const AddJobPost = () => {
                     Publish requirement
                   </Button>
                   <Modal hideBackdrop open={op} onClose={handleCl}>
-                    <Box sx={{ ...style, width: 400, height: 250 }}>
-                      <img src={Reimage} alt="logo" className="logo" style={{ position: "absolute", left: 65 }} />
-                      <h2 className="text" style={{ position: "absolute", top: 80, left: 60 }}>Publish Requirement</h2>
-                      <p className="para" style={{ position: "absolute", top: 120, left: 70 }}>
+                    <Box sx={{ ...style, width: 400, height:250 }}>
+                      <img src={Reimage} alt="logo" className="logo" style={{position:"absolute",left:65 }} />
+                      <h2 className="text" style={{position:"absolute",top:80,left:60 }}>Publish Requirement</h2>
+                      <p className="para" style={{position:"absolute",top:120,left:70 }}>
                         Do you wish to publish requirement?
                       </p>
-                      <Grid Container style={{ position: "absolute", top: 160, left: 50 }}>
+                      <Grid Container style={{position:"absolute",top:160, left:50 }}>
                         <Grid item sx={{ marginLeft: 2 }}>
                           {" "}
                           <Button
@@ -262,10 +262,10 @@ const AddJobPost = () => {
             </Grid>
             <br />
             <br />
-            <NavigateBar />
+            <NavigateBar/>
+            
 
-
-            <Stack id="basic" style={{ position: "absolute", top: 140 }}>
+            <Stack id="basic" style={{position:"absolute", top:140}}>
               <Typography variant="h5" component="h5">
                 Basic Details
               </Typography>
@@ -319,7 +319,7 @@ const AddJobPost = () => {
 
             <br />
             <br />
-            <div className="contain" id="job" style={{ position: "absolute", top: 500 }}>
+            <div className="contain" id="job" style={{position:"absolute",top:500}}>
               <Typography variant="h5" component="h5">
                 Job Details
               </Typography>
@@ -521,7 +521,7 @@ const AddJobPost = () => {
                       Minimum Salary
                     </Typography>
                     <TextField
-                      sx={{ marginTop: 1.3, width: 150 }}
+                      sx={{ marginTop: 1.3, width:150 }}
                       type="number"
                       name="minimum_salary"
                       value={minimum_salary}
@@ -536,7 +536,7 @@ const AddJobPost = () => {
                       Maximum Salary
                     </Typography>
                     <TextField
-                      sx={{ marginTop: 1.3, width: 150 }}
+                      sx={{ marginTop: 1.3, width:150 }}
                       type="number"
                       name="maximum_salary"
                       label="salary"
@@ -551,7 +551,7 @@ const AddJobPost = () => {
                       Vacancies Available
                     </Typography>
                     <TextField
-                      sx={{ marginTop: 1.3, width: 150 }}
+                      sx={{ marginTop: 1.3, width:150 }}
                       type="number"
                       name="vacancies"
                       label="vacancies"
@@ -591,206 +591,206 @@ const AddJobPost = () => {
 
             <br />
             <br />
-            <div className="contain" id="candidate" style={{ position: "absolute", top: 1080 }}>
-              <Typography variant="h5" component="h5">
-                Candidate Details
-              </Typography>
-              <br />
-              <Box sx={{ width: "100%" }}>
-                <Grid
-                  container
-                  rowSpacing={3}
-                  columnSpacing={{ xs: 1, sm: 2, md: 3 }}
-                >
-
-                  <Grid item xs={6}>
-                    <div className="choose">
-                      <Typography variant="subtitle2" component="h5">
-                        Educational Qualifications
-                      </Typography>
-                      <Box spacing={2} sx={{ width: 230, marginTop: 1 }}>
-                        <FormControl fullWidth>
-                          <InputLabel id="demo-simple-select-label">
-                            Educational Qualifications
-                          </InputLabel>
-                          <Select
-                            labelId="demo-simple-select-label"
-                            id="demo-simple-select"
-                            name="educational_qualifications"
-                            value={educational_qualifications}
-                            label="Eg: B.Tech (Computre Science)"
-                            onChange={handleInputChange}
-                          >
-                            <MenuItem value="">
-                              <em>None</em>
-                            </MenuItem>
-                            <MenuItem value={"B.Tech"}>B.Tech</MenuItem>
-                            <MenuItem value={"BE"}>BE</MenuItem>
-                          </Select>
-                        </FormControl>
-                      </Box>
-                    </div>
-                  </Grid>
-
-
-
-                  <Grid item xs={2}>
-                    <div className="choose">
-                      <Typography variant="subtitle2" component="h5">
-                        Work Experience
-                      </Typography>
-                      <Stack spacing={2} sx={{ width: 150, marginTop: 1 }}>
-                        <TextField
-                          label="Minimum"
-                          type="number"
-                          name="minimum"
-                          value={minimum}
-                          onChange={handleInputChange}
-                        />
-                      </Stack>
-                    </div>
-                  </Grid>
-
-
-                  <Grid item xs={2}>
-                    <div className="choose">
-                      <Stack
-                        spacing={2}
-                        sx={{ width: 150, marginTop: 3.8, marginLeft: -3 }}
-                      >
-                        <TextField
-                          label="Maximum"
-                          type="number"
-                          name="maximum"
-                          value={maximum}
-                          onChange={handleInputChange}
-                        />
-                      </Stack>
-                    </div>
-                  </Grid>
-
-                  <Grid item xs={6}>
-                    <Typography variant="subtitle2" component="h5">
-                      Must-have Keywords
+            <div className="contain" id="candidate" style={{position:"absolute",top:1080}}>
+                    <Typography variant="h5" component="h5">
+                        Candidate Details
                     </Typography>
-                    <Box spacing={2} sx={{ width: 230, marginTop: 1 }}>
-                      <FormControl fullWidth>
-                        <InputLabel id="demo-simple-select-label">
-                          Keywords
-                        </InputLabel>
-                        <Select
-                          labelId="demo-simple-select-label"
-                          id="demo-simple-select"
-                          name="must_have_keywords"
-                          value={must_have_keywords}
-                          label="Keywords"
-                          onChange={handleInputChange}
+                    <br />
+                    <Box sx={{ width: "100%" }}>
+                        <Grid
+                            container
+                            rowSpacing={3}
+                            columnSpacing={{ xs: 1, sm: 2, md: 3 }}
                         >
-                          <MenuItem value="">
-                            <em>None</em>
-                          </MenuItem>
-                          <MenuItem value={"Human Resources"}>
-                            Human Resources
-                          </MenuItem>
-                          <MenuItem value={"IT"}>IT</MenuItem>
-                        </Select>
-                      </FormControl>
-                    </Box>
-                    <Typography variant="subtitle2" color={"gray"}>
-                      Select upto 3
-                    </Typography>
-                  </Grid>
-                  <Grid item xs={4.5}>
-                    <Typography variant="subtitle2" component="h5">
-                      Optional Keywords
-                    </Typography>
-                    <Box spacing={2} sx={{ width: 230, marginTop: 1 }}>
-                      <FormControl fullWidth>
-                        <InputLabel id="demo-simple-select-label">
-                          Keywords
-                        </InputLabel>
-                        <Select
-                          labelId="demo-simple-select-label"
-                          id="demo-simple-select"
-                          name="optional_keywords"
-                          value={optional_keywords}
-                          label="Keywords"
-                          onChange={handleInputChange}
-                        >
-                          <MenuItem value="">
-                            <em>None</em>
-                          </MenuItem>
-                          <MenuItem value={"Hadoop"}>Hadoop</MenuItem>
-                          <MenuItem value={"BlockChain"}>BlockChain</MenuItem>
-                          <MenuItem value={"CryptoCurrency"}>
-                            CryptoCurrency
-                          </MenuItem>
-                        </Select>
-                      </FormControl>
-                    </Box>
-                  </Grid>
+                            
+                            <Grid item xs={6}>
+                                <div className="choose">
+                                    <Typography variant="subtitle2" component="h5">
+                                        Educational Qualifications
+                                    </Typography>
+                                    <Box spacing={2} sx={{ width: 230, marginTop: 1 }}>
+                                        <FormControl fullWidth>
+                                            <InputLabel id="demo-simple-select-label">
+                                                Educational Qualifications
+                                            </InputLabel>
+                                            <Select
+                                                labelId="demo-simple-select-label"
+                                                id="demo-simple-select"
+                                                name="educational_qualifications"
+                                                value={educational_qualifications}
+                                                label="Eg: B.Tech (Computre Science)"
+                                                onChange={handleInputChange}
+                                            >
+                                                <MenuItem value="">
+                                                    <em>None</em>
+                                                </MenuItem>
+                                                <MenuItem value={"B.Tech"}>B.Tech</MenuItem>
+                                                <MenuItem value={"BE"}>BE</MenuItem>
+                                            </Select>
+                                        </FormControl>
+                                    </Box>
+                                </div>
+                            </Grid>
 
-                  <Grid item xs={4.5}>
-                    <Typography variant="subtitle2" component="h5">
-                      Brief Candidate Description
-                    </Typography>
+                            
 
-                    <TextareaAutosize
-                      aria-label="empty textarea"
-                      type="text"
-                      name="brief_candidate_description"
-                      value={brief_candidate_description}
-                      placeholder="Helps the algorithm recommend 
+                            <Grid item xs={2}>
+                                <div className="choose">
+                                    <Typography variant="subtitle2" component="h5">
+                                        Work Experience
+                                    </Typography>
+                                    <Stack spacing={2} sx={{ width: 150, marginTop: 1 }}>
+                                        <TextField
+                                            label="Minimum"
+                                            type="number"
+                                            name="minimum"
+                                            value={minimum}
+                                            onChange={handleInputChange}
+                                        />
+                                    </Stack>
+                                </div>
+                            </Grid>
+                            
+
+                            <Grid item xs={2}>
+                                <div className="choose">
+                                    <Stack
+                                        spacing={2}
+                                        sx={{ width: 150, marginTop: 3.8, marginLeft:-3 }}
+                                    >
+                                        <TextField
+                                            label="Maximum"
+                                            type="number"
+                                            name="maximum"
+                                            value={maximum}
+                                            onChange={handleInputChange}
+                                        />
+                                    </Stack>
+                                </div>
+                            </Grid>
+
+                            <Grid item xs={6}>
+                                <Typography variant="subtitle2" component="h5">
+                                    Must-have Keywords
+                                </Typography>
+                                <Box spacing={2} sx={{ width: 230, marginTop: 1 }}>
+                                    <FormControl fullWidth>
+                                        <InputLabel id="demo-simple-select-label">
+                                            Keywords
+                                        </InputLabel>
+                                        <Select
+                                            labelId="demo-simple-select-label"
+                                            id="demo-simple-select"
+                                            name="must_have_keywords"
+                                            value={must_have_keywords}
+                                            label="Keywords"
+                                            onChange={handleInputChange}
+                                        >
+                                            <MenuItem value="">
+                                                <em>None</em>
+                                            </MenuItem>
+                                            <MenuItem value={"Human Resources"}>
+                                                Human Resources
+                                            </MenuItem>
+                                            <MenuItem value={"IT"}>IT</MenuItem>
+                                        </Select>
+                                    </FormControl>
+                                </Box>
+                                <Typography variant="subtitle2" color={"gray"}>
+                                    Select upto 3
+                                </Typography>
+                            </Grid>
+                            <Grid item xs={4.5}>
+                                <Typography variant="subtitle2" component="h5">
+                                    Optional Keywords
+                                </Typography>
+                                <Box spacing={2} sx={{ width: 230, marginTop: 1 }}>
+                                    <FormControl fullWidth>
+                                        <InputLabel id="demo-simple-select-label">
+                                            Keywords
+                                        </InputLabel>
+                                        <Select
+                                            labelId="demo-simple-select-label"
+                                            id="demo-simple-select"
+                                            name="optional_keywords"
+                                            value={optional_keywords}
+                                            label="Keywords"
+                                            onChange={handleInputChange}
+                                        >
+                                            <MenuItem value="">
+                                                <em>None</em>
+                                            </MenuItem>
+                                            <MenuItem value={"Hadoop"}>Hadoop</MenuItem>
+                                            <MenuItem value={"BlockChain"}>BlockChain</MenuItem>
+                                            <MenuItem value={"CryptoCurrency"}>
+                                                CryptoCurrency
+                                            </MenuItem>
+                                        </Select>
+                                    </FormControl>
+                                </Box>
+                            </Grid>
+
+                            <Grid item xs={4.5}>
+                                <Typography variant="subtitle2" component="h5">
+                                    Brief Candidate Description
+                                </Typography>
+
+                                <TextareaAutosize
+                                    aria-label="empty textarea"
+                                    type="text"
+                                    name="brief_candidate_description"
+                                    value={brief_candidate_description}
+                                    placeholder="Helps the algorithm recommend 
                                     suitable candidares for the requirement"
-                      onChange={handleInputChange}
-                      style={{ width: 350, height: 51, marginTop: 8 }}
-                    />
-                    <Typography variant="subtitle2" color={"gray"}>
-                      275 Characters left
-                    </Typography>
-                  </Grid>
+                                    onChange={handleInputChange}
+                                    style={{ width: 350, height: 51, marginTop: 8 }}
+                                />
+                                <Typography variant="subtitle2" color={"gray"}>
+                                    275 Characters left
+                                </Typography>
+                            </Grid>
 
-                </Grid>
+                        </Grid>
 
-                <Grid item xs={4.5}>
-                  <div className="choose">
-                    <Typography variant="subtitle2" component="h5" marginTop={2}>
-                      Questionnaire
-                    </Typography>
-                    <Box spacing={2} sx={{ width: 230, marginTop: 1 }}>
-                      <FormControl fullWidth>
-                        <InputLabel id="demo-simple-select-label">
-                          Educational Qualifications
-                        </InputLabel>
-                        <Select
-                          labelId="demo-simple-select-label"
-                          autoWidth
-                          id="demo-simple-select"
-                          name="questionnaire"
-                          value={questionnaire}
-                          label="Choose from existing questionnaire"
-                          onChange={handleInputChange}
-                        >
-                          <MenuItem value="">
-                            <em>None</em>
-                          </MenuItem>
-                          <MenuItem value={"Are you available immediately ?"}>
-                            Are you available immediately ?
-                          </MenuItem>
-                          <MenuItem value={"What is your experience ?"}>
-                            What is your experience ?
-                          </MenuItem>
-                        </Select>
-                      </FormControl>
+                        <Grid item xs={4.5}>
+                                <div className="choose">
+                                    <Typography variant="subtitle2" component="h5" marginTop={2}>
+                                        Questionnaire
+                                    </Typography>
+                                    <Box spacing={2} sx={{ width: 230, marginTop: 1 }}>
+                                        <FormControl fullWidth>
+                                            <InputLabel id="demo-simple-select-label">
+                                                Educational Qualifications
+                                            </InputLabel>
+                                            <Select
+                                                labelId="demo-simple-select-label"
+                                                autoWidth
+                                                id="demo-simple-select"
+                                                name="questionnaire"
+                                                value={questionnaire}
+                                                label="Choose from existing questionnaire"
+                                                onChange={handleInputChange}
+                                            >
+                                                <MenuItem value="">
+                                                    <em>None</em>
+                                                </MenuItem>
+                                                <MenuItem value={"Are you available immediately ?"}>
+                                                    Are you available immediately ?
+                                                </MenuItem>
+                                                <MenuItem value={"What is your experience ?"}>
+                                                    What is your experience ?
+                                                </MenuItem>
+                                            </Select>
+                                        </FormControl>
+                                    </Box>
+                                </div>
+                            </Grid>
                     </Box>
-                  </div>
-                </Grid>
-              </Box>
-            </div>
+                </div>
 
             <br />
             <br />
-            <div className="contain" id="additional" style={{ position: "absolute", top: 1650 }}>
+            <div className="contain" id="additional" style={{position:"absolute",top:1650}}>
               <Typography variant="h5" component="h5">
                 Additional Details
               </Typography>
@@ -811,7 +811,7 @@ const AddJobPost = () => {
                       name="contact_person"
                       type="text"
                       value={contact_person}
-                      sx={{ marginTop: 1, width: 230 }}
+                      sx={{ marginTop: 1, width:230 }}
                       label="Point of Contact"
                       onChange={handleInputChange}
                       variant="outlined"
@@ -861,7 +861,7 @@ const AddJobPost = () => {
                       label="Phone Number"
                       onChange={handleInputChange}
                       variant="outlined"
-                      sx={{ marginTop: 1, width: 230 }}
+                      sx={{ marginTop: 1, width:230 }}
                     />
                   </Grid>
                   <Grid item xs={6}>
@@ -948,16 +948,15 @@ const AddJobPost = () => {
               <br />
             </div>
             <br />
+            
 
-
-            <Grid container style={{ position: "absolute", top: 2250 }}>
+            <Grid container style={{position:"absolute", top:2250}}>
               <Switch
                 value={state.status || ""}
-                onChange={(e) => {
-                  var value = status === "Active" ? "InActive" : "Active"
-                  setState({ ...state, status: value })
-                }
-                }
+                onChange={(e) =>{
+                  var value= status==="Active" ? "InActive":"Active"
+                  setState({ ...state, status: value })}
+                } 
               />
 
               <Typography>

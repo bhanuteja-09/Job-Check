@@ -5,7 +5,8 @@ const initialState = {
   JobPosts: [],
   JobPost: {},
   loading: false,
-
+  cancel: 0,
+  total: 0,
 };
 
 const JobPostReducer = (state = initialState, action) => {
@@ -33,23 +34,16 @@ const JobPostReducer = (state = initialState, action) => {
         loading: false,
       };
     case types.GET_TOTAL:
-
+    
       return {
         ...state,
-        JobPosts: action.payload,
-        loading: false,
+        total: action.payload,
       };
-
-    case types.GET_CANCEL:
-      return {
-        ...state,
-        cancel: action.payload,
-      };
-    case types.OPENING:
-      return {
-        ...state,
-        open: action.payload,
-      };
+      case types.GET_CANCEL:
+        return {
+          ...state,
+          cancel: action.payload,
+        };
 
     default:
       return state;

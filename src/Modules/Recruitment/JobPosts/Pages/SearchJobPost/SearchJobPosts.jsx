@@ -1,13 +1,30 @@
 import React, { useEffect, useState } from "react";
-import { styled, Table, TableBody, TableContainer, TableCell, tableCellClasses, TableHead, TableRow, Paper, Button, Stack, Container, Grid, Typography, IconButton, InputBase, TableSortLabel } from "@mui/material";
+import {
+  styled,
+  Table,
+  TableBody,
+  TableContainer,
+  TableCell,
+  tableCellClasses,
+  TableHead,
+  TableRow,
+  Paper,
+  Button,
+  Stack,
+  Container,
+  Grid,
+  Typography,
+  IconButton,
+  InputBase,
+  TableSortLabel,
+} from "@mui/material";
 import { useSelector, useDispatch } from "react-redux";
 import { loadJobPosts, sortJobPost } from "../Redux/Actions/actions";
 import { useNavigate } from "react-router-dom";
-import EditIcon from '@mui/icons-material/Edit';
-import SearchIcon from '@mui/icons-material/Search';
+import EditIcon from "@mui/icons-material/Edit";
+import SearchIcon from "@mui/icons-material/Search";
 import Filter from "../FilterJobPosts/FilterJobPosts";
-import DriveFileRenameOutlineIcon from '@mui/icons-material/DriveFileRenameOutline';
-
+import DriveFileRenameOutlineIcon from "@mui/icons-material/DriveFileRenameOutline";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -29,12 +46,11 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   },
 }));
 
-
 const SearchJobPosts = () => {
   let dispatch = useDispatch();
   let navigate = useNavigate();
-  const { Requirements } = useSelector((state) => state.requirement);
-
+  const { JobPosts } = useSelector((state) => state.Job);
+  console.log("JobPosts:+++" + JobPosts);
   useEffect(() => {
     dispatch(loadJobPosts());
   }, []);
@@ -45,15 +61,13 @@ const SearchJobPosts = () => {
   //   }
   // };
 
-  const [search, setSearch] = useState("")
+  const [search, setSearch] = useState("");
   const handleSort = (value) => {
-    dispatch(sortJobPost(value))
-  }
+    dispatch(sortJobPost(value));
+  };
   return (
-    <Container>
-
       <div>
-        <Grid >
+        <Grid>
           <Typography variant="h4" sx={{ position: "absolute", top: 255 }}>
             Job Posts
           </Typography>
@@ -62,27 +76,37 @@ const SearchJobPosts = () => {
           </Typography>
         </Grid>
         <div>
-
-          <Button color="primary" variant="contained"
-            sx={{ marginTop: 19, display: "block", marginLeft: "auto", textAlign: "center", textTransform: "capitalize", fontSize: "15px", backgroundColor: "blueviolet" }}
-            onClick={() => navigate("/NewJobPosts")}>
-            + New Requirement
+          <Button
+            color="primary"
+            variant="contained"
+            sx={{
+              marginTop: 19,
+              display: "block",
+              marginLeft: "auto",
+              textAlign: "center",
+              textTransform: "capitalize",
+              fontSize: "15px",
+              backgroundColor: "blueviolet",
+            }}
+            onClick={() => navigate("/AddJobPost")}
+          >
+            + New JobPost
           </Button>
-
         </div>
         <br />
-
-        {<Filter />}
-        <Button sx={{ color: "black", borderColor: "black", marginLeft: 37, textTransform: "capitalize" }} variant="outlined" onClick={() => navigate("/DraftJobPost")}><DriveFileRenameOutlineIcon />Draft</Button>
-
-
-
-
+        <Filter />
         <Paper
           component="form"
-          sx={{ p: '2px 4px', display: 'flex', alignItems: 'right', width: 350, border: 1, float: "right" }}
+          sx={{
+            p: "2px 4px",
+            display: "flex",
+            alignItems: "right",
+            width: 350,
+            border: 1,
+            float: "right",
+          }}
         >
-          <IconButton type="submit" sx={{ p: '10px' }} aria-label="search">
+          <IconButton type="submit" sx={{ p: "10px" }} aria-label="search">
             <SearchIcon />
           </IconButton>
           <InputBase
@@ -92,85 +116,77 @@ const SearchJobPosts = () => {
             onChange={(e) => setSearch(e.target.value)}
           />
         </Paper>
-        <br />   <br />
-
+        <br /> <br />
         <TableContainer component={Paper}>
           <Table sx={{ maxWidth: "100%" }} aria-label="customized table">
             <TableHead>
               <TableRow>
-
                 <TableSortLabel
-                  direction='desc'
+                  direction="desc"
                   active={true}
-                  onClick={() => handleSort("title")}> <StyledTableCell >Requirements</StyledTableCell></TableSortLabel>
-                <StyledTableCell align="center" >Total positions</StyledTableCell>
-                <StyledTableCell align="center">Positions closed</StyledTableCell>
+                  onClick={() => handleSort("title")}
+                >
+                  {" "}
+                  <StyledTableCell>Requirements</StyledTableCell>
+                </TableSortLabel>
+                <StyledTableCell align="center">
+                  Total positions
+                </StyledTableCell>
+                <StyledTableCell align="center">
+                  Positions closed
+                </StyledTableCell>
                 <StyledTableCell align="center">Status</StyledTableCell>
                 <StyledTableCell align="center">Assigned to</StyledTableCell>
                 <TableSortLabel
-                  direction='desc'
+                  direction="desc"
                   active={true}
-                  onClick={() => handleSort("LastModified")}> <StyledTableCell align="center">About</StyledTableCell></TableSortLabel>
+                  onClick={() => handleSort("LastModified")}
+                >
+                  {" "}
+                  <StyledTableCell align="center">About</StyledTableCell>
+                </TableSortLabel>
               </TableRow>
             </TableHead>
             <TableBody>
-              {Requirements.filter(user => user.title.toLowerCase().includes(search.toLowerCase()))
-                .map((user) => (
-                  <StyledTableRow key={user.id}>
-                    <StyledTableCell component="th" scope="row">
-                      {user.title}
-                    </StyledTableCell>
-                    <StyledTableCell align="center">{user.vacancies}</StyledTableCell>
-                    <StyledTableCell align="center">
-                      {user.positions_closed}
-                    </StyledTableCell>
-                    <StyledTableCell align="center">
-                      {user.status}
-                    </StyledTableCell>
-                    <StyledTableCell align="center">
-                      {user.select_recruiters}
-                    </StyledTableCell>
-                    <StyledTableCell align="center">
-                      {user.LastModified}
-                    </StyledTableCell>
+              {JobPosts.filter((JobPost) =>
+                JobPost.title.toLowerCase().includes(search.toLowerCase())
+              ).map((JobPost) => (
+                <StyledTableRow key={JobPost.id}>
+                  <StyledTableCell component="th" scope="row">
+                    {JobPost.title}
+                  </StyledTableCell>
+                  <StyledTableCell align="center">
+                    {JobPost.vacancies}
+                  </StyledTableCell>
+                  <StyledTableCell align="center">
+                    {JobPost.positions_closed}
+                  </StyledTableCell>
+                  <StyledTableCell align="center">
+                    {JobPost.status}
+                  </StyledTableCell>
+                  <StyledTableCell align="center">
+                    {JobPost.select_recruiters}
+                  </StyledTableCell>
+                  <StyledTableCell align="center">
+                    {JobPost.LastModified}
+                  </StyledTableCell>
 
-                    <StyledTableCell align="center">
-                      <Stack direction="row" spacing={1} >
-
-                        {/* delete Button */}
-                        {/* <Button
-                          sx={[
-                            { border: "none",color:"black" },
-                            {
-                              "&:hover": {
-                                textDecoration: "none",
-                                border: "none",
-                                color:"black"
-                              },
-                            },
-                          ]}
-                          onClick={() => handleDelete(user.id)}
-                        >
-                          <DeleteIcon />
-                        </Button> */}
-                        <Button sx={{ color: 'black' }}
-                          onClick={() => navigate(`/editrequirement/${user.id}`)}
-                        >
-                          <EditIcon />
-                        </Button>
-
-                      </Stack>
-
-                    </StyledTableCell>
-                  </StyledTableRow>
-                ))}
+                  <StyledTableCell align="center">
+                    <Stack direction="row" spacing={1}>
+                      <Button
+                        sx={{ color: "black" }}
+                        onClick={() => navigate(`/EditJobPost/${JobPost.id}`)}
+                      >
+                        <EditIcon />
+                      </Button>
+                    </Stack>
+                  </StyledTableCell>
+                </StyledTableRow>
+              ))}
             </TableBody>
-
           </Table>
         </TableContainer>
       </div>
-    </Container>
-
   );
 };
 

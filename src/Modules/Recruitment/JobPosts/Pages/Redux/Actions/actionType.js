@@ -7,6 +7,5 @@ export const FILTER_JOB_POST  ="FILTER_JOB_POST"
 export const SORT_JOB_POST ="SORT_JOB_POST";
 export const GET_TOTAL ="GET_TOTAL";
 export const GET_CANCEL ="GET_CANCEL";
-export const OPENING ="OPENING";
 
 
