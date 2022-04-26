@@ -10,13 +10,9 @@ import db from "../../../../../firebase";
 const Filter = () => {
   let dispatch = useDispatch();
   const handleFilter = (value) => {
-    // dispatch(filterRequirement(value));
-    db.collection("Requirement")
-    .where("status", "==", {value})
-              
-    
-        
-  };
+    dispatch(filterRequirement(value));
+   
+   };
   const handleReset = () => {
     dispatch(loadRequirements());
   };
@@ -49,8 +45,22 @@ const Filter = () => {
         Active
         <ClearOutlinedIcon/>
       </Button>
+      <Button
+        onClick={() => handleFilter("InActive")}
+        sx={{
+          color: "black",
+          textTransform: "capitalize",
+          borderColor: "black",
+          marginLeft: "15px",
+        }}
+        variant="outlined"
+      >
+      
+        InActive
+        <ClearOutlinedIcon/>
+      </Button>
      
-      <PopupState variant="popover" popupId="demo-popup-menu">
+      {/* <PopupState variant="popover" popupId="demo-popup-menu">
       {(popupState) => (
         <React.Fragment>
           <Button variant="outlined" {...bindTrigger(popupState)}
@@ -73,7 +83,7 @@ const Filter = () => {
           </Menu>
         </React.Fragment>
       )}
-    </PopupState>
+    </PopupState> */}
     </>
   );
 };
