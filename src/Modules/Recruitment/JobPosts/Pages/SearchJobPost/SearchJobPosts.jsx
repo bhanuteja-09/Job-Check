@@ -19,18 +19,12 @@ import {
   TableSortLabel,
 } from "@mui/material";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  loadRequirements,
-  sortRequirement,
-  deleteRequirement,
-} from "../Home/Actions/actions";
+import { loadJobPosts, sortJobPost } from "../Redux/Actions/actions";
 import { useNavigate } from "react-router-dom";
 import EditIcon from "@mui/icons-material/Edit";
 import SearchIcon from "@mui/icons-material/Search";
-import Filter from "../FilterRequirements/FilterRequirement";
+import Filter from "../FilterJobPosts/FilterJobPosts";
 import DriveFileRenameOutlineIcon from "@mui/icons-material/DriveFileRenameOutline";
-import ViewRequirementStats from "../ViewRequireStats/ViewRequirementStats";
-import DeleteIcon from "@mui/icons-material/Delete";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -52,39 +46,33 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   },
 }));
 
-const Home = () => {
+const SearchJobPosts = () => {
   let dispatch = useDispatch();
   let navigate = useNavigate();
-  const { Requirements } = useSelector((state) => state.requirement);
-  console.log(Requirements);
+  const { JobPosts } = useSelector((state) => state.Job);
+  console.log("JobPosts:+++" + JobPosts);
   useEffect(() => {
-    dispatch(loadRequirements());
+    dispatch(loadJobPosts());
   }, []);
 
-  // Delete function
-  const handleDelete = (id) => {
-    if (window.confirm("Are you sure you wanted to delete the user?")) {
-      dispatch(deleteRequirement(id));
-    }
-  };
+  // const handleDelete = (id) => {
+  //   if(window.confirm("Are you sure you wanted to delete the user?")){
+  //     dispatch(deleteUser(id));
+  //   }
+  // };
 
   const [search, setSearch] = useState("");
   const handleSort = (value) => {
-    dispatch(sortRequirement(value));
+    dispatch(sortJobPost(value));
   };
-
   return (
-    <Container>
       <div>
-        <>
-          <ViewRequirementStats />
-        </>
         <Grid>
           <Typography variant="h4" sx={{ position: "absolute", top: 255 }}>
-            Requirements
+            Job Posts
           </Typography>
           <Typography variant="p" sx={{ position: "absolute", top: 295 }}>
-            Track & manage your Requirements here.
+            Track & manage your Job Posts here.
           </Typography>
         </Grid>
         <div>
@@ -100,26 +88,13 @@ const Home = () => {
               fontSize: "15px",
               backgroundColor: "blueviolet",
             }}
-            onClick={() => navigate("/addrequirement")}
+            onClick={() => navigate("/AddJobPost")}
           >
-            + New Requirement
+            + New JobPost
           </Button>
         </div>
         <br />
-        {<Filter />}
-        <Button
-          sx={{
-            color: "black",
-            borderColor: "black",
-            marginLeft: 37,
-            textTransform: "capitalize",
-          }}
-          variant="outlined"
-          onClick={() => navigate("/DraftRequirement")}
-        >
-          <DriveFileRenameOutlineIcon />
-          Draft
-        </Button>
+        <Filter />
         <Paper
           component="form"
           sx={{
@@ -168,57 +143,39 @@ const Home = () => {
                   onClick={() => handleSort("LastModified")}
                 >
                   {" "}
-                  <StyledTableCell align="center">
-                    Last Modified
-                  </StyledTableCell>
+                  <StyledTableCell align="center">About</StyledTableCell>
                 </TableSortLabel>
               </TableRow>
             </TableHead>
             <TableBody>
-              {Requirements.filter((user) =>
-                user.title.toLowerCase().includes(search.toLowerCase())
-              ).map((user) => (
-                <StyledTableRow key={user.id}>
+              {JobPosts.filter((JobPost) =>
+                JobPost.title.toLowerCase().includes(search.toLowerCase())
+              ).map((JobPost) => (
+                <StyledTableRow key={JobPost.id}>
                   <StyledTableCell component="th" scope="row">
-                    {user.title}
+                    {JobPost.title}
                   </StyledTableCell>
                   <StyledTableCell align="center">
-                    {user.vacancies}
+                    {JobPost.vacancies}
                   </StyledTableCell>
                   <StyledTableCell align="center">
-                    {user.positions_closed}
+                    {JobPost.positions_closed}
                   </StyledTableCell>
                   <StyledTableCell align="center">
-                    {user.status}
+                    {JobPost.status}
                   </StyledTableCell>
                   <StyledTableCell align="center">
-                    {user.select_recruiters}
+                    {JobPost.select_recruiters}
                   </StyledTableCell>
                   <StyledTableCell align="center">
-                    {user.LastModified}
+                    {JobPost.LastModified}
                   </StyledTableCell>
 
                   <StyledTableCell align="center">
                     <Stack direction="row" spacing={1}>
-                      {/* delete Button */}
-                      <Button
-                        sx={[
-                          { border: "none", color: "black" },
-                          {
-                            "&:hover": {
-                              textDecoration: "none",
-                              border: "none",
-                              color: "black",
-                            },
-                          },
-                        ]}
-                        onClick={() => handleDelete(user.id)}
-                      >
-                        <DeleteIcon />
-                      </Button>
                       <Button
                         sx={{ color: "black" }}
-                        onClick={() => navigate(`/editrequirement/${user.id}`)}
+                        onClick={() => navigate(`/EditJobPost/${JobPost.id}`)}
                       >
                         <EditIcon />
                       </Button>
@@ -230,8 +187,7 @@ const Home = () => {
           </Table>
         </TableContainer>
       </div>
-    </Container>
   );
 };
 
-export default Home;
+export default SearchJobPosts;

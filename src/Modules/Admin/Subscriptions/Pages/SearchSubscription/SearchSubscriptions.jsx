@@ -55,7 +55,7 @@ const SearchSubscription = () => {
   };
 
   // Accessing redux store state from root-reducer
-  const { users } = useSelector((state) => state.data);
+  const { Subscriptions } = useSelector((state) => state.data);
 
   //Runs only on the first render
   useEffect(() => {
@@ -144,37 +144,37 @@ const SearchSubscription = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {users &&
-              users
-                .filter((user) =>
-                  user.Subscription.toLowerCase().includes(search.toLowerCase())
+            {Subscriptions &&
+              Subscriptions
+                .filter((Subscription) =>
+                  Subscription.Subscription.toLowerCase().includes(search.toLowerCase())
                 )
-                .map((user) => (
-                  <StyledTableRow key={user.id}>
+                .map((Subscription) => (
+                  <StyledTableRow key={Subscription.id}>
                     <StyledTableCell align="center">
                       <Button
                         onClick={() =>
-                          navigate(`/ViewSIngleSubscription/${user.id}`)
+                          navigate(`/ViewSIngleSubscription/${Subscription.id}`)
                         }
                       >
                         <b />
-                        {user.Subscription}
+                        {Subscription.Subscription}
                       </Button>
                     </StyledTableCell>
                     <StyledTableCell align="center">
-                      {user.Status}
+                      {Subscription.Status}
                     </StyledTableCell>
                     <StyledTableCell align="center">
-                      {user.BaseCredits}
+                      {Subscription.BaseCredits}
                     </StyledTableCell>
                     <StyledTableCell align="center">
-                      {user.LastUpdated}
+                      {Subscription.LastUpdated}
                     </StyledTableCell>
                     <StyledTableCell align="center">
-                      {user.Product}
+                      {Subscription.Product}
                     </StyledTableCell>
                     <StyledTableCell align="center">
-                      {user.About}
+                      {Subscription.About}
                     </StyledTableCell>
 
                     <StyledTableCell align="center">
@@ -189,7 +189,7 @@ const SearchSubscription = () => {
                               },
                             },
                           ]}
-                          onClick={() => handleDelete(user.id)}
+                          onClick={() => handleDelete(Subscription.id)}
                         >
                           <DeleteIcon />
                         </Button>
@@ -204,7 +204,7 @@ const SearchSubscription = () => {
                             },
                           ]}
                           onClick={() =>
-                            navigate(`/EditSubscriptions/${user.id}`)
+                            navigate(`/EditSubscriptions/${Subscription.id}`)
                           }
                         >
                           <ModeEditIcon />

@@ -57,7 +57,7 @@ const style = {
 
 function EditSubscriptions(props) {
   const { id } = useParams();
-  const { user } = useSelector((state) => state.data);
+  const { Subscription } = useSelector((state) => state.data);
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
@@ -65,10 +65,10 @@ function EditSubscriptions(props) {
   }, []);
 
   useEffect(() => {
-    if (user) {
-      setState({ ...user });
+    if (Subscription) {
+      setState({ ...Subscription });
     }
-  }, [user]);
+  }, [Subscription]);
 
   const handleEnable = () => {
     handleOpen();
@@ -94,11 +94,11 @@ function EditSubscriptions(props) {
     Product: "",
     About: "",
     Actions: "",
-    JobPosts:"",
-    Downloads:"",
-    PricingType:"",
-    Price:"",
-    Duration:""
+    JobPosts: "",
+    Downloads: "",
+    PricingType: "",
+    Price: "",
+    Duration: ""
   });
 
   const handleSubmit = (e) => {
@@ -258,19 +258,19 @@ function EditSubscriptions(props) {
                 <label htmlFor="text">Job Post</label>
 
                 <TextField size="small" margin="dense" fullWidth
-                value={state.JobPosts || ""}
-                onChange={(e) =>
-                  setState({ ...state, JobPosts: e.target.value })
-                } />
+                  value={state.JobPosts || ""}
+                  onChange={(e) =>
+                    setState({ ...state, JobPosts: e.target.value })
+                  } />
               </Box>
               <Box paddingLeft={4}>
                 <label htmlFor="text">Candidate Profile Download</label>
 
                 <TextField size="small" fullWidth margin="dense"
-                value={state.Downloads || ""}
-                onChange={(e) =>
-                  setState({ ...state, Downloads: e.target.value })
-                } />
+                  value={state.Downloads || ""}
+                  onChange={(e) =>
+                    setState({ ...state, Downloads: e.target.value })
+                  } />
               </Box>
             </Box>
             <br />
@@ -290,7 +290,7 @@ function EditSubscriptions(props) {
                   <InputLabel>Pricing Type</InputLabel>
 
                   <Select
-                  
+
                     label="PricingType"
                     fullWidth
                     size="small"
@@ -309,12 +309,12 @@ function EditSubscriptions(props) {
                 <Box paddingLeft={4}>
                   <label htmlFor="text">Duration</label>
 
-                  <Select select size="small" margin="dense" 
-                  value={state.Duration || ""}
-                  onChange={(e) =>
-                    setState({ ...state, Duration: e.target.value })
-                  }
-                  fullWidth>
+                  <Select select size="small" margin="dense"
+                    value={state.Duration || ""}
+                    onChange={(e) =>
+                      setState({ ...state, Duration: e.target.value })
+                    }
+                    fullWidth>
                     <MenuItem value={"2 Months"}>2 Months</MenuItem>
                     <MenuItem value={"4 Months"}>4 Months</MenuItem>
                     <MenuItem value={"6 Months"}>6 Months</MenuItem>
@@ -325,11 +325,11 @@ function EditSubscriptions(props) {
                 <Box paddingLeft={4}>
                   <label htmlFor="text">Price</label>
 
-                  <TextField margin="dense" size="small" fullWidth 
-                  value={state.Price || ""}
-                  onChange={(e) =>
-                    setState({ ...state, Price: e.target.value })
-                  }/>
+                  <TextField margin="dense" size="small" fullWidth
+                    value={state.Price || ""}
+                    onChange={(e) =>
+                      setState({ ...state, Price: e.target.value })
+                    } />
                 </Box>
               </Box>
             </Box>

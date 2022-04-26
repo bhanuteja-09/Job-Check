@@ -1,29 +1,30 @@
 import axios from "axios";
 import * as types from "./ActionType";
+import db from "../../../../../../firebase"
 
-const getUsers = (users) => ({
+const getUsers = (Subscription) => ({
     type: types.GET_SUBSCRIPTION_DATA,
-    payload: users,
+    payload: Subscription,
 
 });
 
-const userAdded = (users) => ({
+const userAdded = (Subscription) => ({
     type: types.ADD_SUBSCRIPTION_DATA,
 
 });
 
-const getUser = (user) => ({
+const getUser = (Subscription) => ({
     type: types.GET_SINGLE_SUBSCRIPTION_DATA,
-    payload: user,
+    payload: Subscription,
 
 });
-const userUpdated = (user) => ({
+const userUpdated = (Subscription) => ({
     type: types.UPDATE_SINGLE_SUBSCRIPTION_DATA,
 
 });
-const filter = (users) => ({
+const filter = (Subscription) => ({
     type: types.FILTER_USER,
-    payload: users,
+    payload: Subscription,
 
 });
 const sort = (users) => ({
@@ -31,7 +32,7 @@ const sort = (users) => ({
     payload: users,
 
 });
-const userDeleted = () => ({
+const userDeleted = (id) => ({
     type: types.DELETE_USER,
 
 })
@@ -39,57 +40,67 @@ const userDeleted = () => ({
 
 export const loadUsers = () => {
     return function (dispatch) {
-        axios.get(`${process.env.REACT_APP_API}`).then((resp) => {
-            console.log("resp", resp);
-            dispatch(getUsers(resp.data));
+        // axios.get(`${process.env.REACT_APP_API}`).then((resp) => {
+        //     console.log("resp", resp);
+        db.collection("Subscription").onSnapshot((querySnapshot) => {
+            const Subscription = []
+            querySnapshot.forEach((doc) => {
+                Subscription.push({ ...doc.data(), id: doc.id })
+
+            })
+            dispatch(getUsers(Subscription))
+            // 
         })
-            .catch((error) => console.log(error));
     };
 };
 
-export function addUsers(user) {
+export function addUsers(Subscription) {
     return function (dispatch) {
-        axios.post(`${process.env.REACT_APP_API}`, user).then((resp) => {
-            console.log("resp", resp);
-            dispatch(userAdded());
-            dispatch(loadUsers());
-        })
-            .catch((error) => console.log(error));
+        // axios.post(`${process.env.REACT_APP_API}`, Subscription).then((resp) => {
+        //     console.log("resp", resp);
+        db.collection("Subscription").doc().set(Subscription);
+
+        dispatch(userAdded());
+        dispatch(loadUsers());
+
+        // 
     };
 };
 
 export const getSingleUser = (id) => {
     return function (dispatch) {
-        axios.get(`${process.env.REACT_APP_API}/${id}`).then((resp) => {
-            console.log("resp", resp)
-            dispatch(getUser(resp.data));
+        db.collection("Subscription").doc(id).get().then((Subscription) => {
+            dispatch(getUser({ ...Subscription.data() }));
 
         })
-            .catch((error) => console.log(error));
+
     };
 };
 
-export const updateSingleUser = (user, id) => {
+export const updateSingleUser = (Subscription, id) => {
     return function (dispatch) {
-        axios.put(`${process.env.REACT_APP_API}/${id}`, user).then((resp) => {
-            console.log("resp", resp)
-            dispatch(userUpdated());
-            dispatch(loadUsers());
+        db.collection("Subscription").doc(id).update(Subscription);
+        dispatch(userUpdated());
+        dispatch(loadUsers());
 
 
-        })
-            .catch((error) => console.log(error));
-    };
+    }
+    // 
 };
 
-export const filterUser = (users) => {
-    return function (dispatch) {
-        axios.get(`${process.env.REACT_APP_API}?Status=${users}`).then((resp) => {
-            console.log("resp", resp)
-            dispatch(filter(resp.data));
 
-        })
-            .catch((error) => console.log(error));
+export const filterUser = (id) => {
+    return function (dispatch) {
+        // axios.get(`${process.env.REACT_APP_API}?Status=${users}`).then((resp) => {
+        //     console.log("resp", resp)
+        //     dispatch(filter(resp.data));
+        db.collection("Subscription")
+            .where("Status", "=", "Active",)
+
+        dispatch(filter());
+
+
+
     };
 };
 export const sortUser = (users) => {
@@ -99,17 +110,16 @@ export const sortUser = (users) => {
             dispatch(sort(resp.data));
 
         })
-            .catch((error) => console.log(error));
+
     };
 };
 
 export const deleteUser = (id) => {
     return function (dispatch) {
-        axios.delete(`${process.env.REACT_APP_API}/${id}`).then((resp) => {
-            console.log("resp", resp)
-            dispatch(userDeleted());
-            dispatch(loadUsers());
-        })
-            .catch((error) => console.log(error));
-    };
+        db.collection("Subscription").doc(id).delete();
+        dispatch(userDeleted());
+        dispatch(loadUsers());
+
+    }
+
 };
