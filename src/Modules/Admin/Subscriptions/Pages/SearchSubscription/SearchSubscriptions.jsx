@@ -18,7 +18,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { useSelector, useDispatch } from "react-redux";
-import { loadUsers, sortUser } from "../Home/Actions/Action";
+import { loadUsers, sortSubscption } from "../Home/Actions/Action";
 import { useNavigate } from "react-router-dom";
 import ModeEditIcon from "@mui/icons-material/ModeEdit";
 import Filter from "./Filter";
@@ -51,7 +51,7 @@ const SearchSubscription = () => {
 
   // Dispatching sortUser Action
   const handleSort = (users, id) => {
-    dispatch(sortUser(users, id));
+    dispatch(sortSubscption(users, id));
   };
 
   // Accessing redux store state from root-reducer
@@ -147,7 +147,7 @@ const SearchSubscription = () => {
             {Subscriptions &&
               Subscriptions
                 .filter((Subscription) =>
-                  Subscription.Subscription.toLowerCase().includes(search.toLowerCase())
+                  Subscription.Subscription.toLowerCase().includes(search.toLowerCase()) || Subscription.toUpperCase().includes(search.toLowerCase())
                 )
                 .map((Subscription) => (
                   <StyledTableRow key={Subscription.id}>

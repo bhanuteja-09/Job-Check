@@ -1,14 +1,19 @@
 import React from "react";
 import FilterListIcon from "@mui/icons-material/FilterList";
 import { useDispatch, useSelector } from "react-redux";
-import { filterUser, loadUsers } from "../Home/Actions/Action";
+import { filterSubcriptionActive, filterSubscriptionInActive, loadUsers } from "../Home/Actions/Action";
 import { Button } from "@mui/material";
 
 const Filter = () => {
 
     let dispatch = useDispatch();
-    const handleFilter = (Subscription) => {
-        dispatch(filterUser(Subscription));
+    const handleFilterActive = (value) => {
+        dispatch(filterSubcriptionActive(value));
+
+    };
+    const handleFilterInActive = (value) => {
+        dispatch(filterSubscriptionInActive(value));
+
     };
     const handleReset = () => {
         dispatch(loadUsers());
@@ -28,7 +33,7 @@ const Filter = () => {
                 All Time
             </Button>
             <Button
-                onClick={() => handleFilter("Active")}
+                onClick={() => handleFilterActive("Active")}
                 sx={{
                     color: "black",
                     textTransform: "capitalize",
@@ -41,7 +46,7 @@ const Filter = () => {
                 Active
             </Button>
             <Button
-                onClick={() => handleFilter("In Active")}
+                onClick={() => handleFilterInActive("In Active")}
                 sx={{
                     color: "black",
                     marginLeft: "20px",

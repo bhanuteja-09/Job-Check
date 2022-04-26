@@ -22,8 +22,13 @@ const userUpdated = (Subscription) => ({
     type: types.UPDATE_SINGLE_SUBSCRIPTION_DATA,
 
 });
-const filter = (Subscription) => ({
-    type: types.FILTER_USER,
+const filterActive = (Subscription) => ({
+    type: types.FILTER_SUBCRIPTION_ACTIVE,
+    payload: Subscription,
+
+});
+const filterInActive = (Subscription) => ({
+    type: types.FILTER_SUBCRIPTION_INACTIVE,
     payload: Subscription,
 
 });
@@ -89,31 +94,54 @@ export const updateSingleUser = (Subscription, id) => {
 };
 
 
-export const filterUser = (id) => {
+// Filter Requiremets Function
+export const filterSubcriptionActive = (Status) => {
     return function (dispatch) {
-        // axios.get(`${process.env.REACT_APP_API}?Status=${users}`).then((resp) => {
-        //     console.log("resp", resp)
-        //     dispatch(filter(resp.data));
+        db
+            .collection("Subscription")
+            .where('Status', '==', "Active")
+            .get()
+            .then(querySnapshot => {
+                const Subscription = []
+                querySnapshot.forEach((doc) => {
+                    Subscription.push({ ...doc.data(), id: doc.id })
+                });
+                dispatch(filterActive(Subscription))
+            }).catch((error) => console.log(error));
+    }
+}
+export const filterSubscriptionInActive = (Status) => {
+    return function (dispatch) {
+        db
+            .collection("Subscription")
+            .where('Status', '==', "In Active")
+            .get()
+            .then(querySnapshot => {
+                const Subscription = []
+                querySnapshot.forEach((doc) => {
+                    Subscription.push({ ...doc.data(), id: doc.id })
+                });
+                dispatch(filterInActive(Subscription))
+            }).catch((error) => console.log(error));
+    }
+}
+
+
+// sort Requirements Function 
+export const sortSubscption = (Subscription) => {
+    return function (dispatch) {
         db.collection("Subscription")
-            .where("Status", "=", "Active",)
+            .orderBy("Subscription", "asc").get()
+            .then(querySnapshot => {
+                const Subscription = []
+                querySnapshot.forEach((doc) => {
+                    Subscription.push({ ...doc.data(), id: doc.id })
+                });
+                dispatch(sort(Subscription))
 
-        dispatch(filter());
-
-
-
-    };
-};
-export const sortUser = (users) => {
-    return function (dispatch) {
-        axios.get(`${process.env.REACT_APP_API}?_sort=${users}&_order=asc`).then((resp) => {
-            console.log("resp", resp)
-            dispatch(sort(resp.data));
-
-        })
-
-    };
-};
-
+            });
+    }
+}
 export const deleteUser = (id) => {
     return function (dispatch) {
         db.collection("Subscription").doc(id).delete();

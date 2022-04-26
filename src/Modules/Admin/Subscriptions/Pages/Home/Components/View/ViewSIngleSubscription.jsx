@@ -107,6 +107,9 @@ const ViewSIngleSubscription = () => {
     Price: "",
     Duration: ""
   });
+  const {
+    Status
+  } = state;
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -389,8 +392,10 @@ const ViewSIngleSubscription = () => {
             <Switch
               disabled={isdisabled}
               value={state.Status || ""}
-              onChange={(e) =>
-                setState({ ...state, Status: true ? "Active" : "In Active" })
+              onChange={(e) => {
+                var value = Status === "Active" ? "In Active" : "Active"
+                setState({ ...state, Status: value })
+              }
               }
             />
 

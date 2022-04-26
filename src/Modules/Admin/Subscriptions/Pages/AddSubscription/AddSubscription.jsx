@@ -53,6 +53,10 @@ function AddSubscription(props) {
     Price: "",
     Duration: ""
   });
+
+  const {
+    Status,
+  } = state
   const commonStyles = {
     display: "flex-column",
     justifyContent: "center",
@@ -338,8 +342,10 @@ function AddSubscription(props) {
           <Switch
             value={state.Status || ""}
             onChange={(e) => {
-              setState({ ...state, Status: "Active" });
-            }}
+              var value = Status === "Active" ? "In Active" : "Active"
+              setState({ ...state, Status: value })
+            }
+            }
           />
 
           <Typography>

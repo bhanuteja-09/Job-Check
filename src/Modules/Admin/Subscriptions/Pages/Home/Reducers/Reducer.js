@@ -9,7 +9,8 @@ const initialState = {
 const usersReducers = (state = initialState, action) => {
     switch (action.type) {
         case types.GET_SUBSCRIPTION_DATA:
-        case types.FILTER_USER:
+        case types.FILTER_SUBCRIPTION_ACTIVE:
+        case types.FILTER_SUBCRIPTION_INACTIVE:
         case types.SORT_USER:
 
             return {

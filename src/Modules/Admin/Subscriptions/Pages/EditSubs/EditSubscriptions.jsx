@@ -100,6 +100,9 @@ function EditSubscriptions(props) {
     Price: "",
     Duration: ""
   });
+  const {
+    Status
+  } = state;
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -340,8 +343,10 @@ function EditSubscriptions(props) {
             <Switch
               value={state.Status || ""}
               onChange={(e) => {
-                setState({ ...state, Status: "Active" });
-              }}
+                var value = Status === "Active" ? "In Active" : "Active"
+                setState({ ...state, Status: value })
+              }
+              }
             />
 
             <Typography>
