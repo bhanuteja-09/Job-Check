@@ -12,6 +12,11 @@ const requirementDraftAdded = () => ({
     
 })
 
+const requirementDraftDeleted = () => ({
+    type: types.DELETE_DRAFT_REQUIREMENT,
+
+})
+
 
 export const draftUsers = () => {
     return function (dispatch) {
@@ -31,3 +36,11 @@ export const draftUsers = () => {
         }
     
     }
+
+    export const deleteDraftRequirement = (id) => {
+        return function (dispatch) {
+            db.collection("RequirementAsDraft").doc(id).delete();
+            dispatch(requirementDraftDeleted());
+            
+    }
+}

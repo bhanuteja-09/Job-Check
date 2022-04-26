@@ -7,8 +7,9 @@ import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 import SearchIcon from '@mui/icons-material/Search';
 import ArrowBackIosOutlinedIcon from '@mui/icons-material/ArrowBackIosOutlined';
 import {useNavigate } from 'react-router-dom';
-
-
+import DeleteIcon from "@mui/icons-material/Delete"
+import { deleteDraftRequirement} from "../ViewRequireDrafts/Action"
+import ViewRequirementStats from "../ViewRequireStats/ViewRequirementStats"
 
 const DraftRequirement = () => {
     const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -42,18 +43,27 @@ const { drafts } =useSelector(state => state.draft)
       },[])
 
       const [search,setSearch]=useState("")
+
+          // Delete function
+  const handleDelete = (id) => {
+    if (window.confirm("Are you sure you wanted to delete the user?")) {
+      dispatch(deleteDraftRequirement(id));
+    }
+  };
     
 
       
   return (
     <Container style={{marginTop:0}}>
-  
+       <>
+       <ViewRequirementStats/>
+      </> 
       <div>
       <Grid >
-        <Typography variant="h4" sx={{position:"absolute",top:130}}>
+        <Typography variant="h4" sx={{position:"absolute",top:250}}>
           Requirements
         </Typography>
-        <Typography variant="p" sx={{position:"absolute",top:170}}>
+        <Typography variant="p" sx={{position:"absolute",top:300}}>
         Track & manage your Requirements here.
         </Typography>
         </Grid>
@@ -122,7 +132,28 @@ const { drafts } =useSelector(state => state.draft)
                     {draft.LastModified}
                   </StyledTableCell>
 
-                  <StyledTableCell align="left"><Button sx={{color: 'black'}}><EditOutlinedIcon/></Button></StyledTableCell>
+                  <StyledTableCell align="left">
+                    <Button
+                            sx={[
+                              { border: "none",color:"black" },
+                              {
+                                "&:hover": {
+                                  textDecoration: "none",
+                                  border: "none",
+                                  color:"black"
+                                },
+                              },
+                            ]}
+                            onClick={() => handleDelete(draft.id)}
+                          >
+                            <DeleteIcon />
+                    </Button>
+
+
+                    <Button sx={{color: 'black'}}>
+                      <EditOutlinedIcon/>
+                    </Button>
+                  </StyledTableCell>
             </StyledTableRow>
           ))}
         </TableBody>
