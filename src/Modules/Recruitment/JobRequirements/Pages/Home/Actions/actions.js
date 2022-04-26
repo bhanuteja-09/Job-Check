@@ -19,8 +19,13 @@ const requirementUpdated = () => ({
     type: types.UPDATE_REQUIREMENT,
     
 })
-const filter = (Requirement) => ({
-    type: types.FILTER_REQUIREMENT,
+const filterActive = (Requirement) => ({
+    type: types.FILTER_REQUIREMENT_ACTIVE,
+    payload:Requirement,
+    
+})
+const filterInActive = (Requirement) => ({
+    type: types.FILTER_REQUIREMENT_INACTIVE,
     payload:Requirement,
     
 })
@@ -97,7 +102,7 @@ export const updateRequirement = (Requirement,id) => {
 
 
 // Filter Requiremets Function
-export const filterRequirement = (status) => {
+export const filterRequirementActive = (status) => {
     return function (dispatch) {
         db
   .collection("Requirement")
@@ -108,12 +113,24 @@ export const filterRequirement = (status) => {
     querySnapshot.forEach((doc)=>{
     Requirement.push({...doc.data(),id:doc.id})
   });
-  dispatch(filter(Requirement))
+  dispatch(filterActive(Requirement))
 })  .catch((error) => console.log(error));
-     
-       
-        
-    }
+     }
+}
+export const filterRequirementInActive = (status) => {
+    return function (dispatch) {
+        db
+  .collection("Requirement")
+  .where('status', '==', "InActive")
+  .get()
+  .then(querySnapshot => {
+    const Requirement=[]
+    querySnapshot.forEach((doc)=>{
+    Requirement.push({...doc.data(),id:doc.id})
+  });
+  dispatch(filterInActive(Requirement))
+})  .catch((error) => console.log(error));
+     }
 }
 
 
@@ -127,7 +144,7 @@ export const sortRequirement = (Requirement) => {
            querySnapshot.forEach((doc)=>{
            Requirement.push({...doc.data(),id:doc.id})
          });
-         dispatch(filter(Requirement))
+         dispatch(sort(Requirement))
         
     });
 }

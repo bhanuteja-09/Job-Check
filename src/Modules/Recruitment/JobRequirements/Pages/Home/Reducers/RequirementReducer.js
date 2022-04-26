@@ -11,7 +11,8 @@ Requirements: [],
 const requirementReducers = (state = initialState, action) => {
   switch (action.type) {
     case types.GET_REQUIREMENTS:
-    case types.FILTER_REQUIREMENT:
+    case types.FILTER_REQUIREMENT_ACTIVE:
+      case types.FILTER_REQUIREMENT_INACTIVE:
     case types.SORT_REQUIREMENT:
      
       return {
