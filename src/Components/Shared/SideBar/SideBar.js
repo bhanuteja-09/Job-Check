@@ -1,5 +1,5 @@
 import React from "react";
-import "../../Assets/Styles/sidebar.css";
+import "../../../Assets/Styles/sidebar.css";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import DynamicFeedOutlinedIcon from "@mui/icons-material/DynamicFeedOutlined";
@@ -18,14 +18,17 @@ import {
 import { useNavigate } from "react-router-dom";
 import { Typography } from "@mui/material";
 import AddCardOutlinedIcon from "@mui/icons-material/AddCardOutlined";
+import { opening} from "../../Shared/Redux/Actions/actions";
+import { useDispatch } from "react-redux";
 
 const SiderBar = () => {
   let Navigate = useNavigate();
+  const dispatch = useDispatch();
 
   return (
-    <div>
-      <nav className="main-menu">
-        <Box sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}>
+    <div >
+      <nav className="main-menu" style={{background: 'lightgrey'}} onMouseOver={()=>dispatch(opening(true))} onMouseOut={()=>dispatch(opening(false))}>
+        <Box style={{background: 'lightgrey'}} sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}>
           <nav aria-label="main mailbox folders">
             <List>
               <ListItem disablePadding onClick={() => Navigate("/")}>

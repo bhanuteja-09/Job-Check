@@ -1,8 +1,8 @@
 import * as types from "../Actions/ActionType";
 
 const initialState = {
-    users: [],
-    user: {},
+    Subscriptions: [],
+    Subscription: {},
     loading: true
 }
 
@@ -14,7 +14,7 @@ const usersReducers = (state = initialState, action) => {
 
             return {
                 ...state,
-                users: action.payload,
+                Subscriptions: action.payload,
                 loading: false,
 
             }
@@ -30,7 +30,7 @@ const usersReducers = (state = initialState, action) => {
         case types.GET_SINGLE_SUBSCRIPTION_DATA:
             return {
                 ...state,
-                user: action.payload,
+                Subscription: action.payload,
                 loading: false,
 
             }

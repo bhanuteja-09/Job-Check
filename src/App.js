@@ -1,5 +1,5 @@
 import React from "react";
-import SideBar from "./Components/Shared/SideBar";
+import SideBar from "./Components/Shared/SideBar/SideBar";
 import MyRouter from './Routes/MyRouter';
 
 
