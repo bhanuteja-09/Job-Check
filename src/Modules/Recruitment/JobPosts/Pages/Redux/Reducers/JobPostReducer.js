@@ -12,7 +12,8 @@ const initialState = {
 const JobPostReducer = (state = initialState, action) => {
   switch (action.type) {
     case types.GET_JOB_POSTS:
-    case types.FILTER_JOB_POST:
+    case types.FILTER_JOBPOST_ACTIVE:
+    case types.FILTER_JOBPOST_INACTIVE:
     case types.SORT_JOB_POST:
       return {
         ...state,
@@ -34,16 +35,15 @@ const JobPostReducer = (state = initialState, action) => {
         loading: false,
       };
     case types.GET_TOTAL:
-    
       return {
         ...state,
         total: action.payload,
       };
-      case types.GET_CANCEL:
-        return {
-          ...state,
-          cancel: action.payload,
-        };
+    case types.GET_CANCEL:
+      return {
+        ...state,
+        cancel: action.payload,
+      };
 
     default:
       return state;

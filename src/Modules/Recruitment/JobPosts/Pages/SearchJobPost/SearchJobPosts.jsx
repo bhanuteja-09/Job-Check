@@ -19,7 +19,7 @@ import {
   TableSortLabel,
 } from "@mui/material";
 import { useSelector, useDispatch } from "react-redux";
-import { loadJobPosts, sortJobPost } from "../Redux/Actions/actions";
+import { loadJobPosts, sortJobposts } from "../Redux/Actions/actions";
 import { useNavigate } from "react-router-dom";
 import EditIcon from "@mui/icons-material/Edit";
 import SearchIcon from "@mui/icons-material/Search";
@@ -63,7 +63,7 @@ const SearchJobPosts = () => {
 
   const [search, setSearch] = useState("");
   const handleSort = (value) => {
-    dispatch(sortJobPost(value));
+    dispatch(sortJobposts(value));
   };
   return (
       <div>
