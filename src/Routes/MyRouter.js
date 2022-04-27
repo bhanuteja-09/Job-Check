@@ -22,7 +22,7 @@ const MyRouter = () => {
   const {open} = useSelector((state)=>state.Common);
   return (
     <div style={ open ? { marginLeft:"230px"} : {marginLeft : 'auto'} }>
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<div style={{textAlign:"center",marginTop:"20%"}}>Loading...</div>}>
       <Routes>
         {/* Home */}
         <Route exact path="/" />
