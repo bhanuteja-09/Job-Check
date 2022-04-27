@@ -8,17 +8,19 @@ import ClearOutlinedIcon from '@mui/icons-material/ClearOutlined';
 
 const Filter = () => {
   let dispatch = useDispatch();
+
   const handleFilterActive = (value) => {
     dispatch(filterRequirementActive(value));
-   
    };
+
    const handleFilterInActive = (value) => {
     dispatch(filterRequirementInActive(value));
-   
    };
+
   const handleReset = () => {
     dispatch(loadRequirements());
   };
+  
   return (
     <>
       <Button

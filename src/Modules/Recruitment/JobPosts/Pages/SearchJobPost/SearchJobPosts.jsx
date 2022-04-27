@@ -278,8 +278,8 @@ const SearchJobPosts = () => {
               </StyledTableRow>
             ))}
 
-            {emptyRows > 0 && (
-              <TableRow style={{ height: 53 * emptyRows }}>
+            {  0 && (
+              <TableRow style={{ height: 53  }}>
                 <TableCell colSpan={6} />
               </TableRow>
             )}
@@ -298,7 +298,7 @@ const SearchJobPosts = () => {
                   },
                   native: true,
                 }}
-                onPageChange={handleChangePage}
+                // onPageChange={handleChangePage}
                 onRowsPerPageChange={handleChangeRowsPerPage}
                 ActionsComponent={TablePaginationActions}
               />

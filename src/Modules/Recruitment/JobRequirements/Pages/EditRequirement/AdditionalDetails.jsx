@@ -169,11 +169,11 @@ const AdditionalDetails = () => {
                 </Typography>
                 <Stack sx={{ width: 300, marginTop: 1 }}>
                   <Select
-                    value={state.select_recruiters}
+                    value={select_recruiters}
                     name="select_recruiters"
                     label="Assign Recruiters"
                     onChange={(e) =>
-                      setState({ ...state, select_recruiters: e.target.value })
+                      setState({ ...state,select_recruiters: e.target.value })
                     }
                   >
                     <MenuItem value="">
@@ -190,9 +190,9 @@ const AdditionalDetails = () => {
             <br />
             <Grid container>
               <Switch
-                value={state.status || ""}
+                value={status || ""}
                 onChange={(e) => {
-                  var value = status === { status } ? "InActive" : "Active";
+                  var value = status === "Active" ? "InActive" : "Active";
                   setState({ ...state, status: value });
                 }}
               />
