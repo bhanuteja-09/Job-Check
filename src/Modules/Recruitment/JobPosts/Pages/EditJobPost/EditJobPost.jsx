@@ -19,7 +19,7 @@ import Select from "@mui/material/Select";
 const EditJobPost = () => {
   const [state, setState] = useState({
     title: "",
-    choose_existing_requirement: "",
+    choose_existing_JobPost: "",
     job_title: "",
     job_location: "",
     employment_type: "",
@@ -33,7 +33,7 @@ const EditJobPost = () => {
   });
 
   let { id } = useParams();
-  const { user } = useSelector((state) => state.requirement);
+  const { JobPost } = useSelector((state) => state.Job);
   let navigate = useNavigate();
   const [error, setError] = useState("");
   const dispatch = useDispatch();
@@ -49,10 +49,10 @@ const EditJobPost = () => {
     dispatch(getSingleJobPost(id));
   }, []);
   useEffect(() => {
-    if (user) {
-      setState({ ...user });
+    if (JobPost) {
+      setState({ ...JobPost });
     }
-  }, [user]);
+  }, [JobPost]);
 
   const handleInputChange = (e) => {
     let { name, value } = e.target;
@@ -67,17 +67,16 @@ const EditJobPost = () => {
       setError("All fields are Mandatory");
     } else {
       dispatch(updateJobPost(state, id));
-      // navigate("/Requirements");
       setError("");
     }
   };
 
   return (
     <div>
-      <Container sx={{  marginLeft: 30 }}>
+      <Container sx={{ marginLeft: 30 }}>
         {error && <h3 style={{ color: "red" }}>{error}</h3>}
         <Typography variant="h4" sx={{ marginTop: 2 }}>
-          Edit Requirement
+          Edit JobPost
         </Typography>
         <Box sx={{ width: "100%", marginTop: 10 }}>
           <Stepper activeStep={0} alternativeLabel>
@@ -92,6 +91,7 @@ const EditJobPost = () => {
         <form onSubmit={handleSubmit}>
           <Typography>Title</Typography>
           <TextField
+            label="Title"
             marginTop={1}
             name="title"
             value={title}
@@ -100,15 +100,16 @@ const EditJobPost = () => {
           />
           <br />
           <br />
-          <Typography>Prefill from other Requirement</Typography>
+          <Typography>PreFill from other JobPost</Typography>
           <Stack sx={{ width: 300, marginTop: 1 }}>
             <Select
-              value={state.choose_existing_requirement}
-              name="choose_existing_requirementt"
+              value={state.choose_existing_JobPost}
+              label="choose_existing_JobPost"
+              name="choose_existing_JobPost"
               onChange={(e) =>
                 setState({
                   ...state,
-                  choose_existing_requirement: e.target.value,
+                  choose_existing_Requirement: e.target.value,
                 })
               }
             >
@@ -127,14 +128,16 @@ const EditJobPost = () => {
           <br />
           <Typography>Job Title</Typography>
           <TextField
+            label="Job Title"
             id="standard-basic"
             name="job_title"
             value={job_title}
             onChange={handleInputChange}
-        />
+          />
           <Typography sx={{ marginTop: "0.5rem" }}>Employment Type</Typography>
           <Stack sx={{ width: 300, marginTop: 1 }}>
             <Select
+              label="Type"
               value={state.employment_type}
               name="employment_type"
               onChange={(e) =>
@@ -175,6 +178,7 @@ const EditJobPost = () => {
                 <Select
                   value={state.currency}
                   name="currency"
+                  label="currency"
                   onChange={(e) =>
                     setState({ ...state, currency: e.target.value })
                   }
@@ -191,6 +195,7 @@ const EditJobPost = () => {
 
                 <TextField
                   sx={{ marginTop: 1 }}
+                  label="minimum_salary"
                   type="number"
                   name="minimum_salary"
                   value={minimum_salary}
@@ -206,6 +211,7 @@ const EditJobPost = () => {
                 <TextField
                   sx={{ marginTop: 1 }}
                   type="number"
+                  label="maximum_salary"
                   name="maximum_salary"
                   value={maximum_salary}
                   onChange={handleInputChange}
@@ -244,6 +250,7 @@ const EditJobPost = () => {
               <Select
                 value={state.job_location}
                 name="job_location"
+                label="job_location"
                 onChange={(e) =>
                   setState({ ...state, job_location: e.target.value })
                 }
@@ -259,6 +266,7 @@ const EditJobPost = () => {
               <Select
                 value={state.industry}
                 name="industry"
+                label="industry"
                 onChange={(e) =>
                   setState({ ...state, industry: e.target.value })
                 }
@@ -276,6 +284,7 @@ const EditJobPost = () => {
               <Select
                 value={state.functional_area}
                 name="functional_area"
+                label="functional_area"
                 onChange={(e) =>
                   setState({ ...state, functional_area: e.target.value })
                 }
@@ -296,6 +305,7 @@ const EditJobPost = () => {
               sx={{ marginTop: 1.3 }}
               type="number"
               name="vacancies"
+              label="vacancies"
               value={vacancies}
               defaultValue="1"
               onChange={handleInputChange}
@@ -310,7 +320,7 @@ const EditJobPost = () => {
                 color="secondary"
                 variant="contained"
                 type="submit"
-                onClick={() => navigate("/Requirements")}
+                onClick={() => navigate("/JobPost")}
               >
                 Go Back
               </Button>
@@ -326,7 +336,7 @@ const EditJobPost = () => {
               <Button
                 variant="contained"
                 endIcon={<ArrowForwardIosIcon />}
-                onClick={() => navigate(`/CandidateDetails/${user.id}`)}
+                onClick={() => navigate(`/JobPostCandidateDetails/${id}`)}
               >
                 Candidate Details
               </Button>
@@ -337,7 +347,6 @@ const EditJobPost = () => {
         </form>
         <br />
         <br />
-        
       </Container>
     </div>
   );

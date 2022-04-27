@@ -15,11 +15,11 @@ import StepLabel from "@mui/material/StepLabel";
 import Stepper from "@mui/material/Stepper";
 import { useNavigate, useParams } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
-import { getSingleJobPost, updateJobPost } from "../Redux/Actions/actions";
+import {getSingleJobPost,updateJobPost} from '../Redux/Actions/actions'
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 
-const JobPostCandidateDetails = () => {
+const CandidateDetails = () => {
   const [state, setState] = useState({
     brief_candidate_description: "",
     educational_qualifications: "",
@@ -31,7 +31,7 @@ const JobPostCandidateDetails = () => {
   });
   const { minimum, maximum } = state;
   let { id } = useParams();
-  const { user } = useSelector((state) => state.requirement);
+  const { JobPost } = useSelector((state) => state.Job);
   let navigate = useNavigate();
   const [setError] = useState("");
   const dispatch = useDispatch();
@@ -40,10 +40,10 @@ const JobPostCandidateDetails = () => {
     dispatch(getSingleJobPost(id));
   }, []);
   useEffect(() => {
-    if (user) {
-      setState({ ...user });
+    if (JobPost) {
+      setState({ ...JobPost });
     }
-  }, [user]);
+  }, [JobPost]);
 
   const handleInputChange = (e) => {
     let { name, value } = e.target;
@@ -79,7 +79,7 @@ const JobPostCandidateDetails = () => {
           <br /> <br />
           <form onSubmit={handleSubmit}>
             <div>
-              <Typography variant="h5" component="h5">
+              <Typography variant="h5" component="h5">           
                 Candidate Details
               </Typography>
               <Box sx={{ width: "100%" }}>
@@ -118,6 +118,7 @@ const JobPostCandidateDetails = () => {
                       <Select
                         value={state.educational_qualifications}
                         name="educational_qualifications"
+                        label="Educational Qualifications"
                         onChange={(e) =>
                           setState({
                             ...state,
@@ -173,6 +174,7 @@ const JobPostCandidateDetails = () => {
                       <Select
                         value={state.must_have_keywords}
                         name="must_have_keywords"
+                        label="Must-Have Keywords"
                         onChange={(e) =>
                           setState({
                             ...state,
@@ -201,6 +203,7 @@ const JobPostCandidateDetails = () => {
                       <Select
                         value={state.optional_keywords}
                         name="optional_keywords"
+                        label="Optional Keywords"
                         onChange={(e) =>
                           setState({
                             ...state,
@@ -229,6 +232,7 @@ const JobPostCandidateDetails = () => {
                         <Select
                           value={state.questionnaire}
                           name="questionnaire"
+                          label="Questionnaire"
                           onChange={(e) =>
                             setState({
                               ...state,
@@ -261,7 +265,7 @@ const JobPostCandidateDetails = () => {
                 color="secondary"
                 variant="contained"
                 type="submit"
-                onClick={() => navigate("/editrequirement/:id")}
+                onClick={() => navigate(`/EditJobPost/${id}`)}
               >
                 Back
               </Button>
@@ -277,7 +281,7 @@ const JobPostCandidateDetails = () => {
               <Button
                 variant="contained"
                 endIcon={<ArrowForwardIosIcon />}
-                onClick={() => navigate(`/AdditionalDetails/${user.id}`)}
+                onClick={() => navigate(`/JobPostAdditionalDetails/${id}`)}
               >
                 Educational Details
               </Button>
@@ -291,4 +295,4 @@ const JobPostCandidateDetails = () => {
   );
 };
 
-export default JobPostCandidateDetails;
+export default CandidateDetails;

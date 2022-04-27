@@ -1,4 +1,21 @@
-import {Container,Typography,Grid,Box,TextField,FormHelperText,Stack,Checkbox,InputAdornment,Button,TextareaAutosize,FormControlLabel,Step,StepLabel,Stepper,Switch} from "@mui/material";
+import {
+  Container,
+  Typography,
+  Grid,
+  Box,
+  TextField,
+  FormHelperText,
+  Stack,
+  Checkbox,
+  InputAdornment,
+  Button,
+  TextareaAutosize,
+  FormControlLabel,
+  Step,
+  StepLabel,
+  Stepper,
+  Switch,
+} from "@mui/material";
 import React, { useState, useEffect } from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import { useNavigate, useParams } from "react-router";
@@ -7,7 +24,7 @@ import { getSingleJobPost, updateJobPost } from "../Redux/Actions/actions";
 import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 
-const JobPostAdditionalDetails = () => {
+const AdditionalDetails = () => {
   const steps = ["Job Details", "Candidate Details", "Additional Details"];
   const [state, setState] = useState({
     contact_person: "",
@@ -20,7 +37,7 @@ const JobPostAdditionalDetails = () => {
   });
 
   let { id } = useParams();
-  const { user } = useSelector((state) => state.requirement);
+  const { JobPost } = useSelector((state) => state.Job);
   let navigate = useNavigate();
   const [setError] = useState("");
   const dispatch = useDispatch();
@@ -28,12 +45,19 @@ const JobPostAdditionalDetails = () => {
     dispatch(getSingleJobPost(id));
   }, []);
   useEffect(() => {
-    if (user) {
-      setState({ ...user });
+    if (JobPost) {
+      setState({ ...JobPost });
     }
-  }, [user]);
+  }, [JobPost]);
   const {
-    contact_person,select_recruiters,company_name,phone_number,about_company,company_website,status,} = state;
+    contact_person,
+    select_recruiters,
+    company_name,
+    phone_number,
+    about_company,
+    company_website,
+    status,
+  } = state;
 
   const handleInputChange = (e) => {
     let { name, value } = e.target;
@@ -93,6 +117,7 @@ const JobPostAdditionalDetails = () => {
                   <TextField
                     id="outlined-basic"
                     name="phone_number"
+                    label="Phone Number"
                     value={phone_number}
                     type="text"
                     onChange={handleInputChange}
@@ -107,6 +132,7 @@ const JobPostAdditionalDetails = () => {
                     name="company_website"
                     value={company_website}
                     type="text"
+                    label=" Company Website"
                     onChange={handleInputChange}
                     variant="outlined"
                   />
@@ -117,6 +143,7 @@ const JobPostAdditionalDetails = () => {
                   <TextField
                     id="outlined-basic"
                     name="company_name"
+                    label="Company Name"
                     value={company_name}
                     type="text"
                     onChange={handleInputChange}
@@ -168,6 +195,7 @@ const JobPostAdditionalDetails = () => {
                   <Select
                     value={state.select_recruiters}
                     name="select_recruiters"
+                    label="Assign Recruiters"
                     onChange={(e) =>
                       setState({ ...state, select_recruiters: e.target.value })
                     }
@@ -186,6 +214,7 @@ const JobPostAdditionalDetails = () => {
             <br />
             <Grid container>
               <Switch
+              
                 value={state.status || ""}
                 onChange={(e) => {
                   var value = status === { status } ? "InActive" : "Active";
@@ -202,7 +231,7 @@ const JobPostAdditionalDetails = () => {
                 color="secondary"
                 variant="contained"
                 type="submit"
-                onClick={() => navigate(`/CandidateDetails/${user.id}`)}
+                onClick={() => navigate(`/JobPostCandidateDetails/${id}`)}
               >
                 Back
               </Button>
@@ -223,4 +252,4 @@ const JobPostAdditionalDetails = () => {
   );
 };
 
-export default JobPostAdditionalDetails;
+export default AdditionalDetails;

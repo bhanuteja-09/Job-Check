@@ -13,13 +13,17 @@ const JobPostAdded = () => ({
 const JobPostUpdated = () => ({
   type: types.UPDATE_JOB_POST,
 });
-const JobPostsFilter = (Status) => ({
-  type: types.FILTER_JOB_POST,
-  payload: Status,
+const filterActive = (JobPost) => ({
+  type: types.FILTER_JOB_POST_ACTIVE,
+  payload: JobPost,
 });
-const JobPostsSort = (JobPosts) => ({
+const filterInActive = (JobPost) => ({
+  type: types.FILTER_JOB_POST_INACTIVE,
+  payload: JobPost,
+});
+const sort = (JobPost) => ({
   type: types.SORT_JOB_POST,
-  payload: JobPosts,
+  payload: JobPost,
 });
 
 const getJobPost = (JobPost) => ({
@@ -84,29 +88,51 @@ export const updateJobPost = (JobPost, id) => {
 };
 
 // Filter JobPosts Function
-export const filterJobPost = (Status) => {
+export const filterJobPostActive = (status) => {
   return function (dispatch) {
     db.collection("Jobposts")
-      .where("status", "==", { Status })
-      .where("status", "==", { Status })
+      .where("status", "==", "Active")
       .get()
-      .then((snap) => {
-        snap.forEach((doc) => {
-          dispatch(JobPostsFilter(doc.data()));
+      .then((querySnapshot) => {
+        const JobPost = [];
+        querySnapshot.forEach((doc) => {
+          JobPost.push({ ...doc.data(), id: doc.id });
         });
-      });
+        dispatch(filterActive(JobPost));
+      })
+      .catch((error) => console.log(error));
+  };
+};
+
+// Filter Requirements InActive
+export const filterJobPostInActive = (status) => {
+  return function (dispatch) {
+    db.collection("Jobposts")
+      .where("status", "==", "InActive")
+      .get()
+      .then((querySnapshot) => {
+        const JobPost = [];
+        querySnapshot.forEach((doc) => {
+          JobPost.push({ ...doc.data(), id: doc.id });
+        });
+        dispatch(filterInActive(JobPost));
+      })
+      .catch((error) => console.log(error));
   };
 };
 
 // sort JobPosts Function
-export const sortJobPost = (user) => {
+export const sortJobPost = (JobPost) => {
   return function (dispatch) {
-    axios
-      .get(`${process.env.REACT_APP_API_JobPosts}?_sort=${user}&_order=asc`)
-      .then((resp) => {
-        console.log("resp", resp);
-        dispatch(JobPostsSort(resp.data));
-      })
-      .catch((error) => console.log(error));
+    db.collection("Jobposts")
+      .orderBy("title", "asc")
+      .get()
+      .then((querySnapshot) => {
+        const JobPost = [];
+        querySnapshot.forEach((doc) => {
+          JobPost.push({ ...doc.data(), id: doc.id });
+          dispatch(sort(JobPost));
+        });
+      });
   };
 };

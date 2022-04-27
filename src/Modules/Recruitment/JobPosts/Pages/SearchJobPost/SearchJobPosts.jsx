@@ -129,8 +129,8 @@ const SearchJobPosts = () => {
   let navigate = useNavigate();
   const { JobPosts } = useSelector((state) => state.Job);
   const [search, setSearch] = useState("");
-  const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(5);
+  const [page, setPage] = useState(0);
+  const [rowsPerPage, setRowsPerPage] = useState(5);
 
   const handleSort = (value) => {
     dispatch(sortJobPost(value));
@@ -205,14 +205,9 @@ const SearchJobPosts = () => {
         />
       </Paper>
       <br /> <br />
-      <TableContainer  component={Paper}>
-        <Table  sx={{ minWidth: 500, border: "2px  solid black", }} aria-label="custom pagination table">
-          <TableHead
-          sx={{
-            padding: "0px 0px",
-            border: "2px  solid black",
-            fontSize: "1.1rem"
-          }}>
+      <TableContainer sx={{ borderRadius: 2, border: "1px solid lightgrey" }} component={Paper}>
+        <Table>
+          <TableHead>
             <TableRow>
               <TableSortLabel
                 direction="desc"
@@ -226,30 +221,20 @@ const SearchJobPosts = () => {
               <StyledTableCell align="center">Positions closed</StyledTableCell>
               <StyledTableCell align="center">Status</StyledTableCell>
               <StyledTableCell align="center">Assigned to</StyledTableCell>
-              <TableSortLabel
-                direction="desc"
-                active={true}
-                onClick={() => handleSort("LastModified")}
-              >
-                {" "}
-                <StyledTableCell align="center">About</StyledTableCell>
-              </TableSortLabel>
+              <StyledTableCell align="center">About</StyledTableCell>
               <StyledTableCell align="center">Actions</StyledTableCell>
             </TableRow>
           </TableHead>
-          <TableBody
-          sx={{
-            padding: "0px 0px",
-            border: "2px  solid black",
-            fontSize: "1.1rem"
-          }}>
+          <TableBody>
             {(rowsPerPage > 0
               ? JobPosts.slice(
                   page * rowsPerPage,
                   page * rowsPerPage + rowsPerPage
                 )
               : JobPosts
-            ).map((JobPost) => (
+            ).filter((JobPost) =>
+            JobPost.title.toLowerCase().includes(search.toLowerCase())
+          ).map((JobPost) => (
               <StyledTableRow key={JobPost.id}>
                 <StyledTableCell component="th" scope="row">
                   {JobPost.title}
@@ -267,7 +252,7 @@ const SearchJobPosts = () => {
                   {JobPost.select_recruiters}
                 </StyledTableCell>
                 <StyledTableCell align="center">
-                  {JobPost.LastModified}
+                  {JobPost.brief_candidate_description}
                 </StyledTableCell>
 
                 <StyledTableCell align="center">
@@ -289,7 +274,7 @@ const SearchJobPosts = () => {
               </TableRow>
             )}
           </TableBody>
-          <TableFooter>
+          <TableFooter sx={{ borderRadius: 2, border: "1px solid lightgrey" }}>
             <TableRow>
               <TablePagination
                 rowsPerPageOptions={[5, 10, 25, { label: "All", value: -1 }]}
