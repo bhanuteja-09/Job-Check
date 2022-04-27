@@ -16,7 +16,7 @@ import KeyboardArrowLeft from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
 import LastPageIcon from "@mui/icons-material/LastPage";
 import { useSelector, useDispatch } from "react-redux";
-import { loadJobPosts, sortJobPost } from "../Redux/Actions/actions";
+import { loadJobPosts, sortJobposts } from "../Redux/Actions/actions";
 import { useNavigate } from "react-router-dom";
 import EditIcon from "@mui/icons-material/Edit";
 import SearchIcon from "@mui/icons-material/Search";
@@ -132,20 +132,15 @@ const SearchJobPosts = () => {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
-  const handleSort = (value) => {
-    dispatch(sortJobPost(value));
-  };
 
   useEffect(() => {
     dispatch(loadJobPosts());
   }, []);
 
-  // Avoid a layout jump when reaching the last page with empty rows.
-  const emptyRows =
-    page > 0 ? Math.max(0, (1 + page) * rowsPerPage - JobPosts.length) : 0;
 
-  const handleChangePage = (event, newPage) => {
-    setPage(newPage);
+
+  const handleSort = (value) => {
+    dispatch(sortJobposts(value));
   };
 
   const handleChangeRowsPerPage = (event) => {
@@ -205,9 +200,14 @@ const SearchJobPosts = () => {
         />
       </Paper>
       <br /> <br />
-      <TableContainer component={Paper}>
-        <Table sx={{ minWidth: 500 }} aria-label="custom pagination table">
-          <TableHead>
+      <TableContainer  component={Paper}>
+        <Table  sx={{ minWidth: 500, border: "2px  solid black", }} aria-label="custom pagination table">
+          <TableHead
+          sx={{
+            padding: "0px 0px",
+            border: "2px  solid black",
+            fontSize: "1.1rem"
+          }}>
             <TableRow>
               <TableSortLabel
                 direction="desc"
@@ -232,7 +232,12 @@ const SearchJobPosts = () => {
               <StyledTableCell align="center">Actions</StyledTableCell>
             </TableRow>
           </TableHead>
-          <TableBody>
+          <TableBody
+          sx={{
+            padding: "0px 0px",
+            border: "2px  solid black",
+            fontSize: "1.1rem"
+          }}>
             {(rowsPerPage > 0
               ? JobPosts.slice(
                   page * rowsPerPage,

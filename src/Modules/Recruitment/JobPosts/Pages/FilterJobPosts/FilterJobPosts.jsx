@@ -1,16 +1,21 @@
 import React from "react";
 import FilterListIcon from "@mui/icons-material/FilterList";
 import { useDispatch } from "react-redux";
-import { filterJobPost, loadJobPosts } from "../Redux/Actions/actions";
+import {  filterJobpostActive, filterJobpostInActive, loadJobPosts } from "../Redux/Actions/actions";
 import { Button,Menu,MenuItem, Divider } from "@mui/material";
 import PopupState, { bindTrigger, bindMenu } from 'material-ui-popup-state';
 import ClearOutlinedIcon from '@mui/icons-material/ClearOutlined';
 
 const Filter = () => {
   let dispatch = useDispatch();
-  const handleFilter = (value) => {
-    dispatch(filterJobPost(value));
-  };
+  const handleFilterActive = (value) => {
+    dispatch(filterJobpostActive(value));
+   
+   };
+   const handleFilterInActive = (value) => {
+    dispatch(filterJobpostInActive(value));
+   
+   };
   const handleReset = () => {
     dispatch(loadJobPosts());
   };
@@ -30,7 +35,7 @@ const Filter = () => {
         <ClearOutlinedIcon/>
       </Button>
       <Button
-        onClick={() => handleFilter("Active")}
+        onClick={() => handleFilterActive("Active")}
         sx={{
           color: "black",
           textTransform: "capitalize",
@@ -58,9 +63,9 @@ const Filter = () => {
             More Filters
           </Button>
           <Menu {...bindMenu(popupState)}>
-            <MenuItem  onClick={() => handleFilter("Active")}><FilterListIcon /> Active</MenuItem>
+            <MenuItem  onClick={() => handleFilterActive("Active")}><FilterListIcon /> Active</MenuItem>
             <Divider/>
-            <MenuItem  onClick={() => handleFilter("InActive")}><FilterListIcon />  In Active</MenuItem>
+            <MenuItem  onClick={() => handleFilterInActive("In Active")}><FilterListIcon />In Active</MenuItem>
             <Divider/>
             <MenuItem  onClick={handleReset}><FilterListIcon /> All Time</MenuItem>
             
