@@ -32,39 +32,35 @@ const DraftRequirement = () => {
         },
       }));
       
-     
-
       let dispatch =useDispatch();
       let navigate= useNavigate();
 const { drafts } =useSelector(state => state.draft)
+const [search,setSearch]=useState("")
 
       useEffect(() =>{
           dispatch(draftUsers());
       },[])
 
-      const [search,setSearch]=useState("")
-
-          // Delete function
+      
+ // Delete function
   const handleDelete = (id) => {
     if (window.confirm("Are you sure you wanted to delete the user?")) {
       dispatch(deleteDraftRequirement(id));
     }
   };
     
-
-      
-  return (
-    <Container style={{marginTop:0}}>
+return (
+    <Container>
        <>
        <ViewRequirementStats/>
       </> 
       <div>
       <Grid >
-        <Typography variant="h4" sx={{position:"absolute",top:250}}>
-          Requirements As Drafts
+        <Typography variant="h4" sx={{position:"absolute",top:270}}>
+          Requirement Drafts
         </Typography>
-        <Typography variant="p" sx={{position:"absolute",top:300}}>
-        Track & manage your Drafts here.
+        <Typography variant="p" sx={{position:"absolute",top:315}}>
+        Track & manage your drafts here.
         </Typography>
         </Grid>
       <div>
@@ -76,12 +72,11 @@ const { drafts } =useSelector(state => state.draft)
       </Button>
       
       </div>
-    <br/><br/>
+    <br/>
     <Button sx={{color:"black",borderColor:"black",marginLeft:1,  textTransform: "capitalize"}} variant="outlined"  onClick={() => navigate("/Requirements")}><ArrowBackIosOutlinedIcon/>Back</Button>
     <Paper
       component="form"
-      sx={{ p: '2px 4px', display: 'flex', alignItems: 'right', width: 350,border:1,float:"right"}}
-    >
+      sx={{ p: '2px 4px', display: 'flex', alignItems: 'right', width: 350,border:1,float:"right"}}>
       <IconButton type="submit" sx={{ p: '10px' }} aria-label="search">
         <SearchIcon />
       </IconButton>
@@ -90,10 +85,9 @@ const { drafts } =useSelector(state => state.draft)
         placeholder="Search "
         defaultValue={search}
         inputProps={{ 'aria-label': 'search' }}
-        onChange={(e) => setSearch(e.target.value)}
-      />
+        onChange={(e) => setSearch(e.target.value)}/>
       </Paper>
-      <br/><br/><br/>
+      <br/><br/>
     <div>
        <TableContainer component={Paper}>
       <Table sx={{ minWidth: 700 }} aria-label="customized table">
@@ -102,37 +96,26 @@ const { drafts } =useSelector(state => state.draft)
           <TableSortLabel 
              direction='desc'
              active={true}>
-                <StyledTableCell >Requirements</StyledTableCell></TableSortLabel>
-          
-          <StyledTableCell align="left" > Total positions </StyledTableCell>
-              <StyledTableCell align="left">Positions closed</StyledTableCell>
-              <StyledTableCell align="left">Status</StyledTableCell>
-              <StyledTableCell align="left">Assigned to</StyledTableCell>
-              <TableSortLabel 
-             direction='desc'
-             active={true}
-             > <StyledTableCell >Last Modified</StyledTableCell></TableSortLabel>
+              <StyledTableCell >Requirements</StyledTableCell></TableSortLabel>
+              <StyledTableCell align="center" > Total positions </StyledTableCell>
+              <StyledTableCell align="center">Positions closed</StyledTableCell>
+              <StyledTableCell align="center">Status</StyledTableCell>
+              <StyledTableCell align="center">Assigned to</StyledTableCell>
+              <TableSortLabel direction='desc'active={true}> <StyledTableCell >Last Modified</StyledTableCell>
+              </TableSortLabel>
               <StyledTableCell align="center"></StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-        {drafts.filter(user =>user.select_recruiters.toLowerCase().includes(search.toLowerCase()))
-            .map((draft) => (
-                <StyledTableRow key={draft.id}>
-                  <StyledTableCell component="th" scope="row">
-                    <b>{draft.title}</b> <br/> 
-                  </StyledTableCell>
-                  <StyledTableCell align="left">{draft.vacancies}</StyledTableCell>
-                  <StyledTableCell align="left">
-                    {draft.positions_closed}
-                  </StyledTableCell>
-                  <StyledTableCell align="left">{draft.status}</StyledTableCell>
-              <StyledTableCell align="left" > {draft.select_recruiters} </StyledTableCell>
-                  <StyledTableCell align="left">
-                    {draft.LastModified}
-                  </StyledTableCell>
-
-                  <StyledTableCell align="left">
+        {drafts.filter(user =>user.select_recruiters.toLowerCase().includes(search.toLowerCase())).map((draft) => (
+                  <StyledTableRow key={draft.id}>
+                  <StyledTableCell component="th" scope="row"><b>{draft.title}</b> </StyledTableCell>
+                  <StyledTableCell align="center">{draft.vacancies}</StyledTableCell>
+                  <StyledTableCell align="center">{draft.positions_closed}</StyledTableCell>
+                  <StyledTableCell align="center">{draft.status}</StyledTableCell>
+                  <StyledTableCell align="center" >{draft.select_recruiters} </StyledTableCell>
+                  <StyledTableCell align="center">{draft.LastModified}</StyledTableCell>
+                  <StyledTableCell align="center">
                     <Button
                             sx={[
                               { border: "none",color:"black" },
@@ -144,17 +127,12 @@ const { drafts } =useSelector(state => state.draft)
                                 },
                               },
                             ]}
-                            onClick={() => handleDelete(draft.id)}
-                          >
+                            onClick={() => handleDelete(draft.id)}>
                             <DeleteIcon />
                     </Button>
-
-
-                    <Button sx={{color: 'black'}}>
-                      <EditOutlinedIcon/>
-                    </Button>
+                    <Button sx={{color: 'black'}}><EditOutlinedIcon/></Button>
                   </StyledTableCell>
-            </StyledTableRow>
+                  </StyledTableRow>
           ))}
         </TableBody>
       </Table>
