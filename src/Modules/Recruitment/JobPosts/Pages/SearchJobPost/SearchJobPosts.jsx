@@ -11,7 +11,6 @@ import {
   Paper,
   Button,
   Stack,
-  Container,
   Grid,
   Typography,
   IconButton,
@@ -24,7 +23,7 @@ import { useNavigate } from "react-router-dom";
 import EditIcon from "@mui/icons-material/Edit";
 import SearchIcon from "@mui/icons-material/Search";
 import Filter from "../FilterJobPosts/FilterJobPosts";
-import DriveFileRenameOutlineIcon from "@mui/icons-material/DriveFileRenameOutline";
+
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {

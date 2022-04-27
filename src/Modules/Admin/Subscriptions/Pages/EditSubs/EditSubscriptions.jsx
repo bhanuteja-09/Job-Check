@@ -5,21 +5,18 @@ import InputLabel from "@mui/material/InputLabel";
 import {
   Button,
   Container,
-  FormControl,
   Input,
   MenuItem,
   Select,
   Switch,
   TextField,
 } from "@mui/material";
-import { alpha, styled } from "@mui/material/styles";
-import InputBase from "@mui/material/InputBase";
+
 import { Modal } from "@mui/material";
 // import "../../../../../../../Assets/Styles/ViewSingleSubs.css"
 import { Grid } from "@mui/material";
 import Typography from "@mui/material/Typography";
 import {
-  addUsers,
   getSingleUser,
   updateSingleUser,
 } from "../Home/Actions/Action";

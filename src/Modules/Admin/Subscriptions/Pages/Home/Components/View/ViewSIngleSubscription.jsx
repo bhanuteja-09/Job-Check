@@ -5,8 +5,6 @@ import InputLabel from "@mui/material/InputLabel";
 import {
   Button,
   Container,
-  FormControl,
-  IconButton,
   Input,
   MenuItem,
   Select,
@@ -17,8 +15,7 @@ import { Modal } from "@mui/material";
 import { Grid } from "@mui/material";
 import Typography from "@mui/material/Typography";
 import {
-  addUsers,
-  getSingleUser,
+ getSingleUser,
   updateSingleUser,
 } from "../../Actions/Action";
 import { useDispatch, useSelector } from "react-redux";
