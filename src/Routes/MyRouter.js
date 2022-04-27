@@ -1,26 +1,28 @@
-import React from "react";
+import React,{Suspense,lazy} from "react";
 import { Route, Routes } from "react-router";
-import ViewAllRequirements from "../Modules/Recruitment/JobRequirements/Pages/ViewAllRequirements/ViewAllRequirements";
-import AddRequirement from "../Modules/Recruitment/JobRequirements/Pages/AddRequirement/AddRequirement";
-import EditRequirement from "../Modules/Recruitment/JobRequirements/Pages/EditRequirement/EditRequirement";
-import CandidateDetails from "../Modules/Recruitment/JobRequirements/Pages/EditRequirement/CandidateDetails";
-import AdditionalDetails from "../Modules/Recruitment/JobRequirements/Pages/EditRequirement/AdditionalDetails";
-import SearchSubscription from "../Modules/Admin/Subscriptions/Pages/SearchSubscription/SearchSubscriptions";
-import ViewSIngleSubscription from "../Modules/Admin/Subscriptions/Pages/Home/Components/View/ViewSIngleSubscription";
-import AddSubscription from "../Modules/Admin/Subscriptions/Pages/AddSubscription/AddSubscription";
-import EditSubscriptions from "../Modules/Admin/Subscriptions/Pages/EditSubs/EditSubscriptions";
-import DraftRequirement from "../Modules/Recruitment/JobRequirements/Pages/ViewRequireDrafts/ViewRequirementDrafts";
-import ViewJobPosts from './../Modules/Recruitment/JobPosts/Pages/ViewJobPost/ViewJobPosts';
-import AddJobPost from './../Modules/Recruitment/JobPosts/Pages/NewJobPost/AddJobPost';
-import EditJobPost from './../Modules/Recruitment/JobPosts/Pages/EditJobPost/EditJobPost';
-import JobPostCandidateDetails from './../Modules/Recruitment/JobPosts/Pages/EditJobPost/CandidateDetails';
-import JobPostAdditionalDetails from './../Modules/Recruitment/JobPosts/Pages/EditJobPost/AdditionalDetails';
 import { useSelector } from "react-redux";
+
+const AddRequirement =lazy(()=>import("../Modules/Recruitment/JobRequirements/Pages/AddRequirement/AddRequirement"));
+const EditRequirement =lazy(()=>import( "../Modules/Recruitment/JobRequirements/Pages/EditRequirement/EditRequirement"));
+const CandidateDetails =lazy(()=>import( "../Modules/Recruitment/JobRequirements/Pages/EditRequirement/CandidateDetails"));
+const AdditionalDetails =lazy(()=>import( "../Modules/Recruitment/JobRequirements/Pages/EditRequirement/AdditionalDetails"));
+const SearchSubscription =lazy(()=>import( "../Modules/Admin/Subscriptions/Pages/SearchSubscription/SearchSubscriptions"));
+const ViewSIngleSubscription =lazy(()=>import( "../Modules/Admin/Subscriptions/Pages/Home/Components/View/ViewSIngleSubscription"));
+const AddSubscription =lazy(()=>import( "../Modules/Admin/Subscriptions/Pages/AddSubscription/AddSubscription"));
+const EditSubscriptions =lazy(()=>import( "../Modules/Admin/Subscriptions/Pages/EditSubs/EditSubscriptions"));
+const DraftRequirement =lazy(()=>import( "../Modules/Recruitment/JobRequirements/Pages/ViewRequireDrafts/ViewRequirementDrafts"));
+const ViewJobPosts =lazy(()=>import( './../Modules/Recruitment/JobPosts/Pages/ViewJobPost/ViewJobPosts'));
+const AddJobPost =lazy(()=>import( './../Modules/Recruitment/JobPosts/Pages/NewJobPost/AddJobPost'));
+const EditJobPost =lazy(()=>import( './../Modules/Recruitment/JobPosts/Pages/EditJobPost/EditJobPost'));
+const JobPostCandidateDetails =lazy(()=>import( './../Modules/Recruitment/JobPosts/Pages/EditJobPost/CandidateDetails'));
+const JobPostAdditionalDetails =lazy(()=>import( './../Modules/Recruitment/JobPosts/Pages/EditJobPost/AdditionalDetails'));
+const ViewAllRequirements =lazy(()=>import( "../Modules/Recruitment/JobRequirements/Pages/ViewAllRequirements/ViewAllRequirements"));
 
 const MyRouter = () => {
   const {open} = useSelector((state)=>state.Common);
   return (
     <div style={ open ? { marginLeft:"230px"} : {marginLeft : 'auto'} }>
+      <Suspense fallback={<div style={{textAlign:"center",marginTop:"20%"}}>Loading...</div>}>
       <Routes>
         {/* Home */}
         <Route exact path="/" />
@@ -78,6 +80,7 @@ const MyRouter = () => {
         <Route path="/AddSubscription" element={<AddSubscription />} />
         <Route path="/EditSubscriptions/:id" element={<EditSubscriptions />} />
       </Routes>
+      </Suspense>
     </div>
   );
 };

@@ -61,10 +61,10 @@ const { drafts } =useSelector(state => state.draft)
       <div>
       <Grid >
         <Typography variant="h4" sx={{position:"absolute",top:250}}>
-          Requirements
+          Requirements As Drafts
         </Typography>
         <Typography variant="p" sx={{position:"absolute",top:300}}>
-        Track & manage your Requirements here.
+        Track & manage your Drafts here.
         </Typography>
         </Grid>
       <div>

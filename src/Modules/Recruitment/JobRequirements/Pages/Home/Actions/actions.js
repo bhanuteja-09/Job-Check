@@ -101,7 +101,7 @@ export const updateRequirement = (Requirement,id) => {
     };
 
 
-// Filter Requiremets Function
+// Filter Requiremets Active
 export const filterRequirementActive = (status) => {
     return function (dispatch) {
         db
@@ -117,6 +117,9 @@ export const filterRequirementActive = (status) => {
 })  .catch((error) => console.log(error));
      }
 }
+
+
+// Filter Requirements InActive
 export const filterRequirementInActive = (status) => {
     return function (dispatch) {
         db

@@ -5,7 +5,10 @@ import '../../../../../Assets/Styles/JobRequirementStats.css';
 
 function ViewRequirementStats() {
     const {total} = useSelector((state)=>state.requirement)
-    console.log(total)
+    // console.log(total)
+    const {totalDraft}=useSelector((state)=>state.draft)
+    console.log(totalDraft)
+
   return (
     <div className='entire'>
         <div className="cards" >

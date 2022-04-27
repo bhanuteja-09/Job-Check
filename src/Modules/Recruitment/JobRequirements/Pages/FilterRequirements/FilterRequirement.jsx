@@ -5,7 +5,6 @@ import { filterRequirementActive,filterRequirementInActive, loadRequirements } f
 import { Button,Menu,MenuItem, Divider } from "@mui/material";
 import PopupState, { bindTrigger, bindMenu } from 'material-ui-popup-state';
 import ClearOutlinedIcon from '@mui/icons-material/ClearOutlined';
-import db from "../../../../../firebase";
 
 const Filter = () => {
   let dispatch = useDispatch();

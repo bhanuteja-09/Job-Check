@@ -143,7 +143,7 @@ const Home = () => {
         </Paper>
         <br /> <br />
         <TableContainer component={Paper}>
-          <Table sx={{ maxWidth: "100%" }} aria-label="customized table">
+          <Table sx={{ minWidth: "100%",maxWidth:"50%" }} aria-label="customized table">
             <TableHead>
               <TableRow>
                 <TableSortLabel

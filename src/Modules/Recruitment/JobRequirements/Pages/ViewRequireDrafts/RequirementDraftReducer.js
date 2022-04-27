@@ -4,6 +4,7 @@ import * as types from "./ActionType";
 const initialState = {
   drafts: [],
   draft: {},
+  totalDraft:0,
   loading: false,
 };
 
@@ -19,6 +20,11 @@ const RequirementDraftReducer = (state = initialState, action) => {
         return{
           ...state,
         loading: false,
+        }
+        case types.GET_TOTALREQUIREMENTS_Draft:
+        return{
+          ...state,
+          totalDraft:action.payload,
         }
 
     default:
