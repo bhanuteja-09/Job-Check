@@ -16,6 +16,11 @@ const requirementDraftDeleted = () => ({
     type: types.DELETE_DRAFT_REQUIREMENT,
 
 })
+const getDraftTotal =(Draft)=>({
+    type:types.GET_TOTALREQUIREMENTS_Draft,
+    payload:Draft,
+
+})
 
 
 export const draftUsers = () => {
@@ -25,7 +30,9 @@ export const draftUsers = () => {
             querySnapshot.forEach((doc)=>{
                 Draft.push({...doc.data(),id:doc.id})
             })
+            const TotalDraft = Draft.length
             dispatch(getDrafts(Draft))
+            dispatch(getDraftTotal(TotalDraft))
         })
     }
 }
