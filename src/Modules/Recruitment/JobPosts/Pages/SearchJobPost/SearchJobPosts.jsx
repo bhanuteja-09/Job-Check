@@ -205,9 +205,14 @@ const SearchJobPosts = () => {
         />
       </Paper>
       <br /> <br />
-      <TableContainer component={Paper}>
-        <Table sx={{ minWidth: 500 }} aria-label="custom pagination table">
-          <TableHead>
+      <TableContainer  component={Paper}>
+        <Table  sx={{ minWidth: 500, border: "2px  solid black", }} aria-label="custom pagination table">
+          <TableHead
+          sx={{
+            padding: "0px 0px",
+            border: "2px  solid black",
+            fontSize: "1.1rem"
+          }}>
             <TableRow>
               <TableSortLabel
                 direction="desc"
@@ -232,7 +237,12 @@ const SearchJobPosts = () => {
               <StyledTableCell align="center">Actions</StyledTableCell>
             </TableRow>
           </TableHead>
-          <TableBody>
+          <TableBody
+          sx={{
+            padding: "0px 0px",
+            border: "2px  solid black",
+            fontSize: "1.1rem"
+          }}>
             {(rowsPerPage > 0
               ? JobPosts.slice(
                   page * rowsPerPage,
