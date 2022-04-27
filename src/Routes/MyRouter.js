@@ -1,6 +1,7 @@
 import React,{Suspense,lazy} from "react";
 import { Route, Routes } from "react-router";
 import { useSelector } from "react-redux";
+import CircularProgress from '@mui/material/CircularProgress';
 
 const AddRequirement =lazy(()=>import("../Modules/Recruitment/JobRequirements/Pages/AddRequirement/AddRequirement"));
 const EditRequirement =lazy(()=>import( "../Modules/Recruitment/JobRequirements/Pages/EditRequirement/EditRequirement"));
@@ -22,7 +23,7 @@ const MyRouter = () => {
   const {open} = useSelector((state)=>state.Common);
   return (
     <div style={ open ? { marginLeft:"230px"} : {marginLeft : 'auto'} }>
-      <Suspense fallback={<div style={{textAlign:"center",marginTop:"20%"}}>Loading...</div>}>
+      <Suspense fallback={<div style={{textAlign:"center",marginTop:"20%"}}> <CircularProgress /></div>}>
       <Routes>
         {/* Home */}
         <Route exact path="/" />

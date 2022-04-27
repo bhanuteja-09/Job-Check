@@ -15,6 +15,7 @@ const rootReducer = combineReducers({
   // Requirement Reducers
   requirement: requirementReducers,
   draft: RequirementDraftReducer,
+
   // Subscription Reducers
   data: usersReducers,
 

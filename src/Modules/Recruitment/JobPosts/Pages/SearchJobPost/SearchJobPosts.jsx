@@ -16,7 +16,7 @@ import KeyboardArrowLeft from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
 import LastPageIcon from "@mui/icons-material/LastPage";
 import { useSelector, useDispatch } from "react-redux";
-import { loadJobPosts, sortJobPost } from "../Redux/Actions/actions";
+import { loadJobPosts, sortJobposts } from "../Redux/Actions/actions";
 import { useNavigate } from "react-router-dom";
 import EditIcon from "@mui/icons-material/Edit";
 import SearchIcon from "@mui/icons-material/Search";
@@ -132,20 +132,15 @@ const SearchJobPosts = () => {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(5);
 
-  const handleSort = (value) => {
-    dispatch(sortJobPost(value));
-  };
 
   useEffect(() => {
     dispatch(loadJobPosts());
   }, []);
 
-  // Avoid a layout jump when reaching the last page with empty rows.
-  const emptyRows =
-    page > 0 ? Math.max(0, (1 + page) * rowsPerPage - JobPosts.length) : 0;
 
-  const handleChangePage = (event, newPage) => {
-    setPage(newPage);
+
+  const handleSort = (value) => {
+    dispatch(sortJobposts(value));
   };
 
   const handleChangeRowsPerPage = (event) => {
@@ -268,8 +263,8 @@ const SearchJobPosts = () => {
               </StyledTableRow>
             ))}
 
-            {emptyRows > 0 && (
-              <TableRow style={{ height: 53 * emptyRows }}>
+            {  0 && (
+              <TableRow style={{ height: 53  }}>
                 <TableCell colSpan={6} />
               </TableRow>
             )}
@@ -288,7 +283,7 @@ const SearchJobPosts = () => {
                   },
                   native: true,
                 }}
-                onPageChange={handleChangePage}
+                // onPageChange={handleChangePage}
                 onRowsPerPageChange={handleChangeRowsPerPage}
                 ActionsComponent={TablePaginationActions}
               />

@@ -19,11 +19,7 @@ import {
   TableSortLabel,
 } from "@mui/material";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  loadRequirements,
-  sortRequirement,
-  deleteRequirement,
-} from "../Home/Actions/actions";
+import {loadRequirements,sortRequirement,deleteRequirement} from "../Home/Actions/actions";
 import { useNavigate } from "react-router-dom";
 import EditIcon from "@mui/icons-material/Edit";
 import SearchIcon from "@mui/icons-material/Search";
@@ -56,14 +52,13 @@ const Home = () => {
   let dispatch = useDispatch();
   let navigate = useNavigate();
   const { Requirements } = useSelector((state) => state.requirement);
-  console.log(Requirements);
-  useEffect(() => {
-    dispatch(loadRequirements());
+ useEffect((Requirements) => {
+    dispatch(loadRequirements(Requirements));
   }, []);
 
   // Delete function
   const handleDelete = (id) => {
-    if (window.confirm("Are you sure you wanted to delete the user?")) {
+    if (window.confirm("Are you sure you wanted to delete the Requirement?")) {
       dispatch(deleteRequirement(id));
     }
   };

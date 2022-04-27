@@ -268,7 +268,7 @@ const AddUser = () => {
             </Grid>
             <br />
             <br />
-            <NavigateBar/>
+            {/* <NavigateBar/> */}
             
 
             <Stack id="basic" style={{position:"absolute", top:140}}>
