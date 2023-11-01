@@ -16,7 +16,7 @@ import KeyboardArrowLeft from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
 import LastPageIcon from "@mui/icons-material/LastPage";
 import { useSelector, useDispatch } from "react-redux";
-import { loadJobPosts, sortJobposts } from "../Redux/Actions/actions";
+import { loadJobPosts, sortJobPost } from "../Redux/Actions/actions";
 import { useNavigate } from "react-router-dom";
 import EditIcon from "@mui/icons-material/Edit";
 import SearchIcon from "@mui/icons-material/Search";
@@ -140,7 +140,7 @@ const SearchJobPosts = () => {
 
 
   const handleSort = (value) => {
-    dispatch(sortJobposts(value));
+    dispatch(sortJobPost(value));
   };
 
   const handleChangeRowsPerPage = (event) => {
